@@ -6,13 +6,15 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="POST">
+    <form method="POST" action="registroUsuario.php">
 
-    <label for="NombreUsuario">Nombre:</label>
+    <label for="Nombre">Nombre:</label>
     <input type="text" name="nombre">
-    <label for="Contraseña"></label>
-    <input type="password">
-    <input type="button" value="Iniciar Sesion" name="inicioSesion">
+    <label for="UserName">Nombre de Usuario</label>
+    <input type="text" name="usuario">
+    <label for="Contraseña">Contraseña</label>
+    <input type="password" name="contraseña">
+    <input type="submit" value="Iniciar Sesion" name="inicioSesion">
 
 
     </form>
@@ -20,13 +22,13 @@
 
     <?php
 
-    require "../controller/UsuarioContoller.php";
-    require "../model/usuarios.php";
+    require_once "../controller/UsuarioContoller.php";
+    require_once "../model/usuarios.php";
 
     $usuario = new Usuario();
-    $usuarioController = new UsuarioController($usuarioModel);
+    $usuarioController = new UsuarioController();
 
-    if ($_SERVER['REQUEST_METHOD']=='POST' && isset($POST['inicioSesion'])){
+    if ($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['inicioSesion'])){
 
         $usuarioController -> añadirUsuarios();
 
