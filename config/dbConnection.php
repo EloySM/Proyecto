@@ -3,7 +3,7 @@
 function getDBConnection(){
 $host = "localhost";
 $db_name = "Proyecto";
-$username = "samuel";
+$username = "eloy";
 $password = "root";
 
 try {
