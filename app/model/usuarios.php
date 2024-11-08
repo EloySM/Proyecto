@@ -1,17 +1,18 @@
 <?php
 
+require_once '../../config/dbConnection.php';
+
 class Usuario
 {
-
-
     private $idUsuario;
     private $nombre;
     private $usuario;
     private $contraseña;
 
 
-    public function __construct($nombre,$usuario, $contraseña)
+    public function __construct($idUsuario, $nombre,$usuario, $contraseña)
     {
+        $this -> usuario =$idUsuario;
         $this -> nombre = $nombre;
         $this->contraseña =$contraseña;
         $this ->usuario =$usuario;
@@ -86,5 +87,14 @@ class Usuario
             echo "Error al registrar el usuario: ";
             return false;
         }
+    }
+    public function login($usuario, $contraseña) {
+        $conn = getDBConnection();
+        $sentencia = $conn->prepare("SELECT * FROM usuario WHERE NombreUsuario = ? AND Contraseña = ?");
+        $sentencia->bindParam(1, $this->usuario);
+        $sentencia->bindParam(2, $this->contraseña);
+        $sentencia->execute();
+        $result = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
     }
 }
