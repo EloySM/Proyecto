@@ -1,3 +1,6 @@
+<?php
+    session_start(); // Iniciamos la sesión para guardar el nombre del usuario
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,6 +54,7 @@
 
         $usuarioValido = (new UsuarioController())->loginUsuario($campoNombreSaneado, $campoContraseñaSaneado);
         if ($usuarioValido == true) {
+            $_SESSION['nombreUsuario'] = $campoNombreSaneado;
             header("Location: home.php");
             exit();
         } else {
