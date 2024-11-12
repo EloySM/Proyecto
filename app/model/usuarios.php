@@ -107,4 +107,14 @@ class Usuario
         return $result;
     }
 
+
+    public static function logoutUsuario()
+    {
+        session_start();
+        session_unset(); // Elimina todas las variables de sesión
+        session_destroy(); // Destruye la sesión
+        header("Location: http://johnni-willi.local/"); // Redirige al usuario a la página de inicio de sesión
+        exit();
+    }
+
 }

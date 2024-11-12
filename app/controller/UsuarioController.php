@@ -34,4 +34,12 @@ public function crearUsuario($campoNombreSaneado, $campoUsuarioSaneado, $campoCo
             return "No se encontraron datos del usuario.";
         }
     }
+
+    function logout()
+    {
+       Usuario::logoutUsuario();
+    }
+
+
+    
 }

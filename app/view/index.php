@@ -60,6 +60,7 @@
             exit();
         } else {
             header("Location" . $_SERVER['PHP_SELF']);
+            echo " <h3>Usuario o contraseña incorrectos.<h3>";
             exit();
         }
     }
