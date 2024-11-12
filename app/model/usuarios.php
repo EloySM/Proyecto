@@ -88,7 +88,7 @@ class Usuario
             return false;
         }
     }
-    public function login($usuario, $contraseña) {
+    public function login() {
         $conn = getDBConnection();
         $sentencia = $conn->prepare("SELECT * FROM usuario WHERE NombreUsuario = ? AND Contraseña = ?");
         $sentencia->bindParam(1, $this->usuario);
@@ -97,4 +97,14 @@ class Usuario
         $result = $sentencia->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+
+    public function getDatosUsaurio() {
+        $conn = getDBConnection();
+        $sentencia = $conn->prepare("SELECT * FROM usuario WHERE NombreUsuario = ?");
+        $sentencia->bindParam(1, $this->usuario);
+        $sentencia->execute();
+        $result = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
 }

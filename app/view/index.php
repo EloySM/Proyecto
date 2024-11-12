@@ -54,7 +54,8 @@
 
         $usuarioValido = (new UsuarioController())->loginUsuario($campoNombreSaneado, $campoContraseñaSaneado);
         if ($usuarioValido == true) {
-            $_SESSION['nombreUsuario'] = $campoNombreSaneado;
+            $_SESSION['usuario'] = $campoNombreSaneado;
+            $_SESSION['id'] = $usuarioValido[0]['ID_Usuario'];
             header("Location: home.php");
             exit();
         } else {

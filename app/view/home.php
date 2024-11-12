@@ -10,9 +10,14 @@
 </head>
 <body>
     <?php
+    require_once "../controller/UsuarioController.php";
+
     if (isset($_SESSION['nombreUsuario'])) {
-        $username = $_SESSION['nombreUsuario'];
-        echo " <h3>Bienvenido, " . htmlspecialchars($username) . "!<h3>";
+    
+
+        echo " <h3>Bienvenido, " . $_SESSION['usuario'] . " tu id es:" . $_SESSION['id'] . "!<h3>";
+      
+        
     } else {
         echo "No has iniciado sesión.";
     }
