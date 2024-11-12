@@ -1,5 +1,5 @@
 <?php
-    session_start(); // Iniciamos la sesión para guardar el nombre del usuario
+session_start(); // Iniciamos la sesión para guardar el nombre del usuario
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,34 +16,34 @@
 </head>
 
 <body>
-   
-        <h1>Log in</h1>
-    
-        <form method="POST">
-            <input id="nombreUsuario" class="inputSesion" type="text" name="nameUser" placeholder="Name" required>
-            <input id="contraseña" class="inputSesion" type="password" name="passwordUser" placeholder="Password" required>
-    
-            <div class="toggle-container">
-                <label class="toggle-switch">
-                    <input type="checkbox">
-                    <span class="slider"></span>
-                </label>
-                <p>Recordarme</p>
-                <a id="fpass" href="">Forgot your password</a>
-            </div>
-    
-    
-            <div>
-                <input id="login" class="inputs" type="submit" name="login" value="Login">
-                <input id="signup" class="inputs" type="submit" name="signup" value="Sign up">
-            </div>
-        </form>
+
+    <h1>Log in</h1>
+
+    <form method="POST">
+
+        <input id="nombreUsuario" class="inputSesion" type="text" name="nameUser" placeholder="Name">
+        <input id="contraseña" class="inputSesion" type="password" name="passwordUser" placeholder="Password">
+        <a id="fpass" href="">Forgot your password</a>
+        <div class="toggle-container">
+            <label class="toggle-switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+            <p>Recordarme</p>
+
+        </div>
+        <div>
+            <input id="login" class="inputs" type="submit" name="login" value="Login">
+            <!-- Este input (Sign up) trata de envia el formulario antes de ejecutar el evento onclick, para solucionarlo se cambia el tipo a button -->
+            <input onclick="window.location.href='http://localhost/Proyecto/app/view/registroUsuario.php';" id="signup" class="inputs" type="button" name="signup" value="Sign up">
+        </div>
+
+    </form>
 
 
     <?php
 
     require_once "../controller/UsuarioController.php";
-
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
         $name = $_POST['nameUser'];
