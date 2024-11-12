@@ -54,11 +54,13 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
 
         $usuarioValido = (new UsuarioController())->loginUsuario($campoNombreSaneado, $campoContraseñaSaneado);
         if ($usuarioValido == true) {
-            $_SESSION['nombreUsuario'] = $campoNombreSaneado;
+            $_SESSION['usuario'] = $campoNombreSaneado;
+            $_SESSION['id'] = $usuarioValido[0]['ID_Usuario'];
             header("Location: home.php");
             exit();
         } else {
             header("Location" . $_SERVER['PHP_SELF']);
+            echo " <h3>Usuario o contraseña incorrectos.<h3>";
             exit();
         }
     }

@@ -22,4 +22,24 @@ public function crearUsuario($campoNombreSaneado, $campoUsuarioSaneado, $campoCo
         return ($usuario->login($usuario, $contraseña));
 
     }
+
+    function datosUsuario($usuario)
+    {
+        $usuario = new Usuario(null, null, $usuario, null);
+        $datos = $usuario->getDatosUsaurio($usuario);
+        if (!empty($datos)) {
+            return $datos = $datos[0]; // Asumimos que solo hay un usuario con ese nombre de usuario
+            
+        } else {
+            return "No se encontraron datos del usuario.";
+        }
+    }
+
+    function logout()
+    {
+       Usuario::logoutUsuario();
+    }
+
+
+    
 }

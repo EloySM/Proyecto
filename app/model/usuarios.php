@@ -88,7 +88,7 @@ class Usuario
             return false;
         }
     }
-    public function login($usuario, $contraseña) {
+    public function login() {
         $conn = getDBConnection();
         $sentencia = $conn->prepare("SELECT * FROM usuario WHERE NombreUsuario = ? AND Contraseña = ?");
         $sentencia->bindParam(1, $this->usuario);
@@ -97,4 +97,24 @@ class Usuario
         $result = $sentencia->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+
+    public function getDatosUsaurio() {
+        $conn = getDBConnection();
+        $sentencia = $conn->prepare("SELECT * FROM usuario WHERE NombreUsuario = ?");
+        $sentencia->bindParam(1, $this->usuario);
+        $sentencia->execute();
+        $result = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+
+    public static function logoutUsuario()
+    {
+        session_start();
+        session_unset(); // Elimina todas las variables de sesión
+        session_destroy(); // Destruye la sesión
+        header("Location: http://johnni-willi.local/"); // Redirige al usuario a la página de inicio de sesión
+        exit();
+    }
+
 }
