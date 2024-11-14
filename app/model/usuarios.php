@@ -11,11 +11,12 @@ class Usuario
 
 
     public function __construct($idUsuario, $nombre, $usuario, $contraseña)
+    public function __construct($idUsuario, $nombre, $usuario, $contraseña)
     {
-        $this->idUsuario = $idUsuario;
-        $this->nombre = $nombre;
-        $this->usuario = $usuario;
+        $this -> idUsuario = $idUsuario;
+        $this -> nombre = $nombre;
         $this->contraseña = $contraseña;
+        $this ->usuario = $usuario;
     }
 
 
