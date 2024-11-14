@@ -118,16 +118,23 @@ class Usuario
         exit();
     }
 
-        public function modificarUsuario($id, $nombre, $usuario, $contraseña)
-        {
-            $conn = getDBConnection();
-            $sentencia = $conn->prepare("UPDATE usuario SET Nombre = ?, NombreUsuario = ?, Contraseña = ? WHERE ID_Usuario = ?");
-            $sentencia->bindParam(1, $this->nombre);
-            $sentencia->bindParam(2, $this->usuario);
-            $sentencia->bindParam(3, $this->contraseña);
-            $sentencia->bindParam(4, $this->idUsuario);
-            $sentencia->execute();
+    public function modificarUsuario($id, $nombre, $usuario, $contraseña)
+    {
+        $conn = getDBConnection();
+        $sentencia = $conn->prepare("UPDATE usuario SET Nombre = ?, NombreUsuario = ?, Contraseña = ? WHERE ID_Usuario = ?");
+        $sentencia->bindParam(1, $this->nombre);
+        $sentencia->bindParam(2, $this->usuario);
+        $sentencia->bindParam(3, $this->contraseña);
+        $sentencia->bindParam(4, $this->idUsuario);
+        
 
+        if ($sentencia->execute()) {
+            echo "Usuario modificado exitosamente.";
+            return true;
+        } else {
+            echo "Error al modificar el usuario: " . implode(", ", $sentencia->errorInfo());
+            return false;
         }
-}
+    }
 
+}

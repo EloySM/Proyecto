@@ -36,12 +36,12 @@ require_once "../controller/UsuarioController.php";
         $usuarioController = new UsuarioController();
         $result = $usuarioController->modificarUsuario($id, $nombre, $usuario, $contraseña);
 
-        // Verificar resultado
-        if ($result) {
-            echo "Usuario modificado exitosamente!";
-        } else {
-            echo "Error al modificar el usuario!";
-        }
+        // // Verificar resultado
+        // if ($result) {
+        //     echo "Usuario modificado exitosamente!";
+        // } else {
+        //     echo "Error al modificar el usuario!";
+        // }
     }
 
 
