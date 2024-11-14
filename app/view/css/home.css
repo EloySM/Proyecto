@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+#header-container h1 {
+    text-align: center;
+    margin-top: 60px;
+}
+
+/* Alineación absoluta del H2 a la derecha */
+#perfil h2 {
+    /* position: fixed; */
+    /* text-align: end; */
+    /* align-items: center; */
+    /* width: 150px; */
+    /* right: 0; */
+    /* Pone el H2 en el extremo derecho del contenedor */
+    /* top: 0; */
+    /* margin: 20px;    */
+    /* padding: 10px 30px; */
+    /* background-color: rgb(236, 101, 126, 0.9); */
+    /* border: solid 4px;
+    border-radius: 100px; */
+
+    &:hover {
+        /* background-color: rgb(236, 101, 126, 0.9); */
+    }
+}
+
+#perfil img {
+    /* position: fixed; */
+    /* align-items: center; */
+    /* right: 0; */
+    /* top: 0; */
+    /* margin: 15px 100px; */
+    /* padding: 15px 100px; */
+    /* transform: scale(0.7); */
+
+}
+
+#perfil {
+    /* background: rgb(236, 101, 126, 0.9); */
+}
+
+#perfil {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    background-color: #f47c98;
+    border-radius: 50px;
+    padding: 8px 16px;
+}
+
+#perfil img {
+    /* background-color: white; */
+    /* border-radius: 50%; */
+    /* margin-right: 100px; */
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+}
+
+#perfil img::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    background-color: #f47c98;
+    border-radius: 50%;
+    display: block;
+}
+
+#perfil h2 {
+    margin: 0;
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+}
+
+#navegador-container {
+    display: flex;
+    justify-content: center;
+}
+
+#navegador ul {
+    display: flex;
+    border-radius: 100px;
+    padding: 20px 10px;
+    box-shadow: 0 14px 18px rgba(0, 0, 0, 0.1);
+
+}
+
+#navegador li {
+    display: flex;
+    padding: 0 6px;
+    text-align: center;
+}
+
+
+#navegador li a {
+    font-size: 24px;
+    min-width: 150px;
+    /* Ancho mínimo para evitar desplazamiento de texto */
+    padding: 12px 16px;
+    border-radius: 100px;
+    color: #666;
+    background-color: #eeeeee;
+    text-decoration: none;
+}
+
+#navegador li a:hover {
+    background-color: #333333;
+    color: #ffffff;
+    box-shadow: 0px 2px 6px rgb(0, 0, 0, 1);
+    transition: .35s;
+
+}
+
+#contenido {
+    display: flex;
+    font-family: "Amiri", serif;
+    font-weight: bold;
+    margin: 50px 50px;
+}
+
+#btn-products {
+    font-size: 40px;
+    margin: auto;
+    padding: 20px;
+    border: none;
+    border-radius: 100px;
+    color: #D9D9D9;
+    background-color: #008523;
+    font-weight: 500;
+    transition: .7s;
+
+    &:hover {
+        background-color: #D9D9D9;
+        color: #008523;
+        transition: .4s;
+        transform: scale(1.2);
+        cursor: pointer;
+    }
+}
+
+#contenido #text {
+    display: flex;
+    flex-direction: column;
+    margin: 200px auto;
+    margin-bottom: 150px;
+    font-size: 32px;
+}
+
+#contenido #text p {
+    display: flex;
+    max-width: 100%;
+    min-width: 326px;
+    height: 60px;
+}
+
+#contenido #imagenes {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* Estas dos propiedades son para que la imagen se reduzca al reducir pantalla */
+    max-width: 100%;
+    min-width: 425px;
+    height: auto;
+}
+
+#part2 {
+    display: block;
+    height: 110vh;
+    background-color: #EC657D;
+}
+
+#part2 img,button {
+    display: block;
+    margin: auto;
+}
+
+#part2 img {
+    /* Estas dos propiedades son para que la imagen se reduzca al reducir pantalla */
+    position: sticky;
+    max-width: 100%;
+    min-width: 360px;
+    height: auto;
+    /* margin: 20px 0; */
+}
+
+#part2 button {
+    font-size: 26px;
+    color: whitesmoke;
+    background-color: black;
+    padding: 10px;
+    border: none;
+    border: solid 4px transparent;
+    border-radius: 10px;
+    transition: .3s;
+
+    &:hover {
+        background-color: whitesmoke;
+        color: black;
+        font-family: 'Inter';
+        border: solid 4px;
+        transform: scale(1.1);
+        box-sizing: border-box;
+        transition: .3s;
+        cursor: pointer;
+    }
+}
+
+footer {
+    background-color: #333333;
+    color: white;
+    padding: 10px 0;
+    margin-top: auto;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    border-top: solid 1px gray;
+}
