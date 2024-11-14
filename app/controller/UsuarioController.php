@@ -40,6 +40,10 @@ public function crearUsuario($campoNombreSaneado, $campoUsuarioSaneado, $campoCo
        Usuario::logoutUsuario();
     }
 
-
+    function modificarUsuario( $id, $nombre, $usuario, $contraseña)
+    {
+        $usuario = new Usuario($id, $nombre, $usuario, $contraseña);
+        return $usuario->modificarUsuario($id, $nombre, $usuario, $contraseña );
+    }
     
 }

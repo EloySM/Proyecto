@@ -12,10 +12,11 @@ class Usuario
 
     public function __construct($idUsuario, $nombre,$usuario, $contraseña)
     {
-        $this -> usuario =$idUsuario;
+        $this -> idUsuario =$idUsuario;
         $this -> nombre = $nombre;
-        $this->contraseña =$contraseña;
         $this ->usuario =$usuario;
+        $this->contraseña =$contraseña;
+        
     }
 
 
@@ -117,4 +118,16 @@ class Usuario
         exit();
     }
 
+        public function modificarUsuario($id, $nombre, $usuario, $contraseña)
+        {
+            $conn = getDBConnection();
+            $sentencia = $conn->prepare("UPDATE usuario SET Nombre = ?, NombreUsuario = ?, Contraseña = ? WHERE ID_Usuario = ?");
+            $sentencia->bindParam(1, $this->nombre);
+            $sentencia->bindParam(2, $this->usuario);
+            $sentencia->bindParam(3, $this->contraseña);
+            $sentencia->bindParam(4, $this->idUsuario);
+            $sentencia->execute();
+
+        }
 }
+
