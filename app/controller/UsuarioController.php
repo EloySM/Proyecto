@@ -5,11 +5,11 @@ require_once "../../config/dbConnection.php";
 class UsuarioController
 {
       
-public function crearUsuario($campoNombreSaneado, $campoUsuarioSaneado, $campoContraseñaSaneado){
+public function crearUsuario($nombre, $usuario, $contraseña){
 
      
-        $usuario = new Usuario(null ,$campoNombreSaneado, $campoUsuarioSaneado, $campoContraseñaSaneado);
-        return ($usuario->UsuarioNuevo($campoNombreSaneado, $campoUsuarioSaneado, $campoContraseñaSaneado));
+        $usuario = new Usuario(null ,$nombre, $usuario, $contraseña);
+        return ($usuario->UsuarioNuevo($nombre, $usuario, $contraseña));
 
 }
 
@@ -40,6 +40,16 @@ public function crearUsuario($campoNombreSaneado, $campoUsuarioSaneado, $campoCo
        Usuario::logoutUsuario();
     }
 
+    function modificarUsuario( $id, $nombre, $usuario, $contraseña)
+    {
+        $usuario = new Usuario($id, $nombre, $usuario, $contraseña);
+        return $usuario->modificarUsuario($id, $nombre, $usuario, $contraseña );
+    }
 
+    function existeUsuario($usuario)
+    {
+        $usuario = new Usuario(null, null, $usuario, null);
+        return $usuario->existeUsuario($usuario);
+    }
     
 }

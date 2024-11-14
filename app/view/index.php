@@ -35,7 +35,7 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
         <div>
             <input id="login" class="inputs" type="submit" name="login" value="Login">
             <!-- Este input (Sign up) trata de envia el formulario antes de ejecutar el evento onclick, para solucionarlo se cambia el tipo a button -->
-            <input onclick="window.location.href='http://localhost/Proyecto/app/view/registroUsuario.php';" id="signup" class="inputs" type="button" name="signup" value="Sign up">
+            <input onclick="window.location.href='registroUsuario.php';" id="signup" class="inputs" type="button" name="signup" value="Sign up">
         </div>
 
     </form>
@@ -46,17 +46,15 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
     require_once "../controller/UsuarioController.php";
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
-        $name = $_POST['nameUser'];
-        $password = $_POST['passwordUser'];
-        // Nos aseguramos de que el usuario no nos introduzca scripts en ninguno de los campos
         $campoNombreSaneado = htmlspecialchars($_POST['nameUser']);
         $campoContraseñaSaneado = htmlspecialchars($_POST['passwordUser']);
 
         $usuarioValido = (new UsuarioController())->loginUsuario($campoNombreSaneado, $campoContraseñaSaneado);
         if ($usuarioValido == true) {
+            // Me guardo el usuario y el id en la sesión para usarlo mas adelante
             $_SESSION['usuario'] = $campoNombreSaneado;
             $_SESSION['id'] = $usuarioValido[0]['ID_Usuario'];
-            header("Location: home.php");
+            header("Location: paginaUsuario.php");
             exit();
         } else {
             header("Location" . $_SERVER['PHP_SELF']);

@@ -17,67 +17,21 @@ session_start(); // Iniciamos la sesión para mostrar el nombre del usuario
 </head>
 
 <body>
-    //<?php
-        //require_once "../controller/UsuarioController.php";   
+    <?php
+    require_once "../controller/UsuarioController.php";   
 
-        //  echo " <h3>Bienvenido, " . $_SESSION['usuario'] . " tu id es:" . $_SESSION['id'] . "!<h3>";
+        echo " <h3>Bienvenido, " . $_SESSION['usuario'] . " tu id es:" . $_SESSION['id'] . "!<h3>";
+    
+    ?>
 
-        //
-        ?>
-
-    <!-- <form method="post">
-        <button type="submit" name="s">Cerrar sesión</button>
-    </form> -->
-    <div id="header-container">
-        <h1>Johnni Willi & Association</h1>
-        <div id="perfil">
-            <div>
-                <h2>Eloy</h2>
-            </div>
-            <img src="img/maniqui.png" alt="">
-            <!-- <h2>Eloy</h2> -->
-        </div>
-    </div>
-
-    <div id="navegador-container">
-        <div id="navegador">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="contenido">
-        <div id="text">
-            <p>Natural and Healthy Food</p>
-            <p>"If your furry friend is not happy, we will refund your money."</p>
-        </div>
-
-        <div id="imagenes">
-            <img src="img/1-home.png" alt="">
-        </div>
-
-    </div>
-
-
-    <div id="part2">
-        <img src="img/perro1.png" alt="">
-        <button>Comida para perros</button>
-        <img src="img/gato1.png" alt="">
-        <button>Comida para gatos</button>
-    </div>
-
-    <footer>
-        <p>hola</p>
-    </footer>
+    <form method="post">
+            <button type="submit">Cerrar sesión</button>
+        </form>
 
 
     <?php
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' & isset(($_POST['login']))) {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         (new UsuarioController())->logout();
     }
 

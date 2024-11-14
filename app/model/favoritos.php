@@ -6,6 +6,14 @@ class favoritos{
         private $idFavorito;
         private $idUsuario;
         private $idProducto;
+
+
+        public function __construct($idFavorito, $idUsuario, $idProducto){
+                
+                $this->idFavorito = $idFavorito;
+                $this->idUsuario = $idUsuario;
+                $this->idProducto = $idProducto;
+        }
     
          //GETS 
     
