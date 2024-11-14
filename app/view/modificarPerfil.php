@@ -20,6 +20,7 @@ require_once "../controller/UsuarioController.php";
         <input type="text" name="usuario" id="usuario" placeholder="Usuario">
         <input type="password" name="contraseña" id="contraseña" placeholder="Contraseña">
         <input type="submit" value="Modificar" name="Modificar">
+        <input type="submit" value="Volver" name="Volver">
     </form>
 
 
@@ -32,9 +33,22 @@ require_once "../controller/UsuarioController.php";
         $usuario = htmlspecialchars($_POST['usuario']);
         $contraseña = htmlspecialchars($_POST['contraseña']);
 
+        if (empty($nombre) || empty($usuario) || empty($contraseña)) {
+            echo "Por favor, rellene todos los campos.";
+            return;
+        }
+
+        if ((new UsuarioController())->existeUsuario($usuario)) {
+            echo "El usuario ya existe";
+            exit;
+        }
 
         $usuarioController = new UsuarioController();
         $result = $usuarioController->modificarUsuario($id, $nombre, $usuario, $contraseña);
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['Volver'])) {
+        header('Location: paginaUsuario.php');
     }
 
 

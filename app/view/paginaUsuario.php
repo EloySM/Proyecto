@@ -27,6 +27,8 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
         <h3>Bienvenido: <?php echo $_SESSION['usuario']; ?>!<h3>
                 <input type="submit" value="Cerrar sesión" name="logout">
                 <input type="submit" value="Modificar perfil" name="modificar">
+                <input type="submit" value="Favoritos" name="favoritos">
+                
     </form>
 
     <?php
@@ -38,6 +40,10 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['modificar'])) {
         header('Location: modificarPerfil.php');
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['favoritos'])) {
+        header('Location: favoritos.php');
     }
 
     ?>
