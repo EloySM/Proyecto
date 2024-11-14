@@ -10,13 +10,12 @@ class Usuario
     private $contraseña;
 
 
-    public function __construct($idUsuario, $nombre,$usuario, $contraseña)
+    public function __construct($idUsuario, $nombre, $usuario, $contraseña)
     {
-        $this -> idUsuario =$idUsuario;
-        $this -> nombre = $nombre;
-        $this ->usuario =$usuario;
-        $this->contraseña =$contraseña;
-        
+        $this->idUsuario = $idUsuario;
+        $this->nombre = $nombre;
+        $this->usuario = $usuario;
+        $this->contraseña = $contraseña;
     }
 
 
@@ -76,9 +75,9 @@ class Usuario
         // Nos conectamos a la base de datos y hacemos el INSERT de los datos 
         $conn = getDBConnection();
         $sentencia = $conn->prepare("INSERT INTO usuario (Nombre, NombreUsuario, Contraseña) VALUES (?, ?, ?)");
-        $sentencia->bindParam(1, $this -> nombre);
-        $sentencia->bindParam(2, $this -> usuario);
-        $sentencia->bindParam(3, $this -> contraseña);
+        $sentencia->bindParam(1, $this->nombre);
+        $sentencia->bindParam(2, $this->usuario);
+        $sentencia->bindParam(3, $this->contraseña);
 
         // Ejecutar la consulta
         if ($sentencia->execute()) {
@@ -89,7 +88,8 @@ class Usuario
             return false;
         }
     }
-    public function login() {
+    public function login()
+    {
         $conn = getDBConnection();
         $sentencia = $conn->prepare("SELECT * FROM usuario WHERE NombreUsuario = ? AND Contraseña = ?");
         $sentencia->bindParam(1, $this->usuario);
@@ -99,7 +99,8 @@ class Usuario
         return $result;
     }
 
-    public function getDatosUsaurio() {
+    public function getDatosUsaurio()
+    {
         $conn = getDBConnection();
         $sentencia = $conn->prepare("SELECT * FROM usuario WHERE NombreUsuario = ?");
         $sentencia->bindParam(1, $this->usuario);
@@ -126,7 +127,7 @@ class Usuario
         $sentencia->bindParam(2, $this->usuario);
         $sentencia->bindParam(3, $this->contraseña);
         $sentencia->bindParam(4, $this->idUsuario);
-        
+
 
         if ($sentencia->execute()) {
             echo "Usuario modificado exitosamente.";
@@ -137,4 +138,18 @@ class Usuario
         }
     }
 
+    public function existeUsuario($usuario)
+    {
+        $conn = getDBConnection();
+        $sentencia = $conn->prepare("SELECT COUNT(*) FROM usuario WHERE NombreUsuario = ?");
+        $sentencia->bindParam(1, $this->usuario);
+        $sentencia->execute();
+        $count = $sentencia->fetchColumn();
+
+        if ($count > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

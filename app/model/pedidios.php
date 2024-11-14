@@ -7,6 +7,16 @@ class Pedidos{
     private $idUsuario;
     private $idProducto;
 
+
+
+
+    public function __construct($idPedido, $idUsuario, $idProducto){
+            
+            $this->idPedido = $idPedido;
+            $this->idUsuario = $idUsuario;
+            $this->idProducto = $idProducto;
+    }
+
      //GETS 
 
      public function getidPedido()

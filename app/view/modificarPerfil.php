@@ -31,17 +31,10 @@ require_once "../controller/UsuarioController.php";
         $nombre = htmlspecialchars($_POST['nombre']);
         $usuario = htmlspecialchars($_POST['usuario']);
         $contraseña = htmlspecialchars($_POST['contraseña']);
-        
+
 
         $usuarioController = new UsuarioController();
         $result = $usuarioController->modificarUsuario($id, $nombre, $usuario, $contraseña);
-
-        // // Verificar resultado
-        // if ($result) {
-        //     echo "Usuario modificado exitosamente!";
-        // } else {
-        //     echo "Error al modificar el usuario!";
-        // }
     }
 
 

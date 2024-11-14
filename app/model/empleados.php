@@ -9,6 +9,17 @@ class Empleados
     private $apellidos;
     private $esAdmin; //Igual no hace falta 
 
+    public function __construct($idEmpleado, $nombre, $apellidos, $esAdmin)
+    {
+        $this->idEmpleado = $idEmpleado;
+        $this->nombre = $nombre;
+        $this->apellidos = $apellidos;
+        $this->esAdmin = $esAdmin;
+    }
+
+
+
+
     //GETS 
 
     public function getidEmpleado()

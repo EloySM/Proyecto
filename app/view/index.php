@@ -46,14 +46,12 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
     require_once "../controller/UsuarioController.php";
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
-        $name = $_POST['nameUser'];
-        $password = $_POST['passwordUser'];
-        // Nos aseguramos de que el usuario no nos introduzca scripts en ninguno de los campos
         $campoNombreSaneado = htmlspecialchars($_POST['nameUser']);
         $campoContraseñaSaneado = htmlspecialchars($_POST['passwordUser']);
 
         $usuarioValido = (new UsuarioController())->loginUsuario($campoNombreSaneado, $campoContraseñaSaneado);
         if ($usuarioValido == true) {
+            // Me guardo el usuario y el id en la sesión para usarlo mas adelante
             $_SESSION['usuario'] = $campoNombreSaneado;
             $_SESSION['id'] = $usuarioValido[0]['ID_Usuario'];
             header("Location: paginaUsuario.php");

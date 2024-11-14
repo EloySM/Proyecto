@@ -27,31 +27,29 @@
 
     </form>
 
-
     <?php
-
     require_once "../controller/UsuarioController.php";
-
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registro'])) {
+        $nombre = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
+        $usuario = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_SPECIAL_CHARS);
+        $contrasena = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
 
-        $nombre = $_POST['name'];
-        $usuario = $_POST['userName'];
-        $contrasena = $_POST['password'];
-        // Nos aseguramos de que el usuario no nos introduzca scripts en ninguno de los campos
-        $campoNombreSaneado = htmlspecialchars($_POST['name']);
-        $campoeUsuarioSaneado = htmlspecialchars($_POST['userName']);
-        $campoContraseñaSaneado = htmlspecialchars($_POST['password']);
-
-        if (empty($campoNombreSaneado) || empty($campoeUsuarioSaneado) || empty($campoContraseñaSaneado)) {
+        // Comprobaciones
+        if (empty($nombre) || empty($usuario) || empty($contrasena)) {
             echo "Todos los campos son obligatorios";
-            // exit;
-            return false;
+            exit;
         }
 
-        $usuarioNuevo = (new UsuarioController())->crearUsuario($campoNombreSaneado, $campoeUsuarioSaneado, $campoContraseñaSaneado);
+        if ((new UsuarioController())->existeUsuario($usuario)) {
+            echo "El usuario ya existe";
+            exit;
+        }
+
+        $usuarioNuevo = (new UsuarioController())->crearUsuario($nombre, $usuario, $contrasena);
     } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
         header("Location: index.php");
     }
+
     ?>
 </body>
 
