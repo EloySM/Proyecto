@@ -17,25 +17,12 @@ session_start(); // Iniciamos la sesión para mostrar el nombre del usuario
 </head>
 
 <body>
-    //<?php
-        //require_once "../controller/UsuarioController.php";   
 
-        //  echo " <h3>Bienvenido, " . $_SESSION['usuario'] . " tu id es:" . $_SESSION['id'] . "!<h3>";
-
-        //
-        ?>
-
-    <!-- <form method="post">
-        <button type="submit" name="s">Cerrar sesión</button>
-    </form> -->
     <div id="header-container">
         <h1>Johnni Willi & Association</h1>
         <div id="perfil">
-            <div>
-                <h2>Eloy</h2>
-            </div>
             <img src="img/maniqui.png" alt="">
-            <!-- <h2>Eloy</h2> -->
+            <h2>Eloy</h2>
         </div>
     </div>
 
@@ -43,7 +30,7 @@ session_start(); // Iniciamos la sesión para mostrar el nombre del usuario
         <div id="navegador">
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Products</a></li>
+                <li><a href="products.php">Products</a></li>
                 <li><a href="#">About Us</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
@@ -59,7 +46,6 @@ session_start(); // Iniciamos la sesión para mostrar el nombre del usuario
         <div id="imagenes">
             <img src="img/1-home.png" alt="">
         </div>
-
     </div>
 
 
@@ -71,7 +57,7 @@ session_start(); // Iniciamos la sesión para mostrar el nombre del usuario
     </div>
 
     <footer>
-        <p>hola</p>
+        <p>&copy; 2024 Johnni Willi & Association. All rights reserved.</p>
     </footer>
 
 
