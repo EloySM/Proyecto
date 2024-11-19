@@ -14,26 +14,29 @@
 <body>
     
     <?php
-    require_once "../model/Producto.php";   
+    require_once "../../app/controller/ProductoController.php";
 
-    echo "<table border='1'>";
-    echo "<tr>";
-    echo "<th>ID_Producto</th>";
-    echo "<th>Nombre</th>";
-    echo "<th>Precio</th>";
-    echo "<th>Likes</th>";
-    echo "</tr>";
+    $productoController = new ProductoController();
+    $productos = $productoController->obtenerProductos();
 
-    foreach($productos as $producto){
-        echo "<tr>";
-        echo "<td>".$producto['id_producto']."</td>";
-        echo "<td>".$producto['nombre']."</td>";
-        echo "<td>".$producto['precio']."</td>";
-        echo "<td>".$producto['likes']."</td>";
-        echo "</tr>";
+    if (!empty($productos)) {
+        echo "<table border='1'>";
+        echo "<tr><th>ID</th><th>Nombre</th><th>Tipo</th><th>Precio</th><th>Likes</th></tr>";
+
+        foreach ($productos as $producto) {
+            echo "<tr>";
+            echo "<td>" . $producto['ID_Producto'] . "</td>";
+            echo "<td>" . $producto['Nombre'] . "</td>";
+            echo "<td>" . $producto['Tipo'] . "</td>";
+            echo "<td>" . $producto['Precio'] . "</td>";
+            echo "<td>" . $producto['Likes'] . "</td>";
+            echo "</tr>";
+        }
+
+        echo "</table>";
+    } else {
+        echo "No hay productos disponibles.";
     }
-
-    echo "</table>";
 
 
     ?>

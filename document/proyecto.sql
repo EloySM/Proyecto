@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2024 a las 08:49:18
+-- Tiempo de generación: 19-11-2024 a las 10:23:37
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -67,9 +67,31 @@ CREATE TABLE `pedidos` (
 CREATE TABLE `productos` (
   `ID_Producto` int(11) NOT NULL,
   `Nombre` varchar(255) NOT NULL,
+  `Tipo` varchar(11) NOT NULL,
   `Precio` double NOT NULL,
   `Likes` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`ID_Producto`, `Nombre`, `Tipo`, `Precio`, `Likes`) VALUES
+(16, 'Opel Corsa', 'Perro', 24.99, 520),
+(17, 'Seat Ibiza', 'Gato', 19.99, 90),
+(18, 'Kia Sorento', 'Perro', 15.99, 739),
+(19, 'Skoda Fabia', 'Gato', 29.99, 5),
+(20, 'Toyota Corolla', 'Perro', 17.99, 310),
+(21, 'Ford Fiesta', 'Gato', 18.5, 450),
+(22, 'Honda Civic', 'Perro', 22.99, 675),
+(23, 'Chevrolet Spark', 'Gato', 14.99, 120),
+(24, 'Mazda CX-5', 'Perro', 26.49, 890),
+(25, 'Volkswagen Golf', 'Gato', 27.99, 980),
+(26, 'Hyundai Tucson', 'Perro', 21.99, 330),
+(27, 'Renault Clio', 'Gato', 16.99, 230),
+(28, 'Peugeot 208', 'Perro', 19.5, 475),
+(29, 'BMW X5', 'Gato', 39.99, 1100),
+(30, 'Audi A3', 'Perro', 25.99, 760);
 
 -- --------------------------------------------------------
 
@@ -89,9 +111,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`ID_Usuario`, `Nombre`, `NombreUsuario`, `Contraseña`) VALUES
-(11, 'dsa', 'dsa', 'dsa'),
-(12, 'a', 'a', 'a'),
-(13, 'Arkaitz', 'Arkaitz', 'abc123..');
+(1, 'a', 'a', 'a'),
+(2, 'Arkaitz', 'Arkaitz', 'abc123..');
 
 --
 -- Índices para tablas volcadas
@@ -151,13 +172,13 @@ ALTER TABLE `favorito`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `ID_Producto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas

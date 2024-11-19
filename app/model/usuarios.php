@@ -10,7 +10,7 @@ class Usuario
     private $contraseña;
 
 
-    public function __construct($idUsuario, $nombre, $usuario, $contraseña)
+
     public function __construct($idUsuario, $nombre, $usuario, $contraseña)
     {
         $this -> idUsuario = $idUsuario;
@@ -120,7 +120,7 @@ class Usuario
         exit();
     }
 
-    public function modificarUsuario($id, $nombre, $usuario, $contraseña)
+    public function modificarUsuario()
     {
         $conn = getDBConnection();
         $sentencia = $conn->prepare("UPDATE usuario SET Nombre = ?, NombreUsuario = ?, Contraseña = ? WHERE ID_Usuario = ?");
@@ -139,7 +139,7 @@ class Usuario
         }
     }
 
-    public function existeUsuario($usuario)
+    public function existeUsuario()
     {
         $conn = getDBConnection();
         $sentencia = $conn->prepare("SELECT COUNT(*) FROM usuario WHERE NombreUsuario = ?");

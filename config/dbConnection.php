@@ -2,8 +2,8 @@
 
 function getDBConnection(){
 $host = "localhost";
-$db_name = "Proyecto";
-$username = "eloy";
+$db_name = "proyecto";
+$username = "Samuel";
 $password = "root";
 
 try {
