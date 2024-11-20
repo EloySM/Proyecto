@@ -16,6 +16,16 @@
 
 <body>
 
+    <?php
+
+    require_once "../controller/ProductoController.php";
+
+    $productController = new ProductoController();
+
+    $productosPerro = $productController->obtenerProductosPorTipo('Perro');
+    $productosGato = $productController->obtenerProductosPorTipo('Gato');
+
+    ?>
     <div id="header-container">
         <h1>Johnni Willi & Association</h1>
         <div id="perfil">
@@ -39,141 +49,57 @@
     <h3>Comida perro</h3>
 
     <div id="container">
-        <div class="container-food">
+        <?php if (!empty($productosPerro)): ?>
+            <?php foreach ($productosPerro as $producto): ?>
+                <div class="container-food">
 
-            <div class="icons-top">
-                <img src="img/products/Frame.png" alt="">
-                <img src="img/products/favorite.png" alt="">
-            </div>
-            <img src="img/products/perro/CHICKEN.png" alt="">
+                    <div class="icons-top">
+                        <img src="img/products/Frame.png" alt="">
+                        <img src="img/products/favorite.png" alt="">
+                    </div>
+                    <img src="<?= htmlspecialchars(($producto['ruta'])) ?>" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
 
-            <div class="product-info">
-                <p>Comida 1</p>
-                <p>10,99€</p>
-                <img src="img/products/like.png" alt="">
-                <button>Buy</button>
-            </div>
-        </div>
+                    <div class="product-info">
+                        <p><?= htmlspecialchars(($producto['Nombre'])) ?></p>
+                        <!-- 2->para tener 2 decimales y ','->para que los decimales tengan una coma y no punto -->
+                        <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
+                        <img src="img/products/like.png" alt="">
+                        <button>Buy</button>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>No hay productos</p>
+        <?php endif; ?>
 
-        <div class="container-food">
-
-            <div class="icons-top">
-                <img src="img/products/Frame.png" alt="">
-                <img src="img/products/favorite.png" alt="">
-            </div>
-            <img src="img/products/perro/LAMB.png" alt="">
-    
-            <div class="product-info">
-                <p>Comida 2</p>
-                <p>10,99€</p>
-                <img src="img/products/like.png" alt="">
-                <button>Buy</button>
-            </div>
-        </div>
-
-        <div class="container-food">
-
-            <div class="icons-top">
-                <img src="img/products/Frame.png" alt="">
-                <img src="img/products/favorite.png" alt="">
-            </div>
-            <img src="img/products/perro/LIGHT.png" alt="">
-
-            <div class="product-info">
-                <p>Comida 3</p>
-                <p>10,99€</p>
-                <img src="img/products/like.png" alt="">
-                <button>Buy</button>
-            </div>
-        </div>
-
-        <div class="container-food">
-
-            <div class="icons-top">
-                <img src="img/products/Frame.png" alt="">
-                <img src="img/products/favorite.png" alt="">
-            </div>
-            <img src="img/products/perro/SALMON.png" alt="">
-
-            <div class="product-info">
-                <p>Comida 3</p>
-                <p>10,99€</p>
-                <img src="img/products/like.png" alt="">
-                <button>Buy</button>
-            </div>
-        </div>
     </div>
 
 
     <h3>Comida gato</h3>
 
     <div id="container">
-        <div class="container-food">
+        <?php if (!empty($productosGato)): ?>
+            <?php foreach ($productosGato as $producto): ?>
+                <div class="container-food">
 
-            <div class="icons-top">
-                <img src="img/products/Frame.png" alt="">
-                <img src="img/products/favorite.png" alt="">
-            </div>
-            <img src="img/products/gato/FarmPoultryFrontal.png" alt="">
+                    <div class="icons-top">
+                        <img src="img/products/Frame.png" alt="">
+                        <img src="img/products/favorite.png" alt="">
+                    </div>
+                    <img src="<?= htmlspecialchars(($producto['ruta'])) ?>" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
 
-            <div class="product-info">
-                <p>Comida 1</p>
-                <p>10,99€</p>
-                <img src="img/products/like.png" alt="">
-                <button>Buy</button>
-            </div>
-        </div>
-
-        <div class="container-food">
-
-            <div class="icons-top">
-                <img src="img/products/Frame.png" alt="">
-                <img src="img/products/favorite.png" alt="">
-            </div>
-            <img src="img/products/gato/KittenFrontal.png" alt="">
-    
-            <div class="product-info">
-                <p>Comida 2</p>
-                <p>10,99€</p>
-                <img src="img/products/like.png" alt="">
-                <button>Buy</button>
-            </div>
-        </div>
-
-        <div class="container-food">
-
-            <div class="icons-top">
-                <img src="img/products/Frame.png" alt="">
-                <img src="img/products/favorite.png" alt="">
-            </div>
-            <img src="img/products/gato/SeniorFrontal.png" alt="">
-
-            <div class="product-info">
-                <p>Comida 3</p>
-                <p>10,99€</p>
-                <img src="img/products/like.png" alt="">
-                <button>Buy</button>
-            </div>
-        </div>
-
-        <div class="container-food">
-
-            <div class="icons-top">
-                <img src="img/products/Frame.png" alt="">
-                <img src="img/products/favorite.png" alt="">
-            </div>
-            <img src="img/products/gato/SensitiveFrontal.png" alt="">
-
-            <div class="product-info">
-                <p>Comida 3</p>
-                <p>10,99€</p>
-                <img src="img/products/like.png" alt="">
-                <button>Buy</button>
-            </div>
-        </div>
+                    <div class="product-info">
+                        <p><?= htmlspecialchars($producto['Nombre']) ?></p>
+                        <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
+                        <img src="img/products/like.png" alt="">
+                        <button>Buy</button>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>No hay productos</p>
+        <?php endif; ?>
     </div>
-
-
 
     <footer>
         <p>&copy; 2024 Johnni Willi & Association. All rights reserved.</p>

@@ -11,11 +11,11 @@ class Productos
     private $likes;
 
 
-    public function __construct($idProducto, $nombre,$tipo,$precio,$likes )
+    public function __construct($idProducto, $nombre, $tipo, $precio, $likes)
     {
         $this->idProducto = $idProducto;
         $this->nombre = $nombre;
-        $this ->tipo = $tipo;
+        $this->tipo = $tipo;
         $this->precio = $precio;
         $this->likes = $likes;
     }
@@ -55,7 +55,7 @@ class Productos
         return $this->likes;
     }
 
-    
+
 
 
     // SETERS
@@ -84,7 +84,7 @@ class Productos
         $this->likes = $likes;
     }
 
-    
+
 
 
     //FUNCIONES PARA EL ADMINISTRADOR
@@ -130,7 +130,7 @@ class Productos
         }
     }
 
-    
+
     public function modificarProducto($idProducto, $nombre, $precio)
     {
         $conn = getDBConnection();
@@ -156,6 +156,14 @@ class Productos
         return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function obtenerProductosPorTipo($tipo)
+    {
+        $conn = getDBConnection();
+        $sentencia = $conn->prepare("SELECT * FROM productos WHERE Tipo = :tipo");
+        $sentencia->bindParam(':tipo', $tipo, PDO::PARAM_STR);
+        $sentencia->execute();
+        return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     public function obtenerProductoNombre()
     {
@@ -165,9 +173,4 @@ class Productos
         $sentencia->execute();
         return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
-
-   
-
-
-
 }
