@@ -34,6 +34,13 @@ class ProductoController
         return $producto->obtenerProductosPorTipo($tipo);
     }
 
+    public function obtenerProductoNombre($nombre){
+        $producto = new Productos(null, $nombre, null,null,null);
+        return $producto->obtenerProductoNombre();
+    }
+
+
+
 }
 
 
