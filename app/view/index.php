@@ -54,7 +54,7 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
             // Me guardo el usuario y el id en la sesión para usarlo mas adelante
             $_SESSION['usuario'] = $campoNombreSaneado;
             $_SESSION['id'] = $usuarioValido[0]['ID_Usuario'];
-            header("Location: paginaUsuario.php");
+            header("Location: home.php");
             exit();
         } else {
             header("Location" . $_SERVER['PHP_SELF']);

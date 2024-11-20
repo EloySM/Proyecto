@@ -1,6 +1,3 @@
-<?php
-session_start(); // Iniciamos la sesión para mostrar el nombre del usuario
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,12 +5,13 @@ session_start(); // Iniciamos la sesión para mostrar el nombre del usuario
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/contact.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -26,48 +24,40 @@ session_start(); // Iniciamos la sesión para mostrar el nombre del usuario
         </div>
     </div>
 
+
     <div id="navegador-container">
-        <div id="navegador">
+        <div class="containers" id="navegador">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="home.php">Home</a></li>
                 <li><a href="products.php">Products</a></li>
                 <li><a href="about.php">About Us</a></li>
-                <li><a href="contact.php">Contact</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
         </div>
     </div>
 
-    <div id="contenido">
-        <div id="text">
-            <p>Natural and Healthy Food</p>
-            <p>"If your furry friend is not happy, we will refund your money."</p>
-        </div>
+    <div id="contenedor">
 
-        <div id="imagenes">
-            <img src="img/home/1-home.png" alt="">
-        </div>
+        <h2>Contact with us</h2>
+        <h3>We will be happy to assist your needs.</h3>
+
+        <form action="">
+            <input type="text" placeholder="Nombre">
+            <input type="text" placeholder="Empresa">
+            <input type="text" placeholder="Móvil">
+            <input type="text" placeholder="Apellidos">
+            <input type="text" placeholder="Email">
+            <input type="text" placeholder="Asunto">
+            <input type="text" placeholder="Mensaje" style="grid-column: span 3;"> <!-- Mensaje ocupa 3 columnas -->
+            
+        </form>
     </div>
 
-
-    <div id="part2">
-        <img src="img/home/perro1.png" alt="">
-        <button>Comida para perros</button>
-        <img src="img/home/gato1.png" alt="">
-        <button>Comida para gatos</button>
-    </div>
 
     <footer>
         <p>&copy; 2024 Johnni Willi & Association. All rights reserved.</p>
     </footer>
 
-
-    <?php
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' & isset(($_POST['login']))) {
-        (new UsuarioController())->logout();
-    }
-
-    ?>
 </body>
 
 </html>
