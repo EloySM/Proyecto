@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-11-2024 a las 10:23:37
+-- Tiempo de generación: 20-11-2024 a las 12:51:18
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -69,6 +69,7 @@ CREATE TABLE `productos` (
   `Nombre` varchar(255) NOT NULL,
   `Tipo` varchar(11) NOT NULL,
   `Precio` double NOT NULL,
+  `ruta` varchar(255) NOT NULL,
   `Likes` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -76,22 +77,15 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`ID_Producto`, `Nombre`, `Tipo`, `Precio`, `Likes`) VALUES
-(16, 'Opel Corsa', 'Perro', 24.99, 520),
-(17, 'Seat Ibiza', 'Gato', 19.99, 90),
-(18, 'Kia Sorento', 'Perro', 15.99, 739),
-(19, 'Skoda Fabia', 'Gato', 29.99, 5),
-(20, 'Toyota Corolla', 'Perro', 17.99, 310),
-(21, 'Ford Fiesta', 'Gato', 18.5, 450),
-(22, 'Honda Civic', 'Perro', 22.99, 675),
-(23, 'Chevrolet Spark', 'Gato', 14.99, 120),
-(24, 'Mazda CX-5', 'Perro', 26.49, 890),
-(25, 'Volkswagen Golf', 'Gato', 27.99, 980),
-(26, 'Hyundai Tucson', 'Perro', 21.99, 330),
-(27, 'Renault Clio', 'Gato', 16.99, 230),
-(28, 'Peugeot 208', 'Perro', 19.5, 475),
-(29, 'BMW X5', 'Gato', 39.99, 1100),
-(30, 'Audi A3', 'Perro', 25.99, 760);
+INSERT INTO `productos` (`ID_Producto`, `Nombre`, `Tipo`, `Precio`, `ruta`, `Likes`) VALUES
+(16, 'JW Tuna', 'Perro', 24.99, '\\img\\products\\perro\\CHICKEN.png', 1000),
+(17, 'JW Adult Mini Salmoncito', 'Perro', 19.99, '\\img\\products\\perro\\LAMB.png', 900),
+(18, 'JW  Adult Chicken', 'Perro', 15.99, '\\img\\products\\perro\\LIGHT.png', 800),
+(19, 'JW Cordero', 'Perro', 29.99, '\\img\\products\\perro\\SALMON.png', 700),
+(20, 'JW  Adult Chicken', 'Gato', 17.99, '\\img\\products\\gato\\FarmPoultryFrontal.png', 600),
+(21, 'JW Cordero', 'Gato', 18.5, '\\img\\products\\gato\\KittenFrontal.png', 500),
+(22, 'JW Adult Mini \nAtletic Blue Fish', 'Gato', 22.99, '\\img\\products\\gato\\SeniorFrontal.png', 400),
+(26, 'JW Tuna', 'Gato', 21.99, '\\img\\products\\gato\\SensitiveFrontal.png', 200);
 
 -- --------------------------------------------------------
 
