@@ -28,10 +28,13 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
                 <input type="submit" value="Cerrar sesión" name="logout">
                 <input type="submit" value="Modificar perfil" name="modificar">
                 <input type="submit" value="Favoritos" name="favoritos">
-
+                
                 <?php if ($_SESSION['admin'] == 1): ?>
                     <input type="submit" value="Mostrar productos" name="mostrarProductos">
                 <?php endif; ?>
+
+                <input type="submit" value="Volver" name="volver">
+
     </form>
 
     <?php
@@ -51,6 +54,10 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mostrarProductos'])) {
         header('Location: mostrarProductos(Admin).php');
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['volver'])) {
+        header('Location: home.php');
     }
 
 

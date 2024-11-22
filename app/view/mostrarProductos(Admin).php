@@ -21,6 +21,11 @@ session_start();
     <form method="POST">
         <input type="submit" value="Mostrar todos los productos" name="mostrarProductos">
     </form>
+    
+    <form method="POST">
+        <input type="submit" value="Volver" name="volver">  
+
+    </form>
 
 
     <?php
@@ -43,6 +48,11 @@ session_start();
             echo "Error: Datos del producto no definidos.";
         }
     }
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['volver'])) {
+        header('Location: paginaUsuario.php');
+    }
+
 
     if (!isset($_POST['search']) || isset($_POST['mostrarProductos'])) {
 

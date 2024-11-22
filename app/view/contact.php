@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,14 +19,12 @@
 
 <body>
 
-    <div id="header-container">
-        <h1>Johnni Willi & Association</h1>
+    <a href="paginaUsuario.php">
         <div id="perfil">
             <img src="img/maniqui.png" alt="">
-            <h2>Eloy</h2>
+            <?php echo "<h2>" . $_SESSION['usuario'] . "</h2>"; ?>
         </div>
-    </div>
-
+    </a>
 
     <div id="navegador-container">
         <div class="containers" id="navegador">
@@ -49,7 +50,7 @@
             <input type="text" placeholder="Email">
             <input type="text" placeholder="Asunto">
             <input type="text" placeholder="Mensaje" style="grid-column: span 3;"> <!-- Mensaje ocupa 3 columnas -->
-            
+
         </form>
     </div>
 

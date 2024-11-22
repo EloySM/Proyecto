@@ -46,5 +46,16 @@ $precio = $producto['Precio'];
         <input type="text" name="precio" placeholder="Precio" value="<?php echo htmlspecialchars($precio); ?>">
         <input type="submit" value="Editar" name="editar">
     </form>
+    <form method="POST">
+        <input type="submit" value="Volver" name="volver">
+    </form>
+
+
+    <?php
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['volver'])) {
+        header('Location: mostrarProductos(Admin).php');
+    }
+    ?>
 </body>
 </html>
