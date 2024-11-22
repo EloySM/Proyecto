@@ -35,7 +35,7 @@
                 <li><a href="home.php">Home</a></li>
                 <li><a href="products.php">Products</a></li>
                 <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="contact.php">Contact</a></li>
             </ul>
         </div>
     </div>
