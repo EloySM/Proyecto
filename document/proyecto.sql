@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-11-2024 a las 12:51:18
+-- Tiempo de generación: 22-11-2024 a las 14:33:54
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -78,7 +78,7 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`ID_Producto`, `Nombre`, `Tipo`, `Precio`, `ruta`, `Likes`) VALUES
-(16, 'JW Tuna', 'Perro', 24.99, '\\img\\products\\perro\\CHICKEN.png', 1000),
+(16, 'JW Tunes', 'Perro', 24.99, '\\img\\products\\perro\\CHICKEN.png', 1000),
 (17, 'JW Adult Mini Salmoncito', 'Perro', 19.99, '\\img\\products\\perro\\LAMB.png', 900),
 (18, 'JW  Adult Chicken', 'Perro', 15.99, '\\img\\products\\perro\\LIGHT.png', 800),
 (19, 'JW Cordero', 'Perro', 29.99, '\\img\\products\\perro\\SALMON.png', 700),
@@ -97,16 +97,18 @@ CREATE TABLE `usuario` (
   `ID_Usuario` int(11) NOT NULL,
   `Nombre` varchar(255) NOT NULL,
   `NombreUsuario` varchar(255) NOT NULL,
-  `Contraseña` varchar(255) NOT NULL
+  `Contraseña` varchar(255) NOT NULL,
+  `EsAdmin` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`ID_Usuario`, `Nombre`, `NombreUsuario`, `Contraseña`) VALUES
-(1, 'a', 'a', 'a'),
-(2, 'Arkaitz', 'Arkaitz', 'abc123..');
+INSERT INTO `usuario` (`ID_Usuario`, `Nombre`, `NombreUsuario`, `Contraseña`, `EsAdmin`) VALUES
+(1, 'a', 'a', 'a', NULL),
+(2, 'Arkaitz', 'Arkaitz', 'abc123..', 1),
+(3, 'Samuel', 'asdfghjklñpoiuytrewqzxcvbnmñlkjh', 'abc123..', 1);
 
 --
 -- Índices para tablas volcadas
@@ -172,7 +174,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
