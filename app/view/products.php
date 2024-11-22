@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,10 +32,10 @@
     ?>
     <div id="header-container">
         <h1>Johnni Willi & Association</h1>
-        <div id="perfil">
+        <a href="paginaUsuario.php"><div id="perfil" >
             <img src="img/maniqui.png" alt="">
-            <h2>Eloy</h2>
-        </div>
+            <?php echo "<h2>" . $_SESSION['usuario'] . "</h2>"; ?>
+        </div></a>
     </div>
 
 

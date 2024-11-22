@@ -4,16 +4,16 @@ require "../../config/dbConnection.php";
 class Productos
 {
 
-    private $idProducto;
+    private $ID_Producto;
     private $nombre;
     private $precio;
     private $tipo;
     private $likes;
 
 
-    public function __construct($idProducto, $nombre, $tipo, $precio, $likes)
+    public function __construct($ID_Producto, $nombre, $tipo, $precio, $likes)
     {
-        $this->idProducto = $idProducto;
+        $this->ID_Producto = $ID_Producto;
         $this->nombre = $nombre;
         $this->tipo = $tipo;
         $this->precio = $precio;
@@ -24,10 +24,10 @@ class Productos
 
     //GETS 
 
-    public function getidProducto()
+    public function getID_Producto()
     {
 
-        return $this->idProducto;
+        return $this->ID_Producto;
     }
 
 
@@ -105,8 +105,8 @@ class Productos
     public function eliminarProducto()
     {
         $conn = getDBConnection();
-        $sentencia = $conn->prepare("DELETE FROM productos WHERE idProducto = ?");
-        $sentencia->bindParam(1, $this->idProducto);
+        $sentencia = $conn->prepare("DELETE FROM productos WHERE ID_Producto = ?");
+        $sentencia->bindParam(1, $this->ID_Producto);
 
         if ($sentencia->execute()) {
             return "Producto eliminado correctamente";
@@ -115,29 +115,15 @@ class Productos
         }
     }
 
-    public function actualizarProducto()
+
+    public function modificarProducto()
     {
         $conn = getDBConnection();
-        $sentencia = $conn->prepare("UPDATE productos SET nombre = ?, precio = ? WHERE idProducto = ?");
+        $sentencia = $conn->prepare("UPDATE productos SET nombre = ?, tipo = ?, precio = ? WHERE ID_Producto = ?");
         $sentencia->bindParam(1, $this->nombre);
-        $sentencia->bindParam(2, $this->precio);
-        $sentencia->bindParam(3, $this->idProducto);
-
-        if ($sentencia->execute()) {
-            return "Producto actualizado correctamente";
-        } else {
-            return "Error al actualizar el producto";
-        }
-    }
-
-
-    public function modificarProducto($idProducto, $nombre, $precio)
-    {
-        $conn = getDBConnection();
-        $sentencia = $conn->prepare("UPDATE productos SET nombre = ?, precio = ? WHERE idProducto = ?");
-        $sentencia->bindParam(1, $nombre);
-        $sentencia->bindParam(2, $precio);
-        $sentencia->bindParam(3, $idProducto);
+        $sentencia->bindParam(2, $this->tipo);
+        $sentencia->bindParam(3, $this->precio);
+        $sentencia->bindParam(4, $this->ID_Producto);
 
         if ($sentencia->execute()) {
             return "Producto modificado correctamente";
@@ -172,5 +158,14 @@ class Productos
         $sentencia->bindParam(1, $this->nombre);
         $sentencia->execute();
         return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function obtenerProductoPorId($ID_Producto)
+    {
+        $conn = getDBConnection();
+        $sentencia = $conn->prepare("SELECT * FROM productos WHERE ID_Producto = ?");
+        $sentencia->bindParam(1, $ID_Producto);
+        $sentencia->execute();
+        return $sentencia->fetch(PDO::FETCH_ASSOC);
     }
 }

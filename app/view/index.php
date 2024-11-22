@@ -51,10 +51,11 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
 
         $usuarioValido = (new UsuarioController())->loginUsuario($campoNombreSaneado, $campoContraseñaSaneado);
         if ($usuarioValido == true) {
-            // Me guardo el usuario y el id en la sesión para usarlo mas adelante
+            // Me guardo el usuario,id y el booleano de si es admin en la sesión para usarlo mas adelante
             $_SESSION['usuario'] = $campoNombreSaneado;
             $_SESSION['id'] = $usuarioValido[0]['ID_Usuario'];
-            header("Location: paginaUsuario.php");
+            $_SESSION['admin'] = $usuarioValido[0]['EsAdmin'];
+            header("Location: home.php");
             exit();
         } else {
             header("Location" . $_SERVER['PHP_SELF']);

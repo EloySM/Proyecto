@@ -8,15 +8,17 @@ class Usuario
     private $nombre;
     private $usuario;
     private $contraseña;
+    private $esAdmin;
 
 
 
-    public function __construct($idUsuario, $nombre, $usuario, $contraseña)
+    public function __construct($idUsuario, $nombre, $usuario, $contraseña, $esAdmin)
     {
         $this -> idUsuario = $idUsuario;
         $this -> nombre = $nombre;
         $this->contraseña = $contraseña;
         $this ->usuario = $usuario;
+        $this -> esAdmin = $esAdmin;
     }
 
 
@@ -47,6 +49,12 @@ class Usuario
         return $this->contraseña;
     }
 
+    public function getEsAdmin()
+    {
+
+        return $this->esAdmin;
+    }
+
 
 
     // SETERS
@@ -67,6 +75,12 @@ class Usuario
     {
 
         $this->contraseña = $contraseña;
+    }
+
+    public function setEsAdmin($esAdmin)
+    {
+
+        $this->esAdmin = $esAdmin;
     }
 
 
