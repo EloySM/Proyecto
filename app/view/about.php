@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -22,10 +22,12 @@
 
     <div id="header-container">
         <h1>Johnni Willi & Association</h1>
-        <a href="paginaUsuario.php"><div id="perfil" >
-            <img src="img/maniqui.png" alt="">
-            <?php echo "<h2>" . $_SESSION['usuario'] . "</h2>"; ?>
-        </div></a>
+        <a href="paginaUsuario.php">
+            <div id="perfil">
+                <img src="img/maniqui.png" alt="">
+                <?php echo "<h2>" . $_SESSION['usuario'] . "</h2>"; ?>
+            </div>
+        </a>
     </div>
 
 
@@ -41,26 +43,39 @@
     </div>
 
     <div id="container-padre">
-        <div>
-            <div id="container1">
-                <img src="img/about/veterinario.webp" alt="">
-            </div>
-            <div class="containers" id="container2">
+        <div class="container1">
+
+            <img src="img/about/veterinario.png" alt="">
+
+            <div class="containers" class="container2">
                 <h2>About</h2>
                 <p>Nature´s Variety nació en St. Louis, EE. UU. con el objetivo de ofrecer una nutrición natural, holística y equilibrada para mejorar el bienestar físico y mental de perros y gatos. Lo tuvimos claro desde el principio: los ingredientes naturales y de calidad son la base de una alimentación sana
                 </p>
             </div>
         </div>
 
-        <div>
-        <div id="container1">
-                <img src="img/about/veterinario.webp" alt="">
-            </div>
-            <div class="containers" id="container2">
+        <div class="container1">
+
+            <div class="containers" class="container2">
                 <h2>About</h2>
                 <p>Nature´s Variety nació en St. Louis, EE. UU. con el objetivo de ofrecer una nutrición natural, holística y equilibrada para mejorar el bienestar físico y mental de perros y gatos. Lo tuvimos claro desde el principio: los ingredientes naturales y de calidad son la base de una alimentación sana
                 </p>
             </div>
+
+            <img src="img/about/perro-triston.png" alt="">
+
+        </div>
+
+        <div class="container1">
+
+            <img src="img/about/perro.png" alt="">
+
+            <div class="containers" class="container2">
+                <h2>About</h2>
+                <p>Nature´s Variety nació en St. Louis, EE. UU. con el objetivo de ofrecer una nutrición natural, holística y equilibrada para mejorar el bienestar físico y mental de perros y gatos. Lo tuvimos claro desde el principio: los ingredientes naturales y de calidad son la base de una alimentación sana
+                </p>
+            </div>
+
         </div>
     </div>
 

@@ -19,12 +19,15 @@ session_start();
 
 <body>
 
-    <a href="paginaUsuario.php">
-        <div id="perfil">
-            <img src="img/maniqui.png" alt="">
-            <?php echo "<h2>" . $_SESSION['usuario'] . "</h2>"; ?>
-        </div>
-    </a>
+    <div id="header-container">
+        <h1>Johnni Willi & Association</h1>
+        <a href="paginaUsuario.php">
+            <div id="perfil">
+                <img src="img/maniqui.png" alt="">
+                <?php echo "<h2>" . $_SESSION['usuario'] . "</h2>"; ?>
+            </div>
+        </a>
+    </div>
 
     <div id="navegador-container">
         <div class="containers" id="navegador">
@@ -37,22 +40,31 @@ session_start();
         </div>
     </div>
 
-    <div id="contenedor">
 
-        <h2>Contact with us</h2>
-        <h3>We will be happy to assist your needs.</h3>
 
-        <form action="">
+    <h2>Contact with us</h2>
+    <h3>We will be happy to assist your needs.</h3>
+
+    <form action="">
+        <div>
             <input type="text" placeholder="Nombre">
             <input type="text" placeholder="Empresa">
+        </div>
+        <div>
             <input type="text" placeholder="Móvil">
             <input type="text" placeholder="Apellidos">
-            <input type="text" placeholder="Email">
-            <input type="text" placeholder="Asunto">
-            <input type="text" placeholder="Mensaje" style="grid-column: span 3;"> <!-- Mensaje ocupa 3 columnas -->
+        </div>
 
-        </form>
-    </div>
+        <div><input type="text" placeholder="Email">
+            <input type="text" placeholder="Asunto">
+
+        </div>
+        <div>
+            <input type="text" placeholder="Mensaje" style="grid-column: span 2;"> <!-- Mensaje ocupa 3 columnas -->
+        </div>
+
+    </form>
+
 
 
     <footer>
