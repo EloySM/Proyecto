@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-11-2024 a las 14:33:54
+-- Tiempo de generación: 27-11-2024 a las 13:19:05
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -44,6 +44,18 @@ CREATE TABLE `favorito` (
   `ID_Favorito` int(11) NOT NULL,
   `ID_Usuario` int(255) NOT NULL,
   `ID_Producto` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `likes`
+--
+
+CREATE TABLE `likes` (
+  `ID_Usuario` int(11) NOT NULL,
+  `ID_Producto` int(11) NOT NULL,
+  `likesBoolean` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -129,6 +141,13 @@ ALTER TABLE `favorito`
   ADD KEY `ID_Usuario` (`ID_Usuario`);
 
 --
+-- Indices de la tabla `likes`
+--
+ALTER TABLE `likes`
+  ADD PRIMARY KEY (`ID_Usuario`,`ID_Producto`),
+  ADD KEY `ID_Producto` (`ID_Producto`);
+
+--
 -- Indices de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
@@ -186,6 +205,13 @@ ALTER TABLE `usuario`
 ALTER TABLE `favorito`
   ADD CONSTRAINT `favorito_ibfk_1` FOREIGN KEY (`ID_Producto`) REFERENCES `productos` (`ID_Producto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `favorito_ibfk_2` FOREIGN KEY (`ID_Usuario`) REFERENCES `usuario` (`ID_Usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `likes`
+--
+ALTER TABLE `likes`
+  ADD CONSTRAINT `likes_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `usuario` (`ID_Usuario`),
+  ADD CONSTRAINT `likes_ibfk_2` FOREIGN KEY (`ID_Producto`) REFERENCES `productos` (`ID_Producto`);
 
 --
 -- Filtros para la tabla `pedidos`

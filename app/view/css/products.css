@@ -127,7 +127,7 @@ h3 {
 
 }
 
-.icons-top img:nth-last-of-type(1) {
+.icons-top input[type="image"]:nth-last-of-type(1) {
     position: absolute;
     top: 8px;
     left: 8px;
@@ -135,7 +135,7 @@ h3 {
     width: 32px;
 }
 
-.icons-top img:nth-last-of-type(2) {
+.icons-top input[type="image"]:nth-last-of-type(2) {
     position: absolute;
     top: 8px;
     right: 8px;
@@ -143,7 +143,7 @@ h3 {
     width: 32px;
 }
 
-.container-food img:nth-last-of-type(3) {
+.container-food input[type="image"] {
     /* position: absolute; */
     max-width: 100%;
     height: auto;
@@ -162,7 +162,7 @@ h3 {
     font-weight: bold;
 }
 
-.product-info img {
+.product-info input[type="image"] {
     position: absolute;
     bottom: 8px;
     right: 8px;

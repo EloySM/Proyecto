@@ -58,8 +58,8 @@ session_start();
                 <div class="container-food">
 
                     <div class="icons-top">
-                        <img src="img/products/Frame.png" alt="">
-                        <img src="img/products/favorite.png" alt="">
+                        <input type="image" src="img/products/Frame.png" name="frame" alt="">
+                        <input type="image" src="img/products/favorite.png" name="favorite" alt="">
                     </div>
                     <img src="<?= htmlspecialchars(($producto['ruta'])) ?>" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
 
@@ -67,7 +67,8 @@ session_start();
                         <p><?= htmlspecialchars(($producto['Nombre'])) ?></p>
                         <!-- 2->para tener 2 decimales y ','->para que los decimales tengan una coma y no punto -->
                         <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
-                        <img src="img/products/like.png" alt="">
+                        <input type="image" src="img/products/like.png" name="like">
+                        <!-- <img src="img/products/like.png" alt=""> -->
                         <button>Buy</button>
                     </div>
                 </div>
@@ -87,15 +88,15 @@ session_start();
                 <div class="container-food">
 
                     <div class="icons-top">
-                        <img src="img/products/Frame.png" alt="">
-                        <img src="img/products/favorite.png" alt="">
+                        <input type="image" src="img/products/Frame.png" alt="">
+                        <input type="image" src="img/products/favorite.png" alt="">
                     </div>
                     <img src="<?= htmlspecialchars(($producto['ruta'])) ?>" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
 
                     <div class="product-info">
                         <p><?= htmlspecialchars($producto['Nombre']) ?></p>
                         <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
-                        <img src="img/products/like.png" alt="">
+                        <input type="image" src="img/products/like.png" alt="">
                         <button>Buy</button>
                     </div>
                 </div>
