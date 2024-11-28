@@ -9,12 +9,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/contact.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Exo:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -49,15 +45,15 @@ session_start();
 
             <div>
                 <input type="text" placeholder="Nombre">
-                <input type="text" placeholder="Empresa">
+                <input type="text" placeholder="Apellido">
             </div>
 
             <div>
-                <input type="text" placeholder="Móvil">
-                <input type="text" placeholder="Apellidos">
+                <input type="text" placeholder="Empresa">
+                <input type="text" placeholder="Email">
             </div>
 
-            <div><input type="text" placeholder="Email">
+            <div><input type="text" placeholder="Movil">
                 <input type="text" placeholder="Asunto">
 
             </div>
@@ -65,6 +61,14 @@ session_start();
                 <input type="text" placeholder="Mensaje" style="grid-column: span 2;"> <!-- Mensaje ocupa 3 columnas -->
             </div>
 
+                <p>Consentimiento:</p>
+
+                <div>
+                    <input type="checkbox">
+                    <p>Acepto terminos y condiciones</p>
+                    <input type="submit" value="Send">
+                    
+                </div>
         </form>
     </div>
 

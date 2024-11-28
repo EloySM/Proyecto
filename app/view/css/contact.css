@@ -99,12 +99,24 @@ body {
 }
 
 #bloque > h2 {
-    margin-top: 90px;
+    font-size: 40px;
+    margin-top: 30px;
+}
+
+#bloque > h3 {
+    font-size: 32px;
+    margin-bottom: 40px;
 }
 
 h2, h3 {
     text-align: center;
     color: white;
+}
+
+h2, h3, input {
+    font-family: "Amiri", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 #bloque {
@@ -114,10 +126,13 @@ h2, h3 {
 }
 
 form {
+    font-family: "Amiri", serif;
+    font-weight: 400;
+    font-style: normal;
     justify-content: center;
     display: grid;
     /* Tres columnas */
-    gap: 10px;
+    /* gap: 20px; */
     /* Espaciado entre elementos */
     padding: 20px;
     margin: auto auto;
@@ -128,8 +143,14 @@ form {
 }
 
 input {
+    margin: 10px 10px;
+    padding: 0px 16px;
     height: 80px;
     width: 450px;
+    border: none;
+    border-radius: 8px;
+    background-color: #D9D9D9;
+    font-size: 22px;
 }
 
 footer {
