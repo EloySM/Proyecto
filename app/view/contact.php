@@ -40,30 +40,33 @@ session_start();
         </div>
     </div>
 
+    <div id="bloque">
 
+        <h2>Contact with us</h2>
+        <h3>We will be happy to assist your needs.</h3>
 
-    <h2>Contact with us</h2>
-    <h3>We will be happy to assist your needs.</h3>
+        <form action="">
 
-    <form action="">
-        <div>
-            <input type="text" placeholder="Nombre">
-            <input type="text" placeholder="Empresa">
-        </div>
-        <div>
-            <input type="text" placeholder="Móvil">
-            <input type="text" placeholder="Apellidos">
-        </div>
+            <div>
+                <input type="text" placeholder="Nombre">
+                <input type="text" placeholder="Empresa">
+            </div>
 
-        <div><input type="text" placeholder="Email">
-            <input type="text" placeholder="Asunto">
+            <div>
+                <input type="text" placeholder="Móvil">
+                <input type="text" placeholder="Apellidos">
+            </div>
 
-        </div>
-        <div>
-            <input type="text" placeholder="Mensaje" style="grid-column: span 2;"> <!-- Mensaje ocupa 3 columnas -->
-        </div>
+            <div><input type="text" placeholder="Email">
+                <input type="text" placeholder="Asunto">
 
-    </form>
+            </div>
+            <div>
+                <input type="text" placeholder="Mensaje" style="grid-column: span 2;"> <!-- Mensaje ocupa 3 columnas -->
+            </div>
+
+        </form>
+    </div>
 
 
 
