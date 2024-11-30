@@ -15,31 +15,32 @@ body {
 }
 
 body {
-
-    background-color: rgb(0, 0, 0);
+    background-color: #171717;
     background-image:
-        radial-gradient(at 47% 33%, rgb(0, 224, 69) 0, transparent 59%),
-        radial-gradient(at 82% 65%, rgb(0, 80, 214) 0, transparent 55%);
+        radial-gradient(circle at 47% 33%, rgb(0, 224, 69) 0, transparent 59%),
+        radial-gradient(circle at 82% 65%, rgb(0, 80, 214) 0, transparent 55%),
+        radial-gradient(circle at 10% 65%, rgb(190, 137, 63) 0, transparent 55%);
 
-    /* background: linear-gradient(45deg, #4a6cf7, #00e0ff); */
+
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
 
+
 form {
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    backdrop-filter: saturate(180%);
     background-color: rgba(17, 25, 40, 0.15);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.125);
     border-radius: 20px;
     padding: 30px;
     width: 400px;
+    /* max-width: 90%; */
 }
 
-h3 {
+h1 {
     color: white;
     text-align: center;
     margin-bottom: 20px;
@@ -57,28 +58,16 @@ input[type="submit"] {
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s ease;
-}
 
-input[type="submit"]:hover {
-    background: rgba(255, 255, 255, 0.3);
+    &:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
 }
 
 input[type="submit"][name="logout"] {
-    background: rgba(255, 59, 48, 0.7);
-}
+    background: rgba(255, 59, 48, 0.8);
 
-input[type="submit"][name="logout"]:hover {
-    background: rgba(255, 59, 48, 0.9);
+    &:hover {
+        background: rgba(255, 59, 48, 0.7);
+    }
 }
-
-/* Decorative elements */
-/* body::before,
-body::after {
-    content: '';
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    z-index: -1;
-} */

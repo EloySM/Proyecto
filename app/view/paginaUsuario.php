@@ -21,11 +21,12 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
     ?>
 
     <form method="POST">
-        <h3>Bienvenido: <?php echo $_SESSION['usuario']; ?></h3>
+        <h1>Bienvenido: <?php echo $_SESSION['usuario']; ?></h1>
         <input type="submit" value="Cerrar sesión" name="logout">
         <input type="submit" value="Modificar perfil" name="modificar">
         <input type="submit" value="Favoritos" name="favoritos">
-        
+        <input type="submit" value="Lista" name="lista">
+
         <?php if ($_SESSION['admin'] == 1): ?>
             <input type="submit" value="Mostrar productos" name="mostrarProductos">
         <?php endif; ?>
@@ -42,6 +43,9 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
             exit();
         } elseif (isset($_POST['favoritos'])) {
             header('Location: favoritos.php');
+            exit();
+        } elseif (isset($_POST['lista'])) {
+            header('Location: lista.php');
             exit();
         } elseif (isset($_POST['mostrarProductos'])) {
             header('Location: mostrarProductos(Admin).php');

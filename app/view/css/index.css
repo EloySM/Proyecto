@@ -4,6 +4,7 @@
 }
 
 body {
+    backdrop-filter: saturate(180%);
     background: linear-gradient(to top left, #D9D9D9 50%, #ABD29E 50%);
     background-repeat: no-repeat;
     height: 100vh;
@@ -96,6 +97,8 @@ form {
     width: 900px;
     text-align: center;
     border-radius: 20px;
+    /* backdrop-filter: saturate(180%); */
+    /* background-color: rgba(17, 25, 40, 0.01); */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
