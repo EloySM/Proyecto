@@ -22,7 +22,6 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
 
     <form method="POST">
         <h1>Bienvenido: <?php echo $_SESSION['usuario']; ?></h1>
-        <input type="submit" value="Cerrar sesión" name="logout">
         <input type="submit" value="Modificar perfil" name="modificar">
         <input type="submit" value="Favoritos" name="favoritos">
         <input type="submit" value="Lista" name="lista">
@@ -32,6 +31,7 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
         <?php endif; ?>
 
         <input type="submit" value="Volver" name="volver">
+        <input type="submit" value="Cerrar sesión" name="logout">
     </form>
 
     <?php

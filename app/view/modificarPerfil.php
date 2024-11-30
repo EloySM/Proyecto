@@ -11,6 +11,7 @@ require_once "../controller/UsuarioController.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/modificarPerfil.css">
 </head>
 
 <body>
@@ -19,8 +20,11 @@ require_once "../controller/UsuarioController.php";
         <input type="text" name="nombre" id="nombre" placeholder="Nombre">
         <input type="text" name="usuario" id="usuario" placeholder="Usuario">
         <input type="password" name="contraseña" id="contraseña" placeholder="Contraseña">
-        <input type="submit" value="Modificar" name="Modificar">
-        <input type="submit" value="Volver" name="Volver">
+
+        <div>
+            <input id="modificar" type="submit" value="Modificar" name="Modificar">
+            <input id="volver" type="submit" value="Volver" name="Volver">
+        </div>
     </form>
 
 
@@ -45,9 +49,16 @@ require_once "../controller/UsuarioController.php";
 
         $usuarioController = new UsuarioController();
         $result = $usuarioController->modificarUsuario($id, $nombre, $usuario, $contraseña);
-    }
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['Volver'])) {
+        // Verificación de éxito
+        if ($result) {
+            echo "<p>Perfil modificado con éxito.</p>";
+            header('Location: paginaUsuario.php'); // Redirige después de la modificación
+            exit();
+        } else {
+            echo "<p>No se pudo modificar el perfil. Intente de nuevo más tarde.</p>";
+        }
+    } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['Volver'])) {
         header('Location: paginaUsuario.php');
     }
 

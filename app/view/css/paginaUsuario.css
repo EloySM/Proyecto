@@ -19,9 +19,7 @@ body {
     background-image:
         radial-gradient(circle at 47% 33%, rgb(0, 224, 69) 0, transparent 59%),
         radial-gradient(circle at 82% 65%, rgb(0, 80, 214) 0, transparent 55%),
-        radial-gradient(circle at 10% 65%, rgb(190, 137, 63) 0, transparent 55%);
-
-
+        radial-gradient(circle at 10% 65%, rgb(190, 63, 63) 0, transparent 55%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,14 +35,13 @@ form {
     border-radius: 20px;
     padding: 30px;
     width: 400px;
-    /* max-width: 90%; */
 }
 
 h1 {
     color: white;
     text-align: center;
     margin-bottom: 20px;
-    font-size: 24px;
+    font-size: 26px;
 }
 
 input[type="submit"] {
@@ -55,12 +52,21 @@ input[type="submit"] {
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.2);
     color: white;
-    font-size: 16px;
+    font-size: 22px;
     cursor: pointer;
     transition: background 0.3s ease;
 
     &:hover {
         background: rgba(255, 255, 255, 0.3);
+    }
+}
+
+input[type="submit"][name="volver"] {
+    background-color: rgb(215, 125, 0);
+
+    &:hover {
+        background-color: rgba(215, 125, 0, 0.9);
+
     }
 }
 
