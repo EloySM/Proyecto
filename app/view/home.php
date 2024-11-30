@@ -20,10 +20,12 @@ session_start(); // Iniciamos la sesión para mostrar el nombre del usuario
 
     <div id="header-container">
         <h1>Johnni Willi & Association</h1>
-        <a href="paginaUsuario.php"><div id="perfil" >
-            <img src="img/maniqui.png" alt="">
-            <?php echo "<h2>" . $_SESSION['usuario'] . "</h2>"; ?>
-        </div></a>
+        <a href="paginaUsuario.php">
+            <div id="perfil">
+                <img src="img/maniqui.png" alt="">
+                <?php echo "<h2>" . $_SESSION['usuario'] . "</h2>"; ?>
+            </div>
+        </a>
     </div>
 
     <div id="navegador-container">

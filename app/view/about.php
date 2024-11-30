@@ -32,7 +32,7 @@ session_start();
 
 
     <div id="navegador-container">
-        <div class="containers" id="navegador">
+        <div id="navegador">
             <ul>
                 <li><a href="home.php">Home</a></li>
                 <li><a href="products.php">Products</a></li>

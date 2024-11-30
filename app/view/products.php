@@ -30,6 +30,7 @@ session_start();
     $productosGato = $productController->obtenerProductosPorTipo('Gato');
 
     ?>
+    
     <div id="header-container">
         <h1>Johnni Willi & Association</h1>
         <a href="paginaUsuario.php"><div id="perfil" >
