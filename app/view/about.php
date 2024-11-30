@@ -19,7 +19,6 @@ session_start();
 </head>
 
 <body>
-
     <div id="header-container">
         <h1>Johnni Willi & Association</h1>
         <a href="paginaUsuario.php">
