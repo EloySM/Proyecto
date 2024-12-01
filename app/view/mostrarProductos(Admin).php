@@ -9,24 +9,17 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/motrarProductos.css">
 </head>
 
 <body>
 
-    <form method="POST">
-        <input type="search" name="search" id="search" placeholder="Buscar producto por nombre">
-        <button type="submit" name="buscar">Buscar</button>
-    </form>
-
-    <form method="POST">
-        <input type="submit" value="Mostrar todos los productos" name="mostrarProductos">
-    </form>
-    
-    <form method="POST">
-        <input type="submit" value="Volver" name="volver">  
-
-    </form>
-
+    <div class="search-container">
+        <form method="POST" class="search-form">
+            <input type="search" name="search" id="search" placeholder="Buscar producto por nombre">
+            <button type="submit" name="buscar">Buscar</button>
+        </form>
+    </div>
 
     <?php
     require_once "../../app/controller/ProductoController.php";
@@ -35,52 +28,60 @@ session_start();
     $productos = $productoController->obtenerProductos();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['editar'])) {
-        if (isset($_POST['ID_Producto']) && isset($_POST['nombre']) && isset($_POST['tipo']) && isset($_POST['precio'])) {
-            $ID_Producto = $_POST['ID_Producto'];
-            $nombre = $_POST['nombre'];
-            $tipo = $_POST['tipo'];
-            $precio = $_POST['precio'];
-            $productoController->modificarProducto($ID_Producto, $nombre, $tipo, $precio);
-            $_SESSION['id'] = $ID_Producto;
-            header('Location: editarProducto.php');
-            exit(); 
-        } else {
-            echo "Error: Datos del producto no definidos.";
+        foreach ($_POST['productos'] as $producto) {
+            if (isset($producto['ID_Producto']) && isset($producto['nombre']) && isset($producto['tipo']) && isset($producto['precio'])) {
+                $ID_Producto = $producto['ID_Producto'];
+                $nombre = $producto['nombre'];
+                $tipo = $producto['tipo'];
+                $precio = $producto['precio'];
+                $productoController->modificarProducto($ID_Producto, $nombre, $tipo, $precio);
+            }
         }
+        $_SESSION['mensaje'] = "Productos editados correctamente.";
+        header('Location: ' . $_SERVER['PHP_SELF']);
+        exit();
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['volver'])) {
         header('Location: paginaUsuario.php');
     }
 
+    if (isset($_SESSION['mensaje'])) {
+        echo "<p class='mensaje'>" . $_SESSION['mensaje'] . "</p>";
+        unset($_SESSION['mensaje']);
+    }
 
     if (!isset($_POST['search']) || isset($_POST['mostrarProductos'])) {
-
         if (!empty($productos)) {
+            echo "<form method='POST' action=''>";
             echo "<table border='1'>";
-            echo "<tr><th>ID</th><th>Nombre</th><th>Tipo</th><th>Precio</th><th>Likes</th></tr>";
+            echo "<tr><th>ID</th><th>Nombre</th><th>Tipo</th><th>Precio</th></tr>";
 
             foreach ($productos as $producto) {
                 echo "<tr>";
                 echo "<td>" . $producto['ID_Producto'] . "</td>";
-                echo "<td>" . $producto['Nombre'] . "</td>";
-                echo "<td>" . $producto['Tipo'] . "</td>";
-                echo "<td>" . $producto['Precio'] . " €" . "</td>";
-                echo "<td>" . $producto['Likes'] . "</td>";
-                echo "<td>
-                      <form method='POST' action=''>
-                        <input type='hidden' name='ID_Producto' value='" . $producto['ID_Producto'] . "'>
-                        <input type='hidden' name='nombre' value='" . $producto['Nombre'] . "'>
-                        <input type='hidden' name='tipo' value='" . $producto['Tipo'] . "'>
-                        <input type='hidden' name='precio' value='" . $producto['Precio'] . "'>
-                    <input type='submit' name='editar' id='modificar' value='Editar'>
-                </form>
-              </td>";
-                echo "</tr>";
+                echo "<td><input type='text' name='productos[" . $producto['ID_Producto'] . "][nombre]' value='" . $producto['Nombre'] . "'></td>";
+                echo "<td><input type='text' name='productos[" . $producto['ID_Producto'] . "][tipo]' value='" . $producto['Tipo'] . "'></td>";
+                echo "<td><input type='text' name='productos[" . $producto['ID_Producto'] . "][precio]' value='" . $producto['Precio'] . "'></td>";
+                echo "<input type='hidden' name='productos[" . $producto['ID_Producto'] . "][ID_Producto]' value='" . $producto['ID_Producto'] . "'>";
                 echo "</tr>";
             }
 
             echo "</table>";
+            echo "<div class='buttons-container'>";
+            echo "<form method='POST'>";
+            echo "<input type='submit' value='Mostrar todos los productos' name='mostrarProductos'>";
+            echo "</form>";
+            
+            echo "<form method='POST'>";
+            echo "<input type='submit' value='Volver' name='volver'>";
+            echo "</form>";
+
+            echo "<div class='edit-button-container'>";
+            echo "<input type='submit' name='editar' value='Editar'>";
+            echo "</div>";
+            echo "</div>";
+            echo "</form>";
         } else {
             echo "No hay productos disponibles.";
         }
@@ -91,41 +92,40 @@ session_start();
         $producto = $productoController->obtenerProductoNombre($nombre);
 
         if (!empty($producto)) {
+            echo "<form method='POST' action=''>";
             echo "<table border='1'>";
-            echo "<tr><th>ID</th><th>Nombre</th><th>Tipo</th><th>Precio</th><th>Likes</th></tr>";
+            echo "<tr><th>ID</th><th>Nombre</th><th>Tipo</th><th>Precio</th></tr>";
 
             foreach ($producto as $prod) {
                 echo "<tr>";
                 echo "<td>" . $prod['ID_Producto'] . "</td>";
-                echo "<td>" . $prod['Nombre'] . "</td>";
-                echo "<td>" . $prod['Tipo'] . "</td>";
-                echo "<td>" . $prod['Precio'] . "</td>";
-                echo "<td>" . $prod['Likes'] . "</td>";
-                echo "<td>
-                    <form method='POST' action=''>
-                        <input type='hidden' name='ID_Producto' value='" . $prod['ID_Producto'] . "'>
-                        <input type='hidden' name='nombre' value='" . $prod['Nombre'] . "'>
-                        <input type='hidden' name='tipo' value='" . $prod['Tipo'] . "'>
-                        <input type='hidden' name='precio' value='" . $prod['Precio'] . "'>
-                    <input type='submit' name='editar' id='modificar' value='Editar'>
-                </form>
-              </td>";
-                echo "</tr>";
+                echo "<td><input type='text' name='productos[" . $prod['ID_Producto'] . "][nombre]' value='" . $prod['Nombre'] . "'></td>";
+                echo "<td><input type='text' name='productos[" . $prod['ID_Producto'] . "][tipo]' value='" . $prod['Tipo'] . "'></td>";
+                echo "<td><input type='text' name='productos[" . $prod['ID_Producto'] . "][precio]' value='" . $prod['Precio'] . "'></td>";
+                echo "<input type='hidden' name='productos[" . $prod['ID_Producto'] . "][ID_Producto]' value='" . $prod['ID_Producto'] . "'>";
                 echo "</tr>";
             }
 
             echo "</table>";
+            echo "<div class='buttons-container'>";
+            echo "<form method='POST'>";
+            echo "<input type='submit' value='Mostrar todos los productos' name='mostrarProductos'>";
+            echo "</form>";
+            
+            echo "<form method='POST'>";
+            echo "<input type='submit' value='Volver' name='volver'>";
+            echo "</form>";
+
+            echo "<div class='edit-button-container'>";
+            echo "<input type='submit' name='editar' value='Editar'>";
+            echo "</div>";
+            echo "</div>";
+            echo "</form>";
         } else {
             echo "No se encontraron productos con ese nombre.";
         }
     }
-
-
     ?>
 
-
-
-
 </body>
-
 </html>
