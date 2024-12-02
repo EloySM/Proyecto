@@ -168,4 +168,13 @@ class Productos
         $sentencia->execute();
         return $sentencia->fetch(PDO::FETCH_ASSOC);
     }
+
+    // public function añadirLike() 
+    // {
+    //     $conn = getDBConnection();
+    //     $sentencia = $conn->prepare("INSERT INTO likes (ID_Usuario, ID_Producto, likesBoolean) VALUES (?, ?, ?)");
+    //     $sentencia->bindParam("iis", $ID_Usuario, $ID_Producto, $likesBoolean);
+    //     $sentencia->execute();
+    //     return $sentencia;
+    // }
 }

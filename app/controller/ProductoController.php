@@ -44,8 +44,6 @@ class ProductoController
         return $producto->obtenerProductoPorId($idProducto);
     }
 
-
-
 }
 
 
