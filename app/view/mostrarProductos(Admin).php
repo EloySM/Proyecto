@@ -17,7 +17,7 @@ session_start();
     <div class="search-container">
         <form method="POST" class="search-form">
             <input type="search" name="search" id="search" placeholder="Buscar producto por nombre">
-            <button type="submit" name="buscar">Buscar</button>
+            <!-- <button type="submit" name="buscar">Buscar</button> -->
         </form>
     </div>
 
@@ -54,9 +54,10 @@ session_start();
     if (!isset($_POST['search']) || isset($_POST['mostrarProductos'])) {
         if (!empty($productos)) {
             echo "<form method='POST' action=''>";
+            echo "<div class='content-container'>"; // Añadir contenedor común
             echo "<table border='1'>";
             echo "<tr><th>ID</th><th>Nombre</th><th>Tipo</th><th>Precio</th></tr>";
-
+    
             foreach ($productos as $producto) {
                 echo "<tr>";
                 echo "<td>" . $producto['ID_Producto'] . "</td>";
@@ -66,27 +67,22 @@ session_start();
                 echo "<input type='hidden' name='productos[" . $producto['ID_Producto'] . "][ID_Producto]' value='" . $producto['ID_Producto'] . "'>";
                 echo "</tr>";
             }
-
+    
             echo "</table>";
             echo "<div class='buttons-container'>";
-            echo "<form method='POST'>";
             echo "<input type='submit' value='Mostrar todos los productos' name='mostrarProductos'>";
-            echo "</form>";
-            
-            echo "<form method='POST'>";
             echo "<input type='submit' value='Volver' name='volver'>";
-            echo "</form>";
-
             echo "<div class='edit-button-container'>";
             echo "<input type='submit' name='editar' value='Editar'>";
             echo "</div>";
             echo "</div>";
+            echo "</div>"; // Cerrar contenedor común
             echo "</form>";
         } else {
             echo "No hay productos disponibles.";
         }
     }
-
+    
     if (isset($_POST['search'])) {
         $nombre = $_POST['search'];
         $producto = $productoController->obtenerProductoNombre($nombre);

@@ -1,0 +1,218 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+
+}
+
+.search-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+form.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form.search-form input[type="search"] {
+    font-size: 2em;
+    padding: 10px;
+    margin-right: 10px;
+    width: 500px;
+    border-radius: 25px;
+    border: 2px solid #ccc;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+form.search-form input[type="search"]:focus {
+    border-color: #007BFF;
+}
+
+form.search-form button {
+    font-size: 2em;
+    padding: 20px 30px;
+    border-radius: 25px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form.search-form button:hover {
+    background-color: #0056b3;
+}
+
+.table-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 170%;
+    font-size: 1.2em;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 80%;
+    margin-top: 20px;
+}
+
+.buttons-container form {
+    margin-left: 10px;
+}
+.mensaje {
+    color: green;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+table input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+table input[type="text"]:focus {
+    border-color: #007BFF;
+}
+
+.edit-button-container {
+    margin-left: 10px;
+}
+
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+
+form {
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+.buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.search-container {
+    width: 80%;
+    margin: 0 auto 20px auto;
+}
+
+
+th, td {
+    padding: 8px 12px;
+}
+
+
+/* Estilos mejorados para los botones */
+.buttons-container input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón Mostrar todos los productos */
+.buttons-container input[name="mostrarProductos"] {
+    background-color: #6c757d;
+    color: white;
+}
+
+.buttons-container input[name="mostrarProductos"]:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón Volver */
+.buttons-container input[name="volver"] {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.buttons-container input[name="volver"]:hover {
+    background-color: #0b5ed7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón Editar */
+.edit-button-container input[type="submit"] {
+    background-color: #198754;
+    color: white;
+}
+
+.edit-button-container input[type="submit"]:hover {
+    background-color: #157347;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto al hacer clic */
+.buttons-container input[type="submit"]:active,
+.edit-button-container input[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .content-container,
+    .search-container,
+    form {
+        width: 95%;
+    }
+}
