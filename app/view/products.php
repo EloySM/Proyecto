@@ -59,7 +59,7 @@ session_start();
                 <div class="container-food">
 
                     <div class="icons-top">
-                        <input type="image" src="img/products/Frame.png" name="frame" alt="">
+                        <input type="image" src="img/products/Frame.png" name="list" alt="">
                         <input type="image" src="img/products/favorite.png" name="favorite" alt="">
                     </div>
                     <img src="<?= htmlspecialchars(($producto['ruta'])) ?>" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
@@ -68,7 +68,7 @@ session_start();
                         <p><?= htmlspecialchars(($producto['Nombre'])) ?></p>
                         <!-- 2->para tener 2 decimales y ','->para que los decimales tengan una coma y no punto -->
                         <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
-                        <input type="image" src="img/products/like.png" name="like">
+                        <input type="image" src="img/products/like.png" name="like" value="1">
                         <!-- <img src="img/products/like.png" alt=""> -->
                         <button>Buy</button>
                     </div>
@@ -110,6 +110,19 @@ session_start();
     <footer>
         <p>&copy; 2024 Johnni Willi & Association. All rights reserved.</p>
     </footer>
+
+    <?php
+
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $ID_Usuario = filter_input(INPUT_GET, 'ID_Usuario', FILTER_VALIDATE_INT);
+            $ID_Producto = filter_input(INPUT_GET, 'ID_Usuario', FILTER_VALIDATE_INT);
+            $likesBoolean = filter_input(INPUT_GET, 'likesBoolean', FILTER_VALIDATE_BOOLEAN);
+
+            header("Location: home.php");
+            exit();
+        }
+
+    ?>
 
 </body>
 

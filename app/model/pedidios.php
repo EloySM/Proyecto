@@ -58,14 +58,6 @@ class Pedidos{
          $this->idProducto=$idProducto;
  
      }
-
-
-
-
 }
-
-
-
-
 
 ?>
