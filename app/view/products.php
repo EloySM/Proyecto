@@ -23,6 +23,7 @@ session_start();
     <?php
 
     require_once "../controller/ProductoController.php";
+    require_once "../controller/LikeController.php";
 
     $productController = new ProductoController();
 
@@ -30,13 +31,15 @@ session_start();
     $productosGato = $productController->obtenerProductosPorTipo('Gato');
 
     ?>
-    
+
     <div id="header-container">
         <h1>Johnni Willi & Association</h1>
-        <a href="paginaUsuario.php"><div id="perfil" >
-            <img src="img/maniqui.png" alt="">
-            <?php echo "<h2>" . $_SESSION['usuario'] . "</h2>"; ?>
-        </div></a>
+        <a href="paginaUsuario.php">
+            <div id="perfil">
+                <img src="img/maniqui.png" alt="">
+                <?php echo "<h2>" . $_SESSION['usuario'] . "</h2>"; ?>
+            </div>
+        </a>
     </div>
 
 
@@ -68,7 +71,7 @@ session_start();
                         <p><?= htmlspecialchars(($producto['Nombre'])) ?></p>
                         <!-- 2->para tener 2 decimales y ','->para que los decimales tengan una coma y no punto -->
                         <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
-                        <input type="image" src="img/products/like.png" name="like" value="1">
+                        <form method="POST"><input type="image" src="img/products/like.png" name="like"></form>
                         <!-- <img src="img/products/like.png" alt=""> -->
                         <button>Buy</button>
                     </div>
@@ -113,14 +116,19 @@ session_start();
 
     <?php
 
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $ID_Usuario = filter_input(INPUT_GET, 'ID_Usuario', FILTER_VALIDATE_INT);
-            $ID_Producto = filter_input(INPUT_GET, 'ID_Usuario', FILTER_VALIDATE_INT);
-            $likesBoolean = filter_input(INPUT_GET, 'likesBoolean', FILTER_VALIDATE_BOOLEAN);
+    if (isset($_POST['like'])) {
+        $ID_Usuario = $_SESSION['idUsuario'];
+        $ID_Producto = $_POST['idProducto'];
+        $likesBoolean = true;
 
-            header("Location: home.php");
-            exit();
+        try {
+            $likeController = new LikeController($ID_Usuario, $ID_Producto, $likesBoolean);
+            $likeController->darLike($ID_Usuario, $ID_Producto);
+            echo "¡Like registrado!";
+        } catch (Exception $e) {
+            echo "Error al registrar el like: " . $e->getMessage();
         }
+    }
 
     ?>
 
