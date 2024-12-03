@@ -18,8 +18,8 @@ body {
     background-color: #171717;
     background-image:
         radial-gradient(circle at 47% 33%, rgb(0, 224, 69) 0, transparent 59%),
-        radial-gradient(circle at 82% 65%, rgb(0, 80, 214) 0, transparent 55%),
-        radial-gradient(circle at 10% 65%, rgb(190, 63, 63) 0, transparent 55%);
+        radial-gradient(circle at 82% 65%, rgb(0, 80, 214) 0, transparent 55%);
+        /* radial-gradient(circle at 10% 65%, rgb(190, 63, 63) 0, transparent 55%); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,7 +28,7 @@ body {
 
 
 form {
-    backdrop-filter: saturate(180%);
+    backdrop-filter: saturate(130%);
     background-color: rgba(17, 25, 40, 0.15);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.125);

@@ -21,6 +21,7 @@ form.search-form {
     align-items: center;
 }
 
+/* Al estar junto el form y la clase se refiere a que son los formularios con esa clase */
 form.search-form input[type="search"] {
     font-size: 2em;
     padding: 10px;
@@ -160,7 +161,7 @@ th, td {
     border-radius: 8px;
     font-size: 1em;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: .3s;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -207,7 +208,6 @@ th, td {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-
 /* Responsive adjustments */
 @media (max-width: 1200px) {
     .content-container,
@@ -215,4 +215,12 @@ th, td {
     form {
         width: 95%;
     }
+}
+
+/* td input[name="productos"] {
+    border: none;
+} */
+
+td input[type="text"] {
+    border: none;
 }

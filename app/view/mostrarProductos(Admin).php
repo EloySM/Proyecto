@@ -55,7 +55,7 @@ session_start();
         if (!empty($productos)) {
             echo "<form method='POST' action=''>";
             echo "<div class='content-container'>"; // Añadir contenedor común
-            echo "<table border='1'>";
+            echo "<table>";
             echo "<tr><th>ID</th><th>Nombre</th><th>Tipo</th><th>Precio</th></tr>";
     
             foreach ($productos as $producto) {
@@ -89,7 +89,7 @@ session_start();
 
         if (!empty($producto)) {
             echo "<form method='POST' action=''>";
-            echo "<table border='1'>";
+            echo "<table>";
             echo "<tr><th>ID</th><th>Nombre</th><th>Tipo</th><th>Precio</th></tr>";
 
             foreach ($producto as $prod) {
