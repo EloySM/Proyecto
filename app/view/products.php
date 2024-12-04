@@ -27,8 +27,9 @@ session_start();
 
     $productController = new ProductoController();
 
-    $productosPerro = $productController->obtenerProductosPorTipo('Perro');
-    $productosGato = $productController->obtenerProductosPorTipo('Gato');
+
+    $productosPerro = $productController->obtenerProductosPorTipo('Perro', null);
+    $productosGato = $productController->obtenerProductosPorTipo('Gato', null);
 
     ?>
 
@@ -59,78 +60,85 @@ session_start();
     <div id="container">
         <?php if (!empty($productosPerro)): ?>
             <?php foreach ($productosPerro as $producto): ?>
-                <div class="container-food">
+                <form action="" method="POST">
+                    <div class="container-food">
 
-                    <div class="icons-top">
-                        <input type="image" src="img/products/Frame.png" name="list" alt="">
-                        <input type="image" src="img/products/favorite.png" name="favorite" alt="">
-                    </div>
-                    <img src="<?= htmlspecialchars(($producto['ruta'])) ?>" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
+                        <div class="icons-top">
+                            <input type="image" src="img/products/Frame.png" name="list" alt="">
+                            <input type="image" src="img/products/favorite.png" name="favorite" alt="">
+                        </div>
+                        <img src="<?= htmlspecialchars(($producto['ruta'])) ?>" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
 
-                    <div class="product-info">
-                        <p><?= htmlspecialchars(($producto['Nombre'])) ?></p>
-                        <!-- 2->para tener 2 decimales y ','->para que los decimales tengan una coma y no punto -->
-                        <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
-                        <form method="POST"><input type="image" src="img/products/like.png" name="like"></form>
-                        <!-- <img src="img/products/like.png" alt=""> -->
-                        <button>Buy</button>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p>No hay productos</p>
-        <?php endif; ?>
+                        <div class="product-info">
+                            <p><?= htmlspecialchars(($producto['Nombre'])) ?></p>
+                            <!-- 2->para tener 2 decimales y ','->para que los decimales tengan una coma y no punto -->
+                            <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
 
+                            <?php if (isset($producto['ID_Producto'])): ?>
+
+                                <input type="image" src="img/products/like.png" alt="Like" name="like">
+                                <input type="hidden" name="product_id" value="<?= htmlspecialchars($producto['ID_Producto']) ?>">
+                </form>
+            <?php else: ?>
+
+                <p>Error: Producto ID no definido.</p>
+                <?php var_dump($producto); // Depurar el contenido del producto 
+                ?>
+            <?php endif; ?>
+            <!-- <img src="img/products/like.png" alt=""> -->
+            <button>Buy</button>
     </div>
-
-
-    <h3>Comida gato</h3>
-
-    <div id="container">
-        <?php if (!empty($productosGato)): ?>
-            <?php foreach ($productosGato as $producto): ?>
-                <div class="container-food">
-
-                    <div class="icons-top">
-                        <input type="image" src="img/products/Frame.png" alt="">
-                        <input type="image" src="img/products/favorite.png" alt="">
-                    </div>
-                    <img src="<?= htmlspecialchars(($producto['ruta'])) ?>" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
-
-                    <div class="product-info">
-                        <p><?= htmlspecialchars($producto['Nombre']) ?></p>
-                        <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
-                        <input type="image" src="img/products/like.png" alt="">
-                        <button>Buy</button>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p>No hay productos</p>
-        <?php endif; ?>
+    </form>
     </div>
+<?php endforeach; ?>
+<?php else: ?>
+    <p>No hay productos</p>
+<?php endif; ?>
 
-    <footer>
-        <p>&copy; 2024 Johnni Willi & Association. All rights reserved.</p>
-    </footer>
+</div>
 
-    <?php
 
-    if (isset($_POST['like'])) {
-        $ID_Usuario = $_SESSION['idUsuario'];
-        $ID_Producto = $_POST['idProducto'];
-        $likesBoolean = true;
+<h3>Comida gato</h3>
 
-        try {
-            $likeController = new LikeController($ID_Usuario, $ID_Producto, $likesBoolean);
-            $likeController->darLike($ID_Usuario, $ID_Producto);
-            echo "¡Like registrado!";
-        } catch (Exception $e) {
-            echo "Error al registrar el like: " . $e->getMessage();
-        }
-    }
+<div id="container">
+    <?php if (!empty($productosGato)): ?>
+        <?php foreach ($productosGato as $producto): ?>
+            <div class="container-food">
 
-    ?>
+                <div class="icons-top">
+                    <input type="image" src="img/products/Frame.png" alt="">
+                    <input type="image" src="img/products/favorite.png" alt="">
+                </div>
+                <img src="<?= htmlspecialchars(($producto['ruta'])) ?>" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
+
+                <div class="product-info">
+                    <p><?= htmlspecialchars($producto['Nombre']) ?></p>
+                    <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
+
+                    <input type="image" src="img/products/like.png" alt="" name="Like">
+                    <button>Buy</button>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p>No hay productos</p>
+    <?php endif; ?>
+</div>
+
+<footer>
+    <p>&copy; 2024 Johnni Willi & Association. All rights reserved.</p>
+</footer>
+
+<?php
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['product_id'])) {
+    $likeController = new LikeController();
+    $likeController->darLike($_SESSION['id'], $_POST['product_id']);
+
+    exit();
+}
+
+?>
 
 </body>
 

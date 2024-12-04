@@ -1,24 +1,21 @@
 <?php
+// session_start();
+require_once "../../app/model/like.php";
 
-require "../model/Like.php";
+class LikeController
+{
+    public function darlike()
+    {
+        $ID_Usuario = $_SESSION['id'];
+        $ID_Producto = $_POST['product_id'];
+        $like = new Like(null, $ID_Usuario, $ID_Producto);
+        $like->darLike($ID_Usuario, $ID_Producto);
 
-class LikeController {
-
-    private $idUsuario;
-    private $idProducto;
-    private $likesBoolean;
-
-    public function __construct($idUsuario, $idProducto, $likesBoolean) {
-        $this->idUsuario = $idUsuario;
-        $this->idProducto = $idProducto;
-        $this->likesBoolean = $likesBoolean;
-    }
-
-    public function darLike($idUsuario, $idProducto) {
-        $like = new Like();
-        $like->setIdUsuario($idUsuario);
-        $like->setIdProducto($idProducto);
-        $like->setLikesBoolean($this->likesBoolean);
-        $like->save();
+        // header('Location: index.php?controller=products&action=showProducts');
     }
 }
+
+
+
+
+?>
