@@ -62,7 +62,6 @@ session_start();
             <?php foreach ($productosPerro as $producto): ?>
                 <form action="" method="POST">
                     <div class="container-food">
-
                         <div class="icons-top">
                             <input type="image" src="img/products/Frame.png" name="list" alt="">
                             <input type="image" src="img/products/favorite.png" name="favorite" alt="">
@@ -76,69 +75,77 @@ session_start();
 
                             <?php if (isset($producto['ID_Producto'])): ?>
 
-                                <input type="image" src="img/products/like.png" alt="Like" name="like">
-                                <input type="hidden" name="product_id" value="<?= htmlspecialchars($producto['ID_Producto']) ?>">
+                                <button type="submit" name="like">
+                                    <img src="img/products/like.png" alt="Enviar" />
+                                    <input type="hidden" name="product_id" value="<?= htmlspecialchars($producto['ID_Producto']) ?>">
+                                </button>
+
+                            <?php else: ?>
+
+                                <p>Error: Producto ID no definido.</p>
+                                <?php var_dump($producto); // Depurar el contenido del producto 
+                                ?>
+                            <?php endif; ?>
+                            <button>Buy</button>
+                        </div>
+                    </div>
                 </form>
-            <?php else: ?>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>No hay productos</p>
+        <?php endif; ?>
 
-                <p>Error: Producto ID no definido.</p>
-                <?php var_dump($producto); // Depurar el contenido del producto 
-                ?>
-            <?php endif; ?>
-            <!-- <img src="img/products/like.png" alt=""> -->
-            <button>Buy</button>
     </div>
-    </form>
+
+
+    <h3>Comida gato</h3>
+
+    <div id="container">
+        <?php if (!empty($productosGato)): ?>
+            <?php foreach ($productosGato as $producto): ?>
+                <form action="" method="POST">
+                    <div class="container-food">
+                        <div class="icons-top">
+                            <input type="image" src="img/products/Frame.png" alt="">
+                            <input type="image" src="img/products/favorite.png" alt="">
+                        </div>
+                        <img src="<?= htmlspecialchars(($producto['ruta'])) ?>" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
+
+                        <div class="product-info">
+                            <p><?= htmlspecialchars($producto['Nombre']) ?></p>
+                            <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
+
+                            <button type="submit" name="like">
+                                <img src="img/products/like.png" alt="">
+                                <input type="hidden" name="product_id" value="<?= htmlspecialchars($producto['ID_Producto']) ?>">
+                            </button>
+
+                            <!-- <input type="image" src="img/products/like.png" alt="" name="Like"> -->
+                            <button>Buy</button>
+                        </div>
+                    </div>
+                </form>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>No hay productos</p>
+        <?php endif; ?>
     </div>
-<?php endforeach; ?>
-<?php else: ?>
-    <p>No hay productos</p>
-<?php endif; ?>
 
-</div>
+    <footer>
+        <p>&copy; 2024 Johnni Willi & Association. All rights reserved.</p>
+    </footer>
 
+    <?php
 
-<h3>Comida gato</h3>
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['like'])) {
 
-<div id="container">
-    <?php if (!empty($productosGato)): ?>
-        <?php foreach ($productosGato as $producto): ?>
-            <div class="container-food">
+        $likeController = new LikeController();
+        $likeController->darLike($_SESSION['id'], $_POST['product_id']);
 
-                <div class="icons-top">
-                    <input type="image" src="img/products/Frame.png" alt="">
-                    <input type="image" src="img/products/favorite.png" alt="">
-                </div>
-                <img src="<?= htmlspecialchars(($producto['ruta'])) ?>" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
+        exit();
+    }
 
-                <div class="product-info">
-                    <p><?= htmlspecialchars($producto['Nombre']) ?></p>
-                    <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
-
-                    <input type="image" src="img/products/like.png" alt="" name="Like">
-                    <button>Buy</button>
-                </div>
-            </div>
-        <?php endforeach; ?>
-    <?php else: ?>
-        <p>No hay productos</p>
-    <?php endif; ?>
-</div>
-
-<footer>
-    <p>&copy; 2024 Johnni Willi & Association. All rights reserved.</p>
-</footer>
-
-<?php
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['product_id'])) {
-    $likeController = new LikeController();
-    $likeController->darLike($_SESSION['id'], $_POST['product_id']);
-
-    exit();
-}
-
-?>
+    ?>
 
 </body>
 

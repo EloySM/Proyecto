@@ -60,7 +60,6 @@ class like {
             $stmt->bindParam(1, $this -> $idUsuario);
             $stmt->bindParam(2, $this -> $idProducto);
             $stmt->execute();   
-
         }
 
         public function getLikes($idProducto){
@@ -75,7 +74,6 @@ class like {
      
 
 }
-
 
 
 ?>
