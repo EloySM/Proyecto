@@ -13,6 +13,11 @@ class LikeController
 
         // header('Location: index.php?controller=products&action=showProducts');
     }
+
+    public function mostrarConMasLikes() {
+        $like = new like(null, null);
+        return $like->masLikes();
+    }
 }
 
 
