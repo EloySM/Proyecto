@@ -24,6 +24,7 @@ session_start();
 
     require_once "../controller/ProductoController.php";
     require_once "../controller/LikeController.php";
+    require_once "../controller/DeseadoController.php";
 
     $productController = new ProductoController();
     $likeController = new LikeController();
@@ -167,6 +168,20 @@ session_start();
         $likeController->darLike($_SESSION['id'], $_POST['product_id']);
 
         exit();
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['favorite'])) {
+
+       
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['list'])) {
+
+        $deseadoController = new DeseadoController();
+        $deseadoController->añadirDeseado($_SESSION['id'], $_POST['product_id']);
+
+        exit();
+
     }
 
     ?>

@@ -53,7 +53,7 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
         } elseif (isset($_POST['volver'])) {
             header('Location: home.php');
             exit();
-        }
+        }    
     }
     ?>
 

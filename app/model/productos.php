@@ -1,5 +1,6 @@
 <?php
-require "../../config/dbConnection.php";
+
+require_once '../../config/dbConnection.php';
 
 class Productos
 {
@@ -19,74 +20,6 @@ class Productos
         $this->precio = $precio;
         $this->likes = $likes;
     }
-
-
-
-    //GETS 
-
-    public function getID_Producto()
-    {
-
-        return $this->ID_Producto;
-    }
-
-
-    public function getnombre()
-    {
-
-        return $this->nombre;
-    }
-
-    public function getPrecio()
-    {
-
-        return $this->precio;
-    }
-
-    public function getTipo()
-    {
-
-        return $this->tipo;
-    }
-
-    public function getLikes()
-    {
-
-        return $this->likes;
-    }
-
-
-
-
-    // SETERS
-    public function setNombre($nombre)
-    {
-
-        $this->nombre = $nombre;
-    }
-
-    public function setPrecio($precio)
-    {
-
-        $this->precio = $precio;
-    }
-
-    public function setTipo($tipo)
-    {
-
-        $this->tipo = $tipo;
-    }
-
-
-    public function setLikes($likes)
-    {
-
-        $this->likes = $likes;
-    }
-
-
-
-
     //FUNCIONES PARA EL ADMINISTRADOR
     public function crearProducto()
     {
@@ -169,12 +102,4 @@ class Productos
         return $sentencia->fetch(PDO::FETCH_ASSOC);
     }
 
-    // public function añadirLike() 
-    // {
-    //     $conn = getDBConnection();
-    //     $sentencia = $conn->prepare("INSERT INTO likes (ID_Usuario, ID_Producto, likesBoolean) VALUES (?, ?, ?)");
-    //     $sentencia->bindParam("iis", $ID_Usuario, $ID_Producto, $likesBoolean);
-    //     $sentencia->execute();
-    //     return $sentencia;
-    // }
 }

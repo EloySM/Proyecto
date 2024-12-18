@@ -1,0 +1,116 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+/* Mensaje cuando no hay productos */
+p {
+    text-align: center;
+    color: #666;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Estilos de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+thead {
+    background-color: #f8f9fa;
+}
+
+th {
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 2px solid #dee2e6;
+}
+
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #dee2e6;
+    color: #444;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tr:hover {
+    background-color: #f2f2f2;
+}
+
+/* Estilos para imágenes */
+img {
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+/* Estilos para botones */
+button, .button {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+button[name="Eliminar"] {
+    background-color: #dc3545;
+    color: white;
+}
+
+button[name="Eliminar"]:hover {
+    background-color: #c82333;
+}
+
+a button {
+    background-color: #0d6efd;
+    color: white;
+}
+
+a button:hover {
+    background-color: #0b5ed7;
+}
+
+/* Estilo para el botón verde (Editar) */
+.button-edit {
+    background-color: #198754;
+    color: white;
+}
+
+.button-edit:hover {
+    background-color: #157347;
+}
+
+/* Contenedor de botones al final */
+.button-container {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+/* Estilo para el botón gris */
+.button-gray {
+    background-color: #6c757d;
+    color: white;
+}
+
+.button-gray:hover {
+    background-color: #5c636a;
+}
