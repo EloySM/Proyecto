@@ -81,7 +81,7 @@ class like
     {
         $conn = getDBConnection();
         // SELECT idProducto, COUNT(*) AS totalLikes FROM likes GROUP BY idProducto ORDER BY totalLikes DESC LIMIT 4;
-        $sentencia = $conn->prepare("SELECT p.ID_Producto, p.Nombre, p.Precio, p.ruta AS Imagen,COUNT(l.ID_Producto) AS TotalLikes FROM productos p JOIN likes l ON p.ID_Producto = l.ID_Producto GROUP BY p.ID_Producto, p.Nombre, p.Precio, p.ruta ORDER BY TotalLikes DESC LIMIT 4;");
+        $sentencia = $conn->prepare("SELECT p.ID_Producto, p.Nombre, p.Precio, p.ruta ,COUNT(l.ID_Producto) AS TotalLikes FROM productos p JOIN likes l ON p.ID_Producto = l.ID_Producto GROUP BY p.ID_Producto, p.Nombre, p.Precio, p.ruta ORDER BY TotalLikes DESC LIMIT 4;");
         $sentencia->execute();
         return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
