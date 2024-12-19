@@ -4,14 +4,12 @@ require_once "../../app/model/like.php";
 
 class LikeController
 {
-    public function darlike()
+    public function darQuitarlike()
     {
         $ID_Usuario = $_SESSION['id'];
         $ID_Producto = $_POST['product_id'];
         $like = new Like(null, $ID_Usuario, $ID_Producto);
-        $like->darLike($ID_Usuario, $ID_Producto);
-
-        // header('Location: index.php?controller=products&action=showProducts');
+        $like->alternarLike($ID_Usuario, $ID_Producto);
     }
 
     public function mostrarConMasLikes() {

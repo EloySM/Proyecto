@@ -53,9 +53,9 @@ session_start(); // Iniciamos la sesión para mostrar el nombre del usuario
 
     <div id="part2">
         <img src="img/home/perro1.png" alt="">
-        <button>Comida para perros</button>
+        <button onclick="window.location.href='products.php#comida-perro'">Comida para perros</button>
         <img src="img/home/gato1.png" alt="">
-        <button>Comida para gatos</button>
+        <button onclick="window.location.href='products.php#comida-gato'">Comida para gatos</button>
     </div>
 
     <footer>
