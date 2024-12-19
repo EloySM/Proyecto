@@ -1,5 +1,4 @@
 <?php
-// session_start();
 require_once "../../app/model/like.php";
 
 class LikeController
@@ -17,8 +16,6 @@ class LikeController
         return $like->masLikes();
     }
 }
-
-
 
 
 ?>

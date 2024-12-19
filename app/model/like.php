@@ -14,33 +14,6 @@ class like
         $this->idProducto = $idProducto;
     }
 
-    // GETS
-
-    public function getIdUsuario()
-    {
-
-        return $this->idUsuario;
-    }
-
-    public function getId_Producto()
-    {
-
-        return $this->idProducto;
-    }
-
-    // SETS
-    public function setIdUsuario($idUsuario)
-    {
-
-        $this->idUsuario = $idUsuario;
-    }
-
-    public function setIdProducto($idProducto)
-    {
-
-        $this->idProducto = $idProducto;
-    }
-
     public function alternarLike($idUsuario, $idProducto)
     {
         try {
@@ -89,7 +62,6 @@ class like
     public function masLikes()
     {
         $conn = getDBConnection();
-        // SELECT idProducto, COUNT(*) AS totalLikes FROM likes GROUP BY idProducto ORDER BY totalLikes DESC LIMIT 4;
         $sentencia = $conn->prepare("SELECT p.ID_Producto, p.Nombre, p.Precio, p.ruta, COUNT(l.ID_Producto) AS TotalLikes 
                                  FROM productos p 
                                  LEFT JOIN likes l ON p.ID_Producto = l.ID_Producto 
@@ -100,3 +72,4 @@ class like
         return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 }
+?>

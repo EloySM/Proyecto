@@ -34,6 +34,8 @@ session_start();
 
     ?>
 
+<h1>hola</h1>
+
     <div id="header-container">
         <h1>Johnni Willi & Association</h1>
         <a href="paginaUsuario.php">
@@ -110,12 +112,13 @@ session_start();
                             <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
 
                             <input type="hidden" name="product_id" value="<?= htmlspecialchars($producto['ID_Producto']) ?>">
+                            
                             <button>Buy</button>
-                        </div>
+                                </div>
                     </div>
                 </form>
             <?php endforeach; ?>
-        <?php else: ?>
+                <?php else: ?>
             <p>No hay productos</p>
         <?php endif; ?>
 
