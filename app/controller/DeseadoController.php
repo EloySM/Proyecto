@@ -1,7 +1,7 @@
 <?php
 
 require_once '../../app/model/deseados.php';
-require_once '../../app/model/productos.php'; // Asegúrate de tener un modelo de productos
+require_once '../../app/model/productos.php'; 
 
 class DeseadoController
 {
@@ -9,9 +9,11 @@ class DeseadoController
     public function añadirDeseado()
     {
         $ID_Usuario = $_SESSION['id'];
-        $ID_Producto = $_POST['product_id'];
-        $deseado = new deseado(null, $ID_Usuario, $ID_Producto);
-        $deseado->addDeseado($ID_Usuario, $ID_Producto);
+        $ID_Producto = $_POST['product_id']; 
+        if (!$this->esDeseado($ID_Usuario, $ID_Producto)) {
+            $deseado = new deseado(null, $ID_Usuario, $ID_Producto);
+            $deseado->addDeseado($ID_Usuario, $ID_Producto);
+        }
     }
 
     public function getDeseados()
@@ -34,6 +36,12 @@ class DeseadoController
         $ID_Producto = $_POST['ID_Producto'];
         $deseado = new deseado(null, $ID_Usuario, $ID_Producto);
         $deseado->deleteDeseado($ID_Usuario, $ID_Producto);
+    }
+
+    public function esDeseado($ID_Usuario, $ID_Producto)
+    {
+        $deseado = new deseado(null, $ID_Usuario, $ID_Producto);
+        return $deseado->verificarDeseado($ID_Usuario, $ID_Producto);
     }
 }
 

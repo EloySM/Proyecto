@@ -3,6 +3,17 @@ session_start();
 require_once "../../app/controller/DeseadoController.php";
 
 $deseadoController = new DeseadoController();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['Eliminar'])) {
+    if (isset($_POST['ID_Producto'])) {
+        $ID_Producto = $_POST['ID_Producto'];
+        $deseadoController->eliminarDeseado($ID_Producto);
+        // Redirigir para evitar reenvío del formulario al recargar la página
+        header("Location: lista.php");
+        exit();
+    }
+}
+
 $deseados = $deseadoController->getDeseados();
 ?>
 
@@ -14,7 +25,8 @@ $deseados = $deseadoController->getDeseados();
     <title>Document</title>
     <link rel="stylesheet" href="css/lista.css">
 </head>
-<?php if (empty($deseados)): ?>
+<body>
+    <?php if (empty($deseados)): ?>
         <p>No hay productos en la lista de deseados.</p>
     <?php else: ?>
         <table border="1">
@@ -53,16 +65,5 @@ $deseados = $deseadoController->getDeseados();
     <?php endif; ?>
     
     <a href="paginaUsuario.php"><button>Volver</button></a> 
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['Eliminar'])) {
-        if (isset($_POST['ID_Producto'])) {
-            $ID_Producto = $_POST['ID_Producto'];
-            $deseadoController->eliminarDeseado($ID_Producto);
-            // Redirigir para evitar reenvío del formulario al recargar la página
-            header("Location: lista.php");
-            exit();
-        }
-    }
-    ?>
 </body>
 </html>
