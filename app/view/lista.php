@@ -4,6 +4,9 @@ require_once "../../app/controller/DeseadoController.php";
 
 $deseadoController = new DeseadoController();
 
+
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['Eliminar'])) {
     if (isset($_POST['ID_Producto'])) {
         $ID_Producto = $_POST['ID_Producto'];

@@ -8,6 +8,10 @@ class deseado{
     private $idUsuario;
     private $idProducto;
 
+
+
+
+    
     public function __construct($idDeseado, $idUsuario, $idProducto)
     {
         $this -> idDeseado = $idDeseado;
