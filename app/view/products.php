@@ -29,12 +29,13 @@ session_start();
     $productController = new ProductoController();
     $likeController = new LikeController();
 
-
     $productosPerro = $productController->obtenerProductosPorTipo('Perro', null);
     $productosGato = $productController->obtenerProductosPorTipo('Gato', null);
     $masLikes = $likeController->mostrarConMasLikes();
 
     ?>
+
+<h1>hola</h1>
 
     <div id="header-container">
         <h1>Johnni Willi & Association</h1>
@@ -60,7 +61,7 @@ session_start();
 
     <h3>Más Likes</h3>
 
-    <div id="container">
+    <div class="container">
         <?php if (!empty($masLikes)): ?>
             <?php foreach ($masLikes as $producto): ?>
                 <div class="container-food">
@@ -91,7 +92,7 @@ session_start();
 
     <h3>Comida perro</h3>
 
-    <div id="container">
+    <div id="comida-perro" class="container">
         <?php if (!empty($productosPerro)): ?>
             <?php foreach ($productosPerro as $producto): ?>
                 <form action="" method="POST">
@@ -112,12 +113,13 @@ session_start();
                             <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
 
                             <input type="hidden" name="product_id" value="<?= htmlspecialchars($producto['ID_Producto']) ?>">
+                            
                             <button>Buy</button>
-                        </div>
+                                </div>
                     </div>
                 </form>
             <?php endforeach; ?>
-        <?php else: ?>
+                <?php else: ?>
             <p>No hay productos</p>
         <?php endif; ?>
 
@@ -126,7 +128,7 @@ session_start();
 
     <h3>Comida gato</h3>
 
-    <div id="container">
+    <div id="comida-gato" class="container">
         <?php if (!empty($productosGato)): ?>
             <?php foreach ($productosGato as $producto): ?>
                 <form action="" method="POST">
@@ -165,7 +167,7 @@ session_start();
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['like'])) {
 
         $likeController = new LikeController();
-        $likeController->darLike($_SESSION['id'], $_POST['product_id']);
+        $likeController->darQuitarLike($_SESSION['id'], $_POST['product_id']);
 
         exit();
     }
