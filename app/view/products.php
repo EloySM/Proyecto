@@ -35,7 +35,7 @@ session_start();
 
     ?>
 
-<h1>hola</h1>
+
 
     <div id="header-container">
         <h1>Johnni Willi & Association</h1>
