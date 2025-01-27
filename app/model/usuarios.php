@@ -1,6 +1,6 @@
 <?php
 
-require_once '../../config/dbConnection.php';
+require_once __DIR__ . '/../../config/dbConnection.php';
 
 class Usuario
 {
@@ -103,6 +103,7 @@ class Usuario
             return false;
         }
     }
+
     public function login()
     {
         $conn = getDBConnection();
