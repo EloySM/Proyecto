@@ -1,7 +1,7 @@
 <?php 
 
 
-require_once "../../app/model/productos.php";   
+require_once __DIR__ . "/../../app/model/productos.php";   
 
 class ProductoController
 {
