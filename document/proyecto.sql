@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-11-2024 a las 13:19:05
+-- Tiempo de generación: 28-01-2025 a las 13:59:38
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -24,15 +24,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `empleados`
+-- Estructura de tabla para la tabla `deseado`
 --
 
-CREATE TABLE `empleados` (
-  `ID_Empleado` int(11) NOT NULL,
-  `Nombre` varchar(255) NOT NULL,
-  `Apellidos` varchar(255) NOT NULL,
-  `EsAdmin` tinyint(1) DEFAULT NULL
+CREATE TABLE `deseado` (
+  `ID_Usuario` int(11) NOT NULL,
+  `ID_Producto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `deseado`
+--
+
+INSERT INTO `deseado` (`ID_Usuario`, `ID_Producto`) VALUES
+(1, 20);
 
 -- --------------------------------------------------------
 
@@ -41,10 +46,19 @@ CREATE TABLE `empleados` (
 --
 
 CREATE TABLE `favorito` (
-  `ID_Favorito` int(11) NOT NULL,
-  `ID_Usuario` int(255) NOT NULL,
-  `ID_Producto` int(255) NOT NULL
+  `ID_Usuario` int(11) NOT NULL,
+  `ID_Producto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `favorito`
+--
+
+INSERT INTO `favorito` (`ID_Usuario`, `ID_Producto`) VALUES
+(1, 16),
+(1, 17),
+(1, 18),
+(1, 20);
 
 -- --------------------------------------------------------
 
@@ -54,9 +68,15 @@ CREATE TABLE `favorito` (
 
 CREATE TABLE `likes` (
   `ID_Usuario` int(11) NOT NULL,
-  `ID_Producto` int(11) NOT NULL,
-  `likesBoolean` tinyint(1) NOT NULL
+  `ID_Producto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `likes`
+--
+
+INSERT INTO `likes` (`ID_Usuario`, `ID_Producto`) VALUES
+(1, 20);
 
 -- --------------------------------------------------------
 
@@ -65,10 +85,16 @@ CREATE TABLE `likes` (
 --
 
 CREATE TABLE `pedidos` (
-  `ID_Pedido` int(11) NOT NULL,
   `ID_Usuario` int(11) NOT NULL,
   `ID_Producto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `pedidos`
+--
+
+INSERT INTO `pedidos` (`ID_Usuario`, `ID_Producto`) VALUES
+(1, 16);
 
 -- --------------------------------------------------------
 
@@ -95,8 +121,8 @@ INSERT INTO `productos` (`ID_Producto`, `Nombre`, `Tipo`, `Precio`, `ruta`, `Lik
 (18, 'JW  Adult Chicken', 'Perro', 15.99, '\\img\\products\\perro\\LIGHT.png', 800),
 (19, 'JW Cordero', 'Perro', 29.99, '\\img\\products\\perro\\SALMON.png', 700),
 (20, 'JW  Adult Chicken', 'Gato', 17.99, '\\img\\products\\gato\\FarmPoultryFrontal.png', 600),
-(21, 'JW Cordero', 'Gato', 18.5, '\\img\\products\\gato\\KittenFrontal.png', 500),
-(22, 'JW Adult Mini \nAtletic Blue Fish', 'Gato', 22.99, '\\img\\products\\gato\\SeniorFrontal.png', 400),
+(21, 'JW Cordero', 'Gato', 18.59, '\\img\\products\\gato\\KittenFrontal.png', 500),
+(22, 'JW Adult Mini Atletic Blue Fish', 'Gato', 22.99, '\\img\\products\\gato\\SeniorFrontal.png', 400),
 (26, 'JW Tuna', 'Gato', 21.99, '\\img\\products\\gato\\SensitiveFrontal.png', 200);
 
 -- --------------------------------------------------------
@@ -127,18 +153,17 @@ INSERT INTO `usuario` (`ID_Usuario`, `Nombre`, `NombreUsuario`, `Contraseña`, `
 --
 
 --
--- Indices de la tabla `empleados`
+-- Indices de la tabla `deseado`
 --
-ALTER TABLE `empleados`
-  ADD PRIMARY KEY (`ID_Empleado`);
+ALTER TABLE `deseado`
+  ADD PRIMARY KEY (`ID_Usuario`,`ID_Producto`);
 
 --
 -- Indices de la tabla `favorito`
 --
 ALTER TABLE `favorito`
-  ADD PRIMARY KEY (`ID_Favorito`,`ID_Usuario`,`ID_Producto`),
-  ADD KEY `ID_Producto` (`ID_Producto`),
-  ADD KEY `ID_Usuario` (`ID_Usuario`);
+  ADD PRIMARY KEY (`ID_Usuario`,`ID_Producto`),
+  ADD KEY `ID_Producto` (`ID_Producto`);
 
 --
 -- Indices de la tabla `likes`
@@ -151,7 +176,7 @@ ALTER TABLE `likes`
 -- Indices de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  ADD PRIMARY KEY (`ID_Pedido`,`ID_Usuario`,`ID_Producto`),
+  ADD PRIMARY KEY (`ID_Usuario`,`ID_Producto`),
   ADD KEY `ID_Producto` (`ID_Producto`),
   ADD KEY `ID_Usuario` (`ID_Usuario`);
 
@@ -170,18 +195,6 @@ ALTER TABLE `usuario`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
-
---
--- AUTO_INCREMENT de la tabla `empleados`
---
-ALTER TABLE `empleados`
-  MODIFY `ID_Empleado` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `favorito`
---
-ALTER TABLE `favorito`
-  MODIFY `ID_Favorito` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -203,8 +216,8 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `favorito`
 --
 ALTER TABLE `favorito`
-  ADD CONSTRAINT `favorito_ibfk_1` FOREIGN KEY (`ID_Producto`) REFERENCES `productos` (`ID_Producto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `favorito_ibfk_2` FOREIGN KEY (`ID_Usuario`) REFERENCES `usuario` (`ID_Usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `favorito_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `usuario` (`ID_Usuario`),
+  ADD CONSTRAINT `favorito_ibfk_2` FOREIGN KEY (`ID_Producto`) REFERENCES `productos` (`ID_Producto`);
 
 --
 -- Filtros para la tabla `likes`
