@@ -4,19 +4,13 @@ require_once '../../config/dbConnection.php';
 
 class deseado{
 
-    private $idDeseado;
     private $idUsuario;
     private $idProducto;
-
-
-
-
     
-    public function __construct($idDeseado, $idUsuario, $idProducto)
+    public function __construct($idUsuario, $idProducto)
     {
-        $this -> idDeseado = $idDeseado;
-        $this -> idUsuario = $idUsuario;
-        $this -> idProducto = $idProducto;
+        $this->idUsuario = $idUsuario;
+        $this->idProducto = $idProducto;
     }
 
     public function addDeseado()
@@ -61,17 +55,16 @@ class deseado{
         return $result;
     }
 
-    public function getDeseado()
-    {
-        $conn = getDBConnection();
-        $sentencia = $conn->prepare("SELECT * FROM deseado WHERE ID_Usuario = ? AND ID_Producto = ?");
-        $sentencia->bindParam(1, $this->idUsuario);
-        $sentencia->bindParam(2, $this->idProducto);
-        $sentencia->execute();
-        $result = $sentencia->fetch(PDO::FETCH_ASSOC);
-        return $result;
-
-    }
+    // public function getDeseado()
+    // {
+    //     $conn = getDBConnection();
+    //     $sentencia = $conn->prepare("SELECT * FROM deseado WHERE ID_Usuario = ? AND ID_Producto = ?");
+    //     $sentencia->bindParam(1, $this->idUsuario);
+    //     $sentencia->bindParam(2, $this->idProducto);
+    //     $sentencia->execute();
+    //     $result = $sentencia->fetch(PDO::FETCH_ASSOC);
+    //     return $result;
+    // }
 
     public function verificarDeseado($ID_Usuario, $ID_Producto)
     {

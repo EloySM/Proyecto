@@ -21,7 +21,7 @@ session_start();
 <body>
 
     <?php
-
+    require_once "../controller/FavoritoController.php";
     require_once "../controller/ProductoController.php";
     require_once "../controller/LikeController.php";
     require_once "../controller/DeseadoController.php";
@@ -134,7 +134,7 @@ session_start();
                 <form action="" method="POST">
                     <div class="container-food">
                         <div class="icons-top">
-                            <button type="image" name="list"></button>
+                            <button type="submit" name="list"></button>
                             <button type="submit" name="favorite"></button>
                         </div>
                         <img src="<?= htmlspecialchars(($producto['ruta'])) ?>" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
@@ -147,7 +147,6 @@ session_start();
                             <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
 
                             <input type="hidden" name="product_id" value="<?= htmlspecialchars($producto['ID_Producto']) ?>">
-                            <!-- <input type="image" src="img/products/like.png" alt="" name="Like"> -->
                             <button>Buy</button>
                         </div>
                     </div>
@@ -174,7 +173,10 @@ session_start();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['favorite'])) {
 
-       
+       $botonFavorite = new FavoritoController();
+       $botonFavorite->añadirFavorito($_SESSION['id'], $_POST['product_id']);
+
+       exit();
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['list'])) {
