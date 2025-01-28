@@ -37,10 +37,4 @@ class DeseadoController
         $deseado = new deseado($ID_Usuario, $ID_Producto);
         $deseado->deleteDeseado($ID_Usuario, $ID_Producto);
     }
-
-    public function esDeseado($ID_Usuario, $ID_Producto)
-    {
-        $deseado = new deseado($ID_Usuario, $ID_Producto);
-        return $deseado->verificarDeseado($ID_Usuario, $ID_Producto);
-    }
 }

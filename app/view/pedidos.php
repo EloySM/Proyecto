@@ -1,20 +1,22 @@
 <?php
-session_start();
-require_once "../../app/controller/DeseadoController.php";
 
-$deseadoController = new DeseadoController();
+session_start(); // Iniciamos la sesión para guardar el nombre del usuario
+require_once "../controller/PedidoController.php";
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['Eliminar'])) {
-    if (isset($_POST['ID_Producto'])) {
+$pedidosController = new PedidoController();
+
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['Eliminar'])){
+    if(isset($_POST['ID_Producto'])){
         $ID_Producto = $_POST['ID_Producto'];
-        $deseadoController->eliminarDeseado($ID_Producto);
+        $pedidosController->eliminarpedido($ID_Producto);
         // Redirigir para evitar reenvío del formulario al recargar la página
-        header("Location: lista.php");
+        header("Location: pedido.php");
         exit();
     }
 }
 
-$deseados = $deseadoController->getDeseados();
+$pedidos = $pedidosController->getPedidos();
+
 ?>
 
 <!DOCTYPE html>
@@ -22,12 +24,12 @@ $deseados = $deseadoController->getDeseados();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista</title>
     <link rel="stylesheet" href="css/lista.css">
+    <title>Document</title>
 </head>
 <body>
-    <?php if (empty($deseados)): ?>
-        <p>No hay productos en la lista de deseados.</p>
+<?php if (empty($pedidos)): ?>
+        <p>No hay productos en la lista pedidos.</p>
     <?php else: ?>
         <table border="1">
             <thead>
@@ -40,9 +42,9 @@ $deseados = $deseadoController->getDeseados();
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($deseados as $deseado): ?>
+                <?php foreach ($pedidos as $pedido): ?>
                     <?php 
-                    $producto = $deseadoController->getProductoById($deseado['ID_Producto']);
+                    $producto = $pedidosController->getProductoById($pedido['ID_Producto']);
                     if ($producto): ?>
                         <tr>
                             <td><?php echo htmlspecialchars($producto['Nombre']); ?></td>
@@ -53,7 +55,7 @@ $deseados = $deseadoController->getDeseados();
                             </td>
                             <td>
                                 <form method="post">
-                                    <input type="hidden" name="ID_Producto" value="<?php echo htmlspecialchars($deseado['ID_Producto']); ?>">
+                                    <input type="hidden" name="ID_Producto" value="<?php echo htmlspecialchars($pedido['ID_Producto']); ?>">
                                     <button type="submit" name="Eliminar">Eliminar</button>
                                 </form>
                             </td>

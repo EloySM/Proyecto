@@ -18,7 +18,7 @@ class like
     {
         try {
             $conn = getDBConnection();
-            
+
             // Verificar si ya existe el like en la base de datos
             $sentencia = "SELECT COUNT(*) FROM likes WHERE ID_Usuario = ? AND ID_Producto = ?";
             $stmt = $conn->prepare($sentencia);
@@ -66,10 +66,10 @@ class like
                                  FROM productos p 
                                  LEFT JOIN likes l ON p.ID_Producto = l.ID_Producto 
                                  GROUP BY p.ID_Producto, p.Nombre, p.Precio, p.ruta 
+                                 HAVING TotalLikes > 0
                                  ORDER BY TotalLikes DESC 
                                  LIMIT 4;");
         $sentencia->execute();
         return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 }
-?>

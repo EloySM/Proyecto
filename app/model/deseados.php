@@ -55,27 +55,5 @@ class deseado{
         return $result;
     }
 
-    // public function getDeseado()
-    // {
-    //     $conn = getDBConnection();
-    //     $sentencia = $conn->prepare("SELECT * FROM deseado WHERE ID_Usuario = ? AND ID_Producto = ?");
-    //     $sentencia->bindParam(1, $this->idUsuario);
-    //     $sentencia->bindParam(2, $this->idProducto);
-    //     $sentencia->execute();
-    //     $result = $sentencia->fetch(PDO::FETCH_ASSOC);
-    //     return $result;
-    // }
-
-    public function verificarDeseado($ID_Usuario, $ID_Producto)
-    {
-        $conn = getDBConnection();
-        $sentencia = $conn->prepare("SELECT COUNT(*) FROM deseado WHERE ID_Usuario = ? AND ID_Producto = ?");
-        $sentencia->bindParam(1, $ID_Usuario);
-        $sentencia->bindParam(2, $ID_Producto);
-        $sentencia->execute();
-        return $sentencia->fetchColumn() > 0;
-    }
-
-
 }
 ?>

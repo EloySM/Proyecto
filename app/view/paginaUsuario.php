@@ -23,6 +23,7 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
     <form method="POST">
         <h1>Bienvenido: <?php echo $_SESSION['usuario']; ?></h1>
         <input type="submit" value="Modificar perfil" name="modificar">
+        <input type="submit" value="Pedidos" name="pedidos">
         <input type="submit" value="Favoritos" name="favoritos">
         <input type="submit" value="Lista" name="lista">
 
@@ -41,6 +42,9 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
         } elseif (isset($_POST['modificar'])) {
             header('Location: modificarPerfil.php');
             exit();
+        } else if (isset($_POST['pedidos'])) {
+            header('Location: pedidos.php');
+            exit();
         } elseif (isset($_POST['favoritos'])) {
             header('Location: favoritos.php');
             exit();
@@ -53,7 +57,7 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
         } elseif (isset($_POST['volver'])) {
             header('Location: home.php');
             exit();
-        }    
+        }
     }
     ?>
 

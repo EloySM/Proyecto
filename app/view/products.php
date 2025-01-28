@@ -21,6 +21,8 @@ session_start();
 <body>
 
     <?php
+
+    require_once "../controller/PedidoController.php";
     require_once "../controller/FavoritoController.php";
     require_once "../controller/ProductoController.php";
     require_once "../controller/LikeController.php";
@@ -64,6 +66,7 @@ session_start();
     <div class="container">
         <?php if (!empty($masLikes)): ?>
             <?php foreach ($masLikes as $producto): ?>
+                <form action="" method="POST">
                 <div class="container-food">
                     <div class="icons-top">
                         <button type="submit" name="list"></button>
@@ -81,9 +84,10 @@ session_start();
                         <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
 
                         <input type="hidden" name="product_id" value="<?= htmlspecialchars($producto['ID_Producto']) ?>">
-                        <button>Buy</button>
+                        <button type="submit" name="comprar">Buy</button>
                     </div>
                 </div>
+                </form>
             <?php endforeach; ?>
         <?php else: ?>
             <p>No hay productos</p>
@@ -113,13 +117,13 @@ session_start();
                             <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
 
                             <input type="hidden" name="product_id" value="<?= htmlspecialchars($producto['ID_Producto']) ?>">
-                            
-                            <button>Buy</button>
-                                </div>
+
+                            <button type="submit" name="comprar">Buy</button>
+                        </div>
                     </div>
                 </form>
             <?php endforeach; ?>
-                <?php else: ?>
+        <?php else: ?>
             <p>No hay productos</p>
         <?php endif; ?>
 
@@ -147,7 +151,7 @@ session_start();
                             <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
 
                             <input type="hidden" name="product_id" value="<?= htmlspecialchars($producto['ID_Producto']) ?>">
-                            <button>Buy</button>
+                            <button type="submit" name="comprar">Buy</button>
                         </div>
                     </div>
                 </form>
@@ -173,10 +177,10 @@ session_start();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['favorite'])) {
 
-       $botonFavorite = new FavoritoController();
-       $botonFavorite->añadirFavorito($_SESSION['id'], $_POST['product_id']);
+        $botonFavorite = new FavoritoController();
+        $botonFavorite->añadirFavorito($_SESSION['id'], $_POST['product_id']);
 
-       exit();
+        exit();
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['list'])) {
@@ -185,7 +189,14 @@ session_start();
         $deseadoController->añadirDeseado($_SESSION['id'], $_POST['product_id']);
 
         exit();
+    }
 
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['comprar'])) {
+
+        $productoController = new PedidoController();
+        $productoController->añadirProductoCarrito($_SESSION['id'], $_POST['product_id']);
+
+        exit();
     }
 
     ?>
