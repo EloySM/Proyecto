@@ -34,4 +34,12 @@ class PedidoController
         $producto = new Productos($ID_Producto, null, null, null, null);
         return $producto->obtenerProductoPorId($ID_Producto);
     }
+
+    public function comprobarCarrito()
+    {
+        $ID_Usuario = $_SESSION['id'];
+        $pedido = new pedidos($ID_Usuario, null);
+        $carrito = $pedido->getCarrito($ID_Usuario);
+        return $carrito;
+    }
 }

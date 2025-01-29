@@ -76,7 +76,7 @@ session_start();
                     <img src="<?= htmlspecialchars(($producto['ruta'])) ?>" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
 
                     <div class="product-info">
-
+                    <input type="hidden" name="product_id" value="<?= htmlspecialchars($producto['ID_Producto']) ?>">
                         <button type="submit" name="like"></button>
 
                         <p><?= htmlspecialchars(($producto['Nombre'])) ?></p>
@@ -109,7 +109,7 @@ session_start();
                         <img src="<?= htmlspecialchars(($producto['ruta'])) ?>" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
 
                         <div class="product-info">
-
+                        <input type="hidden" name="product_id" value="<?= htmlspecialchars($producto['ID_Producto']) ?>">
                             <button type="submit" name="like"></button>
 
                             <p><?= htmlspecialchars(($producto['Nombre'])) ?></p>
@@ -144,7 +144,7 @@ session_start();
                         <img src="<?= htmlspecialchars(($producto['ruta'])) ?>" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
 
                         <div class="product-info">
-
+                        <input type="hidden" name="product_id" value="<?= htmlspecialchars($producto['ID_Producto']) ?>">
                             <button type="submit" name="like"></button>
 
                             <p><?= htmlspecialchars($producto['Nombre']) ?></p>
@@ -171,7 +171,7 @@ session_start();
 
         $likeController = new LikeController();
         $likeController->darQuitarLike($_SESSION['id'], $_POST['product_id']);
-
+        header("Location: products.php");
         exit();
     }
 
@@ -193,8 +193,14 @@ session_start();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['comprar'])) {
 
-        $productoController = new PedidoController();
-        $productoController->añadirProductoCarrito($_SESSION['id'], $_POST['product_id']);
+        $pedidoController = new PedidoController();
+        $carrito = $pedidoController->comprobarCarrito();
+
+        if (!empty($carrito)) {
+            echo "<script>alert('Solo puedes añadir un producto a la cesta');</script>";
+        } else {
+            $pedidoController->añadirProductoCarrito($_SESSION['id'], $_POST['product_id']);
+        }
 
         exit();
     }

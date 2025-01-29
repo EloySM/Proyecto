@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['Eliminar'])){
         $ID_Producto = $_POST['ID_Producto'];
         $pedidosController->eliminarpedido($ID_Producto);
         // Redirigir para evitar reenvío del formulario al recargar la página
-        header("Location: pedido.php");
+        header("Location: pedidos.php");
         exit();
     }
 }

@@ -18,43 +18,32 @@ class pedidos
     {
         $conn = getDBConnection();
         $sentencia = $conn->prepare("INSERT INTO pedidos (ID_Usuario, ID_Producto) VALUES (?, ?)");
-        $sentencia->bindParam(1, $this->$idUsuario);
-        $sentencia->bindParam(2, $this->$idProducto);
+        $sentencia->bindParam(1, $idUsuario);
+        $sentencia->bindParam(2, $idProducto);
+        $sentencia->execute();
 
-        if ($sentencia->execute()) {
-            echo "Producto añadido al carrito.";
-            return true;
-        } else {
-            echo "Error al añadir el producto al carrito: ";
-            return false;
-        }
     }
 
     public function eliminarProductoCarrito($idUsuario, $idProducto)
     {
         $conn = getDBConnection();
         $sentencia = $conn->prepare("DELETE FROM pedidos WHERE ID_Usuario = ? AND ID_Producto = ?");
-        $sentencia->bindParam(1, $this->$idUsuario);
-        $sentencia->bindParam(2, $this->$idProducto);
-
-        if ($sentencia->execute()) {
-            echo "Producto eliminado del carrito.";
-            return true;
-        } else {
-            echo "Error al eliminar el producto del carrito: ";
-            return false;
-        }
-    }
-
-    public function getCarrito($idUsuario)
-    {
-        $conn = getDBConnection();
-        $sentencia = $conn->prepare("SELECT * FROM pedidos WHERE ID_Usuario = ?");
-        $sentencia->bindParam(1, $this->$idUsuario);
+        $sentencia->bindParam(1, $idUsuario);
+        $sentencia->bindParam(2, $idProducto);
         $sentencia->execute();
-        $result = $sentencia->fetch(PDO::FETCH_ASSOC);
-        return $result;
+
+
     }
+
+public function getCarrito($idUsuario)
+{
+    $conn = getDBConnection();
+    $sentencia = $conn->prepare("SELECT * FROM pedidos WHERE ID_Usuario = ?");
+    $sentencia->bindParam(1, $idUsuario);
+    $sentencia->execute();
+    $result = $sentencia->fetchAll(PDO::FETCH_ASSOC); 
+    return $result;
+}
 
     public function obtenerProductoPorId($idProducto)
     {
@@ -64,5 +53,23 @@ class pedidos
         $sentencia->execute();
         return $sentencia->fetch(PDO::FETCH_ASSOC);
         
+    }
+
+    public function comprobarCarrito(){
+
+
+        $conn = getDBConnection();
+        $sentencia = $conn->prepare("SELECT COUNT(*) as count FROM pedidos WHERE ID_Usuario = ?");
+        $sentencia->bindParam(1, $this->idUsuario);
+        $sentencia->execute();
+        $result = $sentencia->fetch(PDO::FETCH_ASSOC);
+
+        if ($result['count'] > 0) {
+            echo "Solo se puede añadir un producto al carrito.";
+        } else {
+            echo "Puedes añadir un producto al carrito.";
+        }
+
+
     }
 }

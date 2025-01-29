@@ -18,7 +18,7 @@
 
         <input class="inputText" type="text" name="name" placeholder="Name">
         <input class="inputText" type="text" name="userName" placeholder="Username">
-        <input id="password" class="inputText" type="passw" name="password" placeholder="Password">
+        <input id="password" class="inputText" type="password" name="password" placeholder="Password">
 
         <div id="a2">
             <input type="submit" id="signup" name="registro" class="inputs" value="Sign up">
