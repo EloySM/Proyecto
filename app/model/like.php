@@ -1,19 +1,40 @@
 <?php
 require_once "../../config/dbConnection.php";
 
+/**
+ * Clase Like
+ * 
+ *
+ * Esta clase gestiona las operaciones relacionadas con los "likes" de los productos, 
+ * permitiendo a los usuarios dar y quitar likes a los productos, así como obtener la cantidad de likes.
+ * 
+ * @package Model
+ */
 class like
 {
-
     private $idUsuario;
     private $idProducto;
 
+    /**
+     * Constructor de la clase Like.
+     *
+     * @param int $idUsuario El ID del usuario que da o quita el like.
+     * @param int $idProducto El ID del producto que recibe el like.
+     */
     public function __construct($idUsuario, $idProducto)
     {
-
         $this->idUsuario = $idUsuario;
         $this->idProducto = $idProducto;
     }
 
+    /**
+     * Alterna el estado de like de un producto. Si el usuario ya ha dado like, se elimina; 
+     * de lo contrario, se agrega un nuevo like.
+     * 
+     * @param int $idUsuario El ID del usuario que da o quita el like.
+     * @param int $idProducto El ID del producto al que se le da o quita el like.
+     * @return string Mensaje indicando si el like fue agregado o eliminado.
+     */
     public function alternarLike($idUsuario, $idProducto)
     {
         try {
@@ -35,7 +56,7 @@ class like
                 $stmtDelete->bindParam(2, $idProducto);
                 $stmtDelete->execute();
                 return "Like eliminado.";
-            } else if ($likeExiste = 0) { // Si no existe, dar el like
+            } else { // Si no existe, dar el like
                 $sentenciaInsert = "INSERT INTO likes (ID_Usuario, ID_Producto) VALUES (?, ?)";
                 $stmtInsert = $conn->prepare($sentenciaInsert);
                 $stmtInsert->bindParam(1, $idUsuario);
@@ -48,6 +69,12 @@ class like
         }
     }
 
+    /**
+     * Obtiene la cantidad total de likes de un producto.
+     * 
+     * @param int $idProducto El ID del producto para el cual se quieren obtener los likes.
+     * @return int Número de likes del producto.
+     */
     public function getLikes($idProducto)
     {
         $conn = getDBConnection();
@@ -59,6 +86,12 @@ class like
         return $likes;
     }
 
+    /**
+     * Obtiene los 4 productos con más likes.
+     * 
+     * @return array Un array asociativo con los productos que tienen más likes, 
+     *               incluyendo su ID, nombre, precio, ruta y el número total de likes.
+     */
     public function masLikes()
     {
         $conn = getDBConnection();

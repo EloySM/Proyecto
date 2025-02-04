@@ -2,16 +2,32 @@
 
 require_once __DIR__ . '/../../config/dbConnection.php';
 
+/**
+ * Clase Productos
+ * 
+ * 
+ * Esta clase maneja las operaciones relacionadas con los productos, tales como crear, modificar, eliminar,
+ * y obtener productos, ya sea todos, por tipo o por nombre.
+ * 
+ * @package Model
+ */
 class Productos
 {
-
     private $ID_Producto;
     private $nombre;
     private $precio;
     private $tipo;
     private $likes;
 
-
+    /**
+     * Constructor de la clase Productos.
+     * 
+     * @param int $ID_Producto El ID del producto.
+     * @param string $nombre El nombre del producto.
+     * @param string $tipo El tipo de producto.
+     * @param float $precio El precio del producto.
+     * @param int $likes La cantidad de "likes" que tiene el producto.
+     */
     public function __construct($ID_Producto, $nombre, $tipo, $precio, $likes)
     {
         $this->ID_Producto = $ID_Producto;
@@ -20,7 +36,14 @@ class Productos
         $this->precio = $precio;
         $this->likes = $likes;
     }
-    //FUNCIONES PARA EL ADMINISTRADOR
+
+    // FUNCIONES PARA EL ADMINISTRADOR
+
+    /**
+     * Crea un nuevo producto en la base de datos.
+     * 
+     * @return string Mensaje de éxito o error.
+     */
     public function crearProducto()
     {
         $conn = getDBConnection();
@@ -35,6 +58,11 @@ class Productos
         }
     }
 
+    /**
+     * Elimina un producto de la base de datos.
+     * 
+     * @return string Mensaje de éxito o error.
+     */
     public function eliminarProducto()
     {
         $conn = getDBConnection();
@@ -48,7 +76,11 @@ class Productos
         }
     }
 
-
+    /**
+     * Modifica un producto existente en la base de datos.
+     * 
+     * @return string Mensaje de éxito o error.
+     */
     public function modificarProducto()
     {
         $conn = getDBConnection();
@@ -65,8 +97,13 @@ class Productos
         }
     }
 
+    // FUNCIONES PARA EL CLIENTE Y ADMIN
 
-    //FUNCIONES PARA EL CLIENTE Y ADMIN
+    /**
+     * Obtiene todos los productos de la base de datos.
+     * 
+     * @return array Un array asociativo con todos los productos.
+     */
     public function obtenerProductos()
     {
         $conn = getDBConnection();
@@ -75,6 +112,12 @@ class Productos
         return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Obtiene los productos filtrados por tipo.
+     * 
+     * @param string $tipo El tipo de producto a filtrar.
+     * @return array Un array asociativo con los productos que coinciden con el tipo.
+     */
     public function obtenerProductosPorTipo($tipo)
     {
         $conn = getDBConnection();
@@ -84,6 +127,11 @@ class Productos
         return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Obtiene un producto por su nombre.
+     * 
+     * @return array Un array asociativo con los productos que coinciden con el nombre.
+     */
     public function obtenerProductoNombre()
     {
         $conn = getDBConnection();
@@ -93,6 +141,12 @@ class Productos
         return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Obtiene un producto por su ID.
+     * 
+     * @param int $ID_Producto El ID del producto a obtener.
+     * @return array Un array asociativo con el producto correspondiente al ID.
+     */
     public function obtenerProductoPorId($ID_Producto)
     {
         $conn = getDBConnection();
@@ -101,5 +155,4 @@ class Productos
         $sentencia->execute();
         return $sentencia->fetch(PDO::FETCH_ASSOC);
     }
-
 }

@@ -2,6 +2,15 @@
 
 require_once __DIR__ . '/../../config/dbConnection.php';
 
+/**
+ * Clase Usuario
+ *
+ * 
+ * Esta clase maneja las operaciones relacionadas con los usuarios, tales como registro, login, 
+ * modificación de datos y cierre de sesión.
+ * 
+ *  @package Model
+ */
 class Usuario
 {
     private $idUsuario;
@@ -10,8 +19,15 @@ class Usuario
     private $contraseña;
     private $esAdmin;
 
-
-
+    /**
+     * Constructor de la clase Usuario.
+     * 
+     * @param int $idUsuario El ID del usuario.
+     * @param string $nombre El nombre completo del usuario.
+     * @param string $usuario El nombre de usuario para login.
+     * @param string $contraseña La contraseña del usuario.
+     * @param bool $esAdmin Indica si el usuario es administrador.
+     */
     public function __construct($idUsuario, $nombre, $usuario, $contraseña, $esAdmin)
     {
         $this -> idUsuario = $idUsuario;
@@ -21,72 +37,13 @@ class Usuario
         $this -> esAdmin = $esAdmin;
     }
 
-
-    //GETS 
-
-    public function getidUsuario()
-    {
-
-        return $this->idUsuario;
-    }
-
-
-    public function getNombre()
-    {
-
-        return $this->nombre;
-    }
-
-    public function getUsuario()
-    {
-
-        return $this->usuario;
-    }
-
-    public function getContraseña()
-    {
-
-        return $this->contraseña;
-    }
-
-    public function getEsAdmin()
-    {
-
-        return $this->esAdmin;
-    }
-
-
-
-    // SETERS
-    public function setNombre($nombre)
-    {
-
-        $this->nombre = $nombre;
-    }
-
-    public function setUsuario($usuario)
-    {
-
-        $this->usuario = $usuario;
-    }
-
-
-    public function setContraseña($contraseña)
-    {
-
-        $this->contraseña = $contraseña;
-    }
-
-    public function setEsAdmin($esAdmin)
-    {
-
-        $this->esAdmin = $esAdmin;
-    }
-
-
+    /**
+     * Registra un nuevo usuario en la base de datos.
+     * 
+     * @return bool Retorna true si el registro fue exitoso, false en caso contrario.
+     */
     function UsuarioNuevo()
     {
-
         // Nos conectamos a la base de datos y hacemos el INSERT de los datos 
         $conn = getDBConnection();
         $sentencia = $conn->prepare("INSERT INTO usuario (Nombre, NombreUsuario, Contraseña) VALUES (?, ?, ?)");
@@ -104,6 +61,11 @@ class Usuario
         }
     }
 
+    /**
+     * Realiza el login de un usuario verificando su nombre de usuario y contraseña.
+     * 
+     * @return array Retorna un array con los datos del usuario (si no existe el usuario el array estara vacio)
+     */
     public function login()
     {
         $conn = getDBConnection();
@@ -115,6 +77,11 @@ class Usuario
         return $result;
     }
 
+    /**
+     * Obtiene los datos del usuario basado en su nombre de usuario.
+     * 
+     * @return array Los datos del usuario.
+     */
     public function getDatosUsaurio()
     {
         $conn = getDBConnection();
@@ -125,7 +92,11 @@ class Usuario
         return $result;
     }
 
-
+    /**
+     * Cierra la sesión del usuario.
+     * 
+     * Redirige al usuario a la página de inicio de sesión tras cerrar la sesión.
+     */
     public static function logoutUsuario()
     {
         session_start();
@@ -135,6 +106,11 @@ class Usuario
         exit();
     }
 
+    /**
+     * Modifica los datos de un usuario.
+     * 
+     * @return bool Retorna true si la modificación fue exitosa, false en caso contrario.
+     */
     public function modificarUsuario()
     {
         $conn = getDBConnection();
@@ -143,7 +119,6 @@ class Usuario
         $sentencia->bindParam(2, $this->usuario);
         $sentencia->bindParam(3, $this->contraseña);
         $sentencia->bindParam(4, $this->idUsuario);
-
 
         if ($sentencia->execute()) {
             echo "Usuario modificado exitosamente.";
@@ -154,6 +129,11 @@ class Usuario
         }
     }
 
+    /**
+     * Verifica si un nombre de usuario ya existe en la base de datos.
+     * 
+     * @return bool Retorna true si el usuario ya existe, false en caso contrario.
+     */
     public function existeUsuario()
     {
         $conn = getDBConnection();
@@ -168,13 +148,4 @@ class Usuario
             return false;
         }
     }
-
-    // public function formularioNuevo() {
-    //     $conn = getDBConnection();
-    //     $sentencia = $conn->prepare("INSERT INTO formulario WHERE ID_Usuario = ?, Nombre = ?, Apellidos = ?, Movil = ?, Asunto = ?, Mensaje = ?");
-    //     $sentencia->bindParam(1, $this->idUsuario);
-    //     $sentencia->bindParam(2, $this->nombre);
-    //     $sentencia->execute();
-    //     $sentencia->fetchAll(PDO::FETCH_ASSOC);
-    // }
 }

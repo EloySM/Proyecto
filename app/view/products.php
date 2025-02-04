@@ -8,7 +8,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Productos</title>
     <link rel="stylesheet" href="css/products.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,10 +53,10 @@ session_start();
     <div id="navegador-container">
         <div id="navegador">
             <ul>
-                <li><a href="home.php">Home</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="about.php">About Us</a></li>
-                <li><a href="contact.php">Contact</a></li>
+                <li><a href="home.php">Inicio</a></li>
+                <li><a href="#">Procuctos</a></li>
+                <li><a href="about.php">Sobre nosotros</a></li>
+                <li><a href="contact.php">Contacto</a></li>
             </ul>
         </div>
     </div>
@@ -84,7 +84,7 @@ session_start();
                             <!-- 2->para tener 2 decimales y ','->para que los decimales tengan una coma y no punto -->
                             <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
 
-                            <button type="submit" name="comprar">Buy</button>
+                            <button type="submit" name="comprar">Comprar</button>
                         </div>
                     </div>
                 </form>
@@ -117,7 +117,7 @@ session_start();
                             <!-- 2->para tener 2 decimales y ','->para que los decimales tengan una coma y no punto -->
                             <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
 
-                            <button type="submit" name="comprar">Buy</button>
+                            <button type="submit" name="comprar">Comprar</button>
                         </div>
                     </div>
                 </form>
@@ -150,7 +150,7 @@ session_start();
                             <p><?= htmlspecialchars($producto['Nombre']) ?></p>
                             <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
 
-                            <button type="submit" name="comprar">Buy</button>
+                            <button type="submit" name="comprar">Comprar</button>
                         </div>
                     </div>
                 </form>

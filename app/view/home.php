@@ -7,7 +7,7 @@ session_start(); // Iniciamos la sesión para mostrar el nombre del usuario
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inicio</title>
     <link rel="stylesheet" href="css/home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,10 +31,10 @@ session_start(); // Iniciamos la sesión para mostrar el nombre del usuario
     <div id="navegador-container">
         <div id="navegador">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="products.php">Products</a></li>
-                <li><a href="about.php">About Us</a></li>
-                <li><a href="contact.php">Contact</a></li>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="products.php">Productos</a></li>
+                <li><a href="about.php">Sobre Nosotros</a></li>
+                <li><a href="contact.php">Contacto</a></li>
             </ul>
         </div>
     </div>

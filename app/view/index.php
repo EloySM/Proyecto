@@ -7,7 +7,7 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inicio Sesion</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,9 +21,9 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
 
     <form method="POST">
 
-        <input id="nombreUsuario" class="inputSesion" type="text" name="nameUser" placeholder="Name">
-        <input id="contraseña" class="inputSesion" type="password" name="passwordUser" placeholder="Password">
-        <a id="fpass" href="">Forgot your password</a>
+        <input id="nombreUsuario" class="inputSesion" type="text" name="nameUser" placeholder="Nombre de usuario">
+        <input id="contraseña" class="inputSesion" type="password" name="passwordUser" placeholder="Contraseña">
+        <a id="fpass" href="">Olvidaste la contraseña?</a>
         <div class="toggle-container">
             <label class="toggle-switch">
                 <input type="checkbox">
@@ -35,7 +35,7 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
         <div>
             <input id="login" class="inputs" type="submit" name="login" value="Login">
             <!-- Este input (Sign up) trata de envia el formulario antes de ejecutar el evento onclick, para solucionarlo se cambia el tipo a button -->
-            <input onclick="window.location.href='registroUsuario.php';" id="signup" class="inputs" type="button" name="signup" value="Sign up">
+            <input onclick="window.location.href='registroUsuario.php';" id="signup" class="inputs" type="button" name="signup" value="Registrarse">
         </div>
 
     </form>

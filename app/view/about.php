@@ -33,10 +33,10 @@ session_start();
     <div id="navegador-container">
         <div id="navegador">
             <ul>
-                <li><a href="home.php">Home</a></li>
-                <li><a href="products.php">Products</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="contact.php">Contact</a></li>
+                <li><a href="home.php">Inicio</a></li>
+                <li><a href="products.php">Productos</a></li>
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="contact.php">Contacto</a></li>
             </ul>
         </div>
     </div>

@@ -8,7 +8,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Johnni Willi & Association</title>
+    <title>Contacto</title>
     <link rel="stylesheet" href="css/contact.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -28,16 +28,16 @@ session_start();
     <div id="navegador-container">
         <div id="navegador">
             <ul>
-                <li><a href="home.php">Home</a></li>
-                <li><a href="products.php">Products</a></li>
-                <li><a href="about.php">About Us</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="home.php">Inicio</a></li>
+                <li><a href="products.php">Productos</a></li>
+                <li><a href="about.php">Sobre Nosotros</a></li>
+                <li><a href="#">Contacto</a></li>
             </ul>
         </div>
     </div>
 
     <div id="bloque">
-        <h2>Contact with us</h2>
+        <h2>Contacta con nosotros</h2>
         <h3>We will be happy to assist your needs.</h3>
 
         <form action="#" method="POST">

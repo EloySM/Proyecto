@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registro Usuario</title>
     <link rel="stylesheet" href="css/registroUsuario.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
@@ -16,12 +16,12 @@
 
     <form method="POST">
 
-        <input class="inputText" type="text" name="name" placeholder="Name">
-        <input class="inputText" type="text" name="userName" placeholder="Username">
-        <input id="password" class="inputText" type="password" name="password" placeholder="Password">
+        <input class="inputText" type="text" name="name" placeholder="Nombre">
+        <input class="inputText" type="text" name="userName" placeholder="Nombre de Ussuario">
+        <input id="password" class="inputText" type="password" name="password" placeholder="Contraseña">
 
         <div id="a2">
-            <input type="submit" id="signup" name="registro" class="inputs" value="Sign up">
+            <input type="submit" id="signup" name="registro" class="inputs" value="Registrarse">
             <input type="submit" id="login" name="login" class="inputs" value="Login">
         </div>
 
