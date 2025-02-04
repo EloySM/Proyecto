@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-01-2025 a las 13:59:38
+-- Tiempo de generación: 04-02-2025 a las 13:24:15
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -32,13 +32,6 @@ CREATE TABLE `deseado` (
   `ID_Producto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `deseado`
---
-
-INSERT INTO `deseado` (`ID_Usuario`, `ID_Producto`) VALUES
-(1, 20);
-
 -- --------------------------------------------------------
 
 --
@@ -55,10 +48,37 @@ CREATE TABLE `favorito` (
 --
 
 INSERT INTO `favorito` (`ID_Usuario`, `ID_Producto`) VALUES
-(1, 16),
-(1, 17),
-(1, 18),
-(1, 20);
+(1, 20),
+(1, 21),
+(1, 26),
+(4, 17),
+(4, 18);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `formularios`
+--
+
+CREATE TABLE `formularios` (
+  `ID_Formulario` int(11) NOT NULL,
+  `ID_Usuario` int(11) NOT NULL,
+  `Nombre` varchar(255) NOT NULL,
+  `Apellido` varchar(255) NOT NULL,
+  `Empresa` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL,
+  `Movil` varchar(255) NOT NULL,
+  `Asunto` varchar(255) NOT NULL,
+  `Mensaje` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `formularios`
+--
+
+INSERT INTO `formularios` (`ID_Formulario`, `ID_Usuario`, `Nombre`, `Apellido`, `Empresa`, `Email`, `Movil`, `Asunto`, `Mensaje`) VALUES
+(4, 2, 'Arkaitz', 'Abad', 'Locomotoras SL', 'abads651@gmail.com', '608003589', 'Existencias pienso perro', 'Cuando vuelven las existencias de....?'),
+(5, 6, 'Pepe', 'Lopez', '', 'pepe@gmail.com', '6432413314', 'Gatos', 'Vendedes gato?');
 
 -- --------------------------------------------------------
 
@@ -76,7 +96,8 @@ CREATE TABLE `likes` (
 --
 
 INSERT INTO `likes` (`ID_Usuario`, `ID_Producto`) VALUES
-(1, 20);
+(1, 20),
+(1, 22);
 
 -- --------------------------------------------------------
 
@@ -94,7 +115,7 @@ CREATE TABLE `pedidos` (
 --
 
 INSERT INTO `pedidos` (`ID_Usuario`, `ID_Producto`) VALUES
-(1, 16);
+(1, 18);
 
 -- --------------------------------------------------------
 
@@ -146,7 +167,10 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`ID_Usuario`, `Nombre`, `NombreUsuario`, `Contraseña`, `EsAdmin`) VALUES
 (1, 'a', 'a', 'a', NULL),
 (2, 'Arkaitz', 'Arkaitz', 'abc123..', 1),
-(3, 'Samuel', 'asdfghjklñpoiuytrewqzxcvbnmñlkjh', 'abc123..', 1);
+(3, 'Samuel', 'asdfghjklñpoiuytrewqzxcvbnmñlkjh', 'abc123..', 1),
+(4, 'Elias', 'elias', 'abc123..', NULL),
+(5, 'Pepe', 'Jose', 'abc123..', NULL),
+(6, 'Pepe', 'Pepe123', 'a', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -156,7 +180,8 @@ INSERT INTO `usuario` (`ID_Usuario`, `Nombre`, `NombreUsuario`, `Contraseña`, `
 -- Indices de la tabla `deseado`
 --
 ALTER TABLE `deseado`
-  ADD PRIMARY KEY (`ID_Usuario`,`ID_Producto`);
+  ADD PRIMARY KEY (`ID_Usuario`,`ID_Producto`),
+  ADD KEY `ID_Producto` (`ID_Producto`);
 
 --
 -- Indices de la tabla `favorito`
@@ -164,6 +189,13 @@ ALTER TABLE `deseado`
 ALTER TABLE `favorito`
   ADD PRIMARY KEY (`ID_Usuario`,`ID_Producto`),
   ADD KEY `ID_Producto` (`ID_Producto`);
+
+--
+-- Indices de la tabla `formularios`
+--
+ALTER TABLE `formularios`
+  ADD PRIMARY KEY (`ID_Formulario`,`ID_Usuario`),
+  ADD KEY `ID_Usuario` (`ID_Usuario`);
 
 --
 -- Indices de la tabla `likes`
@@ -197,6 +229,12 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `formularios`
+--
+ALTER TABLE `formularios`
+  MODIFY `ID_Formulario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
@@ -206,11 +244,18 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `deseado`
+--
+ALTER TABLE `deseado`
+  ADD CONSTRAINT `deseado_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `usuario` (`ID_Usuario`),
+  ADD CONSTRAINT `deseado_ibfk_2` FOREIGN KEY (`ID_Producto`) REFERENCES `productos` (`ID_Producto`);
 
 --
 -- Filtros para la tabla `favorito`
@@ -218,6 +263,12 @@ ALTER TABLE `usuario`
 ALTER TABLE `favorito`
   ADD CONSTRAINT `favorito_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `usuario` (`ID_Usuario`),
   ADD CONSTRAINT `favorito_ibfk_2` FOREIGN KEY (`ID_Producto`) REFERENCES `productos` (`ID_Producto`);
+
+--
+-- Filtros para la tabla `formularios`
+--
+ALTER TABLE `formularios`
+  ADD CONSTRAINT `formularios_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `usuario` (`ID_Usuario`);
 
 --
 -- Filtros para la tabla `likes`
