@@ -27,11 +27,10 @@ Este es un e-commerce diseñado para la venta de comida para perros y gatos, con
 │
 ├── 📂 config       # Configuración a la DDBB
 ├── 📂 document     # Documentación del proyecto
+├── 📂 recursos     #
 ├── 📂 tests        # Pruebas del sistema
-├── 📂 vendor
-├── 📄 README.md    # Iformación principal
-├── 📄 composer.json
-└── 📄 composer.lock # Archivo de ejemplo para configuración del entorno
+└── 📄 README.md    # Iformación principal
+
 
 ```
 [![HTML](https://img.shields.io/badge/HTML-%23E34F26.svg?logo=html5&logoColor=white)](#)

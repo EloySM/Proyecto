@@ -5,7 +5,7 @@
             <title>Documentation</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <base href="../">
     <link rel="icon" href="images/favicon.ico"/>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/base.css">
@@ -84,37 +84,41 @@
 </aside>
 
             <div class="phpdocumentor-column -nine phpdocumentor-content">
-                                        <section>
-        <h2>Documentation</h2>
+                                <section>
+                                        <ul class="phpdocumentor-breadcrumbs">
+            <li class="phpdocumentor-breadcrumb"><a href="packages/Application.html">Application</a></li>
+    </ul>
+
+    <article class="phpdocumentor-element -file">
+        <h2 class="phpdocumentor-content__title">formulario.php</h2>
 
         
-        
+
+
+
+
+
+
+
+
 <h3 id="toc">
     Table of Contents
-    <a href="namespaces/default.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="files/model-formulario.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
-<h4 id="packages">
-    Packages
-    <a href="namespaces/default.html#packages" class="headerlink"><i class="fas fa-link"></i></a>
-
-</h4>
-<dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -package"><a href="packages/Application.html"><abbr title="\Application">Application</abbr></a></dt>
-            <dt class="phpdocumentor-table-of-contents__entry -package"><a href="packages/Controller.html"><abbr title="\Controller">Controller</abbr></a></dt>
-            <dt class="phpdocumentor-table-of-contents__entry -package"><a href="packages/Model.html"><abbr title="\Model">Model</abbr></a></dt>
-    </dl>
 
 
 
     <h4 id="toc-classes">
         Classes
-        <a href="namespaces/default.html#toc-classes" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="files/model-formulario.html#toc-classes" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/DeseadoController.html"><abbr title="\DeseadoController">DeseadoController</abbr></a></dt><dd>Clase DeseadoController</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/FavoritoController.html"><abbr title="\FavoritoController">FavoritoController</abbr></a></dt><dd>Clase FavoritoController</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/FormularioController.html"><abbr title="\FormularioController">FormularioController</abbr></a></dt><dd>Controlador que maneja las solicitudes relacionadas con el formulario de registro.</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LikeController.html"><abbr title="\LikeController">LikeController</abbr></a></dt><dd>Clase LikeController</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PedidoController.html"><abbr title="\PedidoController">PedidoController</abbr></a></dt><dd>Clase PedidoController</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/ProductoController.html"><abbr title="\ProductoController">ProductoController</abbr></a></dt><dd>Clase ProductoController</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/UsuarioController.html"><abbr title="\UsuarioController">UsuarioController</abbr></a></dt><dd>Clase UsuarioController</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/deseado.html"><abbr title="\deseado">deseado</abbr></a></dt><dd>Clase Deseado</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/favorito.html"><abbr title="\favorito">favorito</abbr></a></dt><dd>Clase Favorito</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/formulario.html"><abbr title="\formulario">formulario</abbr></a></dt><dd>Clase que maneja el formulario de contacto y guarda los datos en la base de datos</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/like.html"><abbr title="\like">like</abbr></a></dt><dd>Clase Like</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/pedidos.html"><abbr title="\pedidos">pedidos</abbr></a></dt><dd>Clase Pedidos</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Productos.html"><abbr title="\Productos">Productos</abbr></a></dt><dd>Clase Productos</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Usuario.html"><abbr title="\Usuario">Usuario</abbr></a></dt><dd>Clase Usuario</dd>    </dl>
+                    <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/formulario.html"><abbr title="\formulario">formulario</abbr></a></dt><dd>Clase que maneja el formulario de contacto y guarda los datos en la base de datos</dd>    </dl>
+
+
 
 
 
@@ -126,7 +130,118 @@
         
 
         
+        <div class="phpdocumentor-modal" id="source-view">
+    <div class="phpdocumentor-modal-bg" data-exit-button></div>
+    <div class="phpdocumentor-modal-container">
+        <div class="phpdocumentor-modal-content">
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/model/formulario.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+        </div>
+        <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
+    </div>
+</div>
+
+    <script type="text/javascript">
+        (function () {
+            function loadExternalCodeSnippet(el, url, line) {
+                Array.prototype.slice.call(el.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                    const src = url || pre.getAttribute('data-src').replace(/\\/g, '/');
+                    const language = 'php';
+
+                    const code = document.createElement('code');
+                    code.className = 'language-' + language;
+                    pre.textContent = '';
+                    pre.setAttribute('data-line', line)
+                    code.textContent = 'Loading…';
+                    pre.appendChild(code);
+
+                    var xhr = new XMLHttpRequest();
+
+                    xhr.open('GET', src, true);
+
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState !== 4) {
+                            return;
+                        }
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+                            Prism.highlightElement(code);
+                            return;
+                        }
+
+                        if (xhr.status === 404) {
+                            code.textContent = '✖ Error: File could not be found';
+                            return;
+                        }
+
+                        if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                            return;
+                        }
+
+                        code.textContent = '✖ Error: An unknown error occurred';
+                    };
+
+                    xhr.send(null);
+                });
+            }
+
+            const modalButtons = document.querySelectorAll("[data-modal]");
+            const openedAsLocalFile = window.location.protocol === 'file:';
+            if (modalButtons.length > 0 && openedAsLocalFile) {
+                console.warn(
+                    'Viewing the source code is unavailable because you are opening this page from the file:// scheme; ' +
+                    'browsers block XHR requests when a page is opened this way'
+                );
+            }
+
+            modalButtons.forEach(function (trigger) {
+                if (openedAsLocalFile) {
+                    trigger.setAttribute("hidden", "hidden");
+                }
+
+                trigger.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const modal = document.getElementById(trigger.dataset.modal);
+                    if (!modal) {
+                        console.error(`Modal with id "${trigger.dataset.modal}" could not be found`);
+                        return;
+                    }
+                    modal.classList.add("phpdocumentor-modal__open");
+
+                    loadExternalCodeSnippet(modal, trigger.dataset.src || null, trigger.dataset.line)
+                    const exits = modal.querySelectorAll("[data-exit-button]");
+                    exits.forEach(function (exit) {
+                        exit.addEventListener("click", function (event) {
+                            event.preventDefault();
+                            modal.classList.remove("phpdocumentor-modal__open");
+                        });
+                    });
+                });
+            });
+        })();
+    </script>
+
+    </article>
+                                </section>
+                <section class="phpdocumentor-on-this-page__sidebar">
+                            
+    <section class="phpdocumentor-on-this-page__content">
+        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
+
+        <ul class="phpdocumentor-list -clean">
+            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                                                                                        <li><a href="files/model-formulario.html#toc-classes">Classes</a></li>
+                                                                                                                    </ul>
+            </li>
+
+            
+                    </ul>
     </section>
+
+                </section>
                             </div>
             <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">
@@ -140,7 +255,7 @@
     </section>
 </section>
         </div>
-        <a href="index.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="files/model-formulario.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

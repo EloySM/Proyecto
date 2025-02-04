@@ -51,6 +51,16 @@ Search.appendIndex(
             "summary": "Obtiene\u0020un\u0020producto\u0020por\u0020su\u0020ID.",
             "url": "classes/FavoritoController.html#method_getProductoById"
         },                {
+            "fqsen": "\\FormularioController",
+            "name": "FormularioController",
+            "summary": "Controlador\u0020que\u0020maneja\u0020las\u0020solicitudes\u0020relacionadas\u0020con\u0020el\u0020formulario\u0020de\u0020registro.",
+            "url": "classes/FormularioController.html"
+        },                {
+            "fqsen": "\\FormularioController\u003A\u003AformularioRegistro\u0028\u0029",
+            "name": "formularioRegistro",
+            "summary": "Maneja\u0020el\u0020registro\u0020de\u0020un\u0020nuevo\u0020formulario.",
+            "url": "classes/FormularioController.html#method_formularioRegistro"
+        },                {
             "fqsen": "\\LikeController",
             "name": "LikeController",
             "summary": "Clase\u0020LikeController",
@@ -240,6 +250,61 @@ Search.appendIndex(
             "name": "idProducto",
             "summary": "",
             "url": "classes/favorito.html#property_idProducto"
+        },                {
+            "fqsen": "\\formulario",
+            "name": "formulario",
+            "summary": "Clase\u0020que\u0020maneja\u0020el\u0020formulario\u0020de\u0020contacto\u0020y\u0020guarda\u0020los\u0020datos\u0020en\u0020la\u0020base\u0020de\u0020datos",
+            "url": "classes/formulario.html"
+        },                {
+            "fqsen": "\\formulario\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Constructor\u0020de\u0020la\u0020clase\u0020formulario.",
+            "url": "classes/formulario.html#method___construct"
+        },                {
+            "fqsen": "\\formulario\u003A\u003AguardarFormulario\u0028\u0029",
+            "name": "guardarFormulario",
+            "summary": "Guarda\u0020los\u0020datos\u0020del\u0020formulario\u0020en\u0020la\u0020base\u0020de\u0020datos.",
+            "url": "classes/formulario.html#method_guardarFormulario"
+        },                {
+            "fqsen": "\\formulario\u003A\u003A\u0024idUsuario",
+            "name": "idUsuario",
+            "summary": "",
+            "url": "classes/formulario.html#property_idUsuario"
+        },                {
+            "fqsen": "\\formulario\u003A\u003A\u0024nombre",
+            "name": "nombre",
+            "summary": "",
+            "url": "classes/formulario.html#property_nombre"
+        },                {
+            "fqsen": "\\formulario\u003A\u003A\u0024apellido",
+            "name": "apellido",
+            "summary": "",
+            "url": "classes/formulario.html#property_apellido"
+        },                {
+            "fqsen": "\\formulario\u003A\u003A\u0024empresa",
+            "name": "empresa",
+            "summary": "",
+            "url": "classes/formulario.html#property_empresa"
+        },                {
+            "fqsen": "\\formulario\u003A\u003A\u0024email",
+            "name": "email",
+            "summary": "",
+            "url": "classes/formulario.html#property_email"
+        },                {
+            "fqsen": "\\formulario\u003A\u003A\u0024movil",
+            "name": "movil",
+            "summary": "",
+            "url": "classes/formulario.html#property_movil"
+        },                {
+            "fqsen": "\\formulario\u003A\u003A\u0024asunto",
+            "name": "asunto",
+            "summary": "",
+            "url": "classes/formulario.html#property_asunto"
+        },                {
+            "fqsen": "\\formulario\u003A\u003A\u0024mensaje",
+            "name": "mensaje",
+            "summary": "",
+            "url": "classes/formulario.html#property_mensaje"
         },                {
             "fqsen": "\\like",
             "name": "like",
