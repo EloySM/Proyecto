@@ -20,18 +20,17 @@ Este es un e-commerce diseñado para la venta de comida para perros y gatos, con
 
 ```bash
 📁 Proyecto
-├── 📂 public        # Archivos accesibles por el navegador
-│   ├── 📂 css       # Archivos de estilos
-│   ├── 📂 js        # Archivos JavaScript (si aplica)
-│   ├── 📂 images    # Imágenes del proyecto
-│   ├── 📄 index.php # Página principal
 ├── 📂 app          # Código PHP principal
-├── 📂 config       # Configuración del sistema
-├── 📂 database     # Migraciones y conexiones a la base de datos
+│    ├── 📂 controller    #Actualizaciones, consultas, búsquedas, etc
+│    ├── 📂 model         #solicitar los datos al modelo y de comunicárselos a la vista.      
+│    └── 📂 view          #todo lo que tenga que ver con la interfaz gráfica va aquí
+├── 📂 config       # Configuración a la DDBB
 ├── 📂 document     # Documentación del proyecto
 ├── 📂 tests        # Pruebas del sistema
-├── 📄 README.md    # Documentación principal
-└── 📄 .env.example # Archivo de ejemplo para configuración del entorno
+├── 📂 vendor
+├── 📄 README.md    # Iformación principal
+├── 📄 composer.json
+└── 📄 composer.lock # Archivo de ejemplo para configuración del entorno
 
 ```
 [![HTML](https://img.shields.io/badge/HTML-%23E34F26.svg?logo=html5&logoColor=white)](#)
