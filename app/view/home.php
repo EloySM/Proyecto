@@ -41,8 +41,8 @@ session_start(); // Iniciamos la sesión para mostrar el nombre del usuario
 
     <div id="contenido">
         <div id="text">
-            <p>Natural and Healthy Food</p>
-            <p>"If your furry friend is not happy, we will refund your money."</p>
+            <p>Comida sana y natural</p>
+            <p>"Si tu peludo no esta feliz, te devolveremos el dinero."</p>
 
             <img src="img/home/1-home.png" alt="">
 

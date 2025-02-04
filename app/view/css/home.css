@@ -180,6 +180,11 @@ body {
         box-sizing: border-box;
         transition: .3s;
         cursor: pointer;
+
+        &:active {
+            transform: scale(1.05);
+            transition: .3s;
+        }
     }
 
 }

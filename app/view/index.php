@@ -35,7 +35,7 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
         <div>
             <input id="login" class="inputs" type="submit" name="login" value="Login">
             <!-- Este input (Sign up) trata de envia el formulario antes de ejecutar el evento onclick, para solucionarlo se cambia el tipo a button -->
-            <input onclick="window.location.href='registroUsuario.php';" id="signup" class="inputs" type="button" name="signup" value="Registrarse">
+            <input onclick="window.location.href='registroUsuario.php';" id="signup" class="inputs" type="button" name="signup" value="Sign up">
         </div>
 
     </form>

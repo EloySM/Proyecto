@@ -61,6 +61,14 @@ input[type="submit"] {
     }
 }
 
+input[type="submit"][name="mostrarProductos"] {
+    background: #0d6efd;
+
+    &:hover {
+        background: rgb(13, 110, 253, 0.9);
+    }
+}
+
 input[type="submit"][name="volver"] {
     background-color: rgb(215, 125, 0);
 

@@ -21,7 +21,7 @@
         <input id="password" class="inputText" type="password" name="password" placeholder="Contraseña">
 
         <div id="a2">
-            <input type="submit" id="signup" name="registro" class="inputs" value="Registrarse">
+            <input type="submit" id="signup" name="registro" class="inputs" value="Sign up">
             <input type="submit" id="login" name="login" class="inputs" value="Login">
         </div>
 

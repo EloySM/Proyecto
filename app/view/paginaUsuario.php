@@ -25,7 +25,7 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
         <input type="submit" value="Modificar perfil" name="modificar">
         <input type="submit" value="Pedidos" name="pedidos">
         <input type="submit" value="Favoritos" name="favoritos">
-        <input type="submit" value="Lista" name="lista">
+        <input type="submit" value="Lista Personalizada" name="lista">
 
         <?php if ($_SESSION['admin'] == 1): ?>
             <input type="submit" value="Mostrar productos" name="mostrarProductos">

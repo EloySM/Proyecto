@@ -38,7 +38,7 @@ session_start();
 
     <div id="bloque">
         <h2>Contacta con nosotros</h2>
-        <h3>We will be happy to assist your needs.</h3>
+        <h3>Estaremos encantados de asistirte.</h3>
 
         <form action="#" method="POST">
             <input type="text" name="nombre" placeholder="Nombre" required>
