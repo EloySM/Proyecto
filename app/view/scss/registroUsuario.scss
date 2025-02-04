@@ -1,0 +1,90 @@
+$boton-signup-color: rgb(0, 81, 255);
+
+body {
+    backdrop-filter: saturate(180%);
+    background: linear-gradient(to top left, #D9D9D9 50%, #9EA1D2 50%);
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+h1 {
+    font-family: "Karla", sans-serif;
+    font-size: 96px;
+    width: 100%;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    height: 600px;
+    width: 900px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#a2 {
+    display: flex;
+    margin:auto;
+    margin-top: 115px;
+}
+
+.inputText {
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    display: flex;
+    margin: auto;
+    margin-top: 20px;
+    padding: 50px;
+    border: solid 1px #999999;
+    border-radius: 50px;
+    box-sizing: border-box;
+    width: 798px;
+    height: 101px;
+}
+
+.inputs {
+    font-family: "Karla", sans-serif;
+    font-size: 48px;
+    border: none;
+    margin-bottom: 50px;
+    border-radius: 50px;
+    height: 101px;
+    width: 273px;
+}
+
+#login {
+    color: white;
+    background-color: rgb(0, 228, 15);
+    font-weight: 600;
+
+    &:hover {
+        font-weight: 500;
+        color: whitesmoke;
+        background-color: black;
+        box-shadow: 0px 10px 12px rgb(12, 221, 26);
+        transition: .5s;
+    }
+}
+
+#signup {
+    font-weight: 600;
+    background-color: $boton-signup-color;
+    margin-right: 250px;
+
+    &:hover {
+        color: white;
+        background-color: black;
+        box-shadow: 0 10px 14px $boton-signup-color;
+        transition: .3s;
+    }
+
+}

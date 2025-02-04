@@ -55,13 +55,13 @@ session_start();
 
         <div class="container1">
 
+        <img src="img/about/perro-triston.png" alt="">
+
             <div class="container2">
                 <h2>About</h2>
                 <p>Nature´s Variety nació en St. Louis, EE. UU. con el objetivo de ofrecer una nutrición natural, holística y equilibrada para mejorar el bienestar físico y mental de perros y gatos. Lo tuvimos claro desde el principio: los ingredientes naturales y de calidad son la base de una alimentación sana
                 </p>
             </div>
-
-            <img src="img/about/perro-triston.png" alt="">
 
         </div>
 

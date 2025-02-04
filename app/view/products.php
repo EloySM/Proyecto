@@ -67,26 +67,26 @@ session_start();
         <?php if (!empty($masLikes)): ?>
             <?php foreach ($masLikes as $producto): ?>
                 <form action="" method="POST">
-                <div class="container-food">
-                    <div class="icons-top">
-                        <button type="submit" name="list"></button>
-                        <button type="submit" name="favorite"><button>
-                    </div>
-
-                    <img src="<?= htmlspecialchars(($producto['ruta'])) ?>" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
-
-                    <div class="product-info">
+                    <div class="container-food">
                     <input type="hidden" name="product_id" value="<?= htmlspecialchars($producto['ID_Producto']) ?>">
-                        <button type="submit" name="like"></button>
 
-                        <p><?= htmlspecialchars(($producto['Nombre'])) ?></p>
-                        <!-- 2->para tener 2 decimales y ','->para que los decimales tengan una coma y no punto -->
-                        <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
+                        <div class="icons-top">
+                            <button type="submit" name="list"></button>
+                            <button type="submit" name="favorite"><button>
+                        </div>
 
-                        <input type="hidden" name="product_id" value="<?= htmlspecialchars($producto['ID_Producto']) ?>">
-                        <button type="submit" name="comprar">Buy</button>
+                        <img src="<?= htmlspecialchars(($producto['ruta'])) ?>" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
+
+                        <div class="product-info">
+                            <button type="submit" name="like"></button>
+
+                            <p><?= htmlspecialchars(($producto['Nombre'])) ?></p>
+                            <!-- 2->para tener 2 decimales y ','->para que los decimales tengan una coma y no punto -->
+                            <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
+
+                            <button type="submit" name="comprar">Buy</button>
+                        </div>
                     </div>
-                </div>
                 </form>
             <?php endforeach; ?>
         <?php else: ?>
@@ -100,6 +100,8 @@ session_start();
         <?php if (!empty($productosPerro)): ?>
             <?php foreach ($productosPerro as $producto): ?>
                 <form action="" method="POST">
+                <input type="hidden" name="product_id" value="<?= htmlspecialchars($producto['ID_Producto']) ?>">
+
                     <div class="container-food">
                         <div class="icons-top">
                             <button type="submit" name="list"></button>
@@ -109,14 +111,11 @@ session_start();
                         <img src="<?= htmlspecialchars(($producto['ruta'])) ?>" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
 
                         <div class="product-info">
-                        <input type="hidden" name="product_id" value="<?= htmlspecialchars($producto['ID_Producto']) ?>">
                             <button type="submit" name="like"></button>
 
                             <p><?= htmlspecialchars(($producto['Nombre'])) ?></p>
                             <!-- 2->para tener 2 decimales y ','->para que los decimales tengan una coma y no punto -->
                             <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
-
-                            <input type="hidden" name="product_id" value="<?= htmlspecialchars($producto['ID_Producto']) ?>">
 
                             <button type="submit" name="comprar">Buy</button>
                         </div>
@@ -137,6 +136,8 @@ session_start();
             <?php foreach ($productosGato as $producto): ?>
                 <form action="" method="POST">
                     <div class="container-food">
+                    <input type="hidden" name="product_id" value="<?= htmlspecialchars($producto['ID_Producto']) ?>">
+
                         <div class="icons-top">
                             <button type="submit" name="list"></button>
                             <button type="submit" name="favorite"></button>
@@ -144,13 +145,11 @@ session_start();
                         <img src="<?= htmlspecialchars(($producto['ruta'])) ?>" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
 
                         <div class="product-info">
-                        <input type="hidden" name="product_id" value="<?= htmlspecialchars($producto['ID_Producto']) ?>">
                             <button type="submit" name="like"></button>
 
                             <p><?= htmlspecialchars($producto['Nombre']) ?></p>
                             <p><?= number_format($producto['Precio'], 2, ',') ?>€</p>
 
-                            <input type="hidden" name="product_id" value="<?= htmlspecialchars($producto['ID_Producto']) ?>">
                             <button type="submit" name="comprar">Buy</button>
                         </div>
                     </div>
@@ -171,7 +170,6 @@ session_start();
 
         $likeController = new LikeController();
         $likeController->darQuitarLike($_SESSION['id'], $_POST['product_id']);
-        header("Location: products.php");
         exit();
     }
 

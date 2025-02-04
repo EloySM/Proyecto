@@ -35,7 +35,7 @@ class like
                 $stmtDelete->bindParam(2, $idProducto);
                 $stmtDelete->execute();
                 return "Like eliminado.";
-            } else { // Si no existe, dar el like
+            } else if ($likeExiste = 0) { // Si no existe, dar el like
                 $sentenciaInsert = "INSERT INTO likes (ID_Usuario, ID_Producto) VALUES (?, ?)";
                 $stmtInsert = $conn->prepare($sentenciaInsert);
                 $stmtInsert->bindParam(1, $idUsuario);

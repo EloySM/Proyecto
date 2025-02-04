@@ -101,19 +101,18 @@ body {
 
 #bloque {
     background-color: #333333;
-    padding: 40px 20px;
     flex-grow: 1;
 }
 
-#bloque > h2 {
+#bloque>h2 {
     font-size: 40px;
     margin-top: 30px;
     text-align: center;
     color: white;
 }
 
-#bloque > h3 {
-    width: 100vw;
+#bloque>h3 {
+    width: 99.1vw;
     font-size: 32px;
     margin-bottom: 40px;
     text-align: center;
@@ -129,7 +128,8 @@ form {
     font-size: 24px;
 }
 
-input, textarea {
+input,
+textarea {
     padding: 16px;
     height: 79px;
     width: 100%;
@@ -158,7 +158,8 @@ form a {
     font-size: 18px;
 }
 
-label, input[type="checkbox"] {
+label,
+input[type="checkbox"] {
     cursor: pointer;
 
     &:hover {
@@ -168,6 +169,7 @@ label, input[type="checkbox"] {
 }
 
 input[type="submit"] {
+    margin-bottom: 40px;
     grid-column: span 2;
     padding: 0;
     height: 51px;
@@ -178,9 +180,9 @@ input[type="submit"] {
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
-    
+
     &:hover {
-    background-color: #BE893F;
+        background-color: #BE893F;
     }
 }
 
@@ -197,8 +199,30 @@ footer {
 }
 
 @media (max-width: 768px) {
+
+
+    #navegador ul {
+        border-radius: 26px;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    #navegador li {
+        width: 100%;
+        padding: 4px 0;
+    }
+
+    #navegador li a {
+        min-width: auto;
+        width: 100%;
+        text-align: center;
+    }
+
+
     form {
         grid-template-columns: 1fr;
+        padding: 0 20px;
     }
 
     textarea,

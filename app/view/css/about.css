@@ -125,7 +125,53 @@ body {
     padding: 0 20px;
 }
 
-@media (max-width: 1300px) {
+footer {
+    background-color: #333333;
+    color: white;
+    padding: 10px 0;
+    margin-top: auto;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    border-top: solid 1px gray;
+    text-align: center;
+}
+
+@media (max-width: 760px) {
+
+    .container1 {
+        flex-direction: column; /* Apila los elementos en columna */
+        text-align: center;
+    }
+
+    .container1 img {
+        width: 90%; /* Asegura que las imágenes ocupen más espacio */
+        max-width: 100%; /* Evita desbordamientos */
+    }
+
+    .container2 {
+        font-size: 18px; /* Reduce ligeramente el tamaño del texto */
+        padding: 10px;
+    }
+
+    #navegador ul {
+        border-radius: 26px;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    #navegador li {
+        width: 100%;
+        padding: 4px 0;
+    }
+
+    #navegador li a {
+        min-width: auto;
+        width: 100%;
+        text-align: center;
+    }
+
     #container-padre {
         width: 100%;
     }
@@ -137,16 +183,4 @@ body {
     p {
         font-size: 16px;
     }
-}
-
-footer {
-    background-color: #333333;
-    color: white;
-    padding: 10px 0;
-    margin-top: auto;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    border-top: solid 1px gray;
-    text-align: center;
 }

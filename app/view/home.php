@@ -43,11 +43,11 @@ session_start(); // Iniciamos la sesión para mostrar el nombre del usuario
         <div id="text">
             <p>Natural and Healthy Food</p>
             <p>"If your furry friend is not happy, we will refund your money."</p>
+
+            <img src="img/home/1-home.png" alt="">
+
         </div>
 
-        <div id="imagenes">
-            <img src="img/home/1-home.png" alt="">
-        </div>
     </div>
 
 

@@ -232,3 +232,24 @@ footer {
     border-top: solid 1px gray;
     text-align: center;
 }
+
+@media (max-width: 760px) {
+
+    #navegador ul {
+        border-radius: 26px;
+        flex-direction: column; 
+        align-items: center;
+        padding: 10px;
+    }
+
+    #navegador li {
+        width: 100%;
+        padding: 4px 0;
+    }
+
+    #navegador li a {
+        min-width: auto;
+        width: 100%; 
+        text-align: center;
+    }
+}

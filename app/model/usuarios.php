@@ -168,4 +168,13 @@ class Usuario
             return false;
         }
     }
+
+    // public function formularioNuevo() {
+    //     $conn = getDBConnection();
+    //     $sentencia = $conn->prepare("INSERT INTO formulario WHERE ID_Usuario = ?, Nombre = ?, Apellidos = ?, Movil = ?, Asunto = ?, Mensaje = ?");
+    //     $sentencia->bindParam(1, $this->idUsuario);
+    //     $sentencia->bindParam(2, $this->nombre);
+    //     $sentencia->execute();
+    //     $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    // }
 }

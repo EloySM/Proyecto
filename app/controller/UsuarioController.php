@@ -45,4 +45,10 @@ class UsuarioController
         $usuario = new Usuario(null, null, $usuario, null, null);
         return $usuario->existeUsuario($usuario);
     }
+
+    // function formularioRegistro($nombre, $usuario)
+    // {
+    //     $usuario = new Usuario(null, $nombre, $usuario, null, null);
+    //     return $usuario->formularioNuevo();
+    // }
 }

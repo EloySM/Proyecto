@@ -52,7 +52,7 @@ session_start();
                 <input type="checkbox" id="terms" name="terms" required>
                 <a href="condicionesFormulario.html"><label>Acepto los términos y condiciones</label></a>
             </div>
-            <input type="submit" value="Send">
+            <input id="submit" type="submit" value="Send">
         </form>
     </div>
 
@@ -62,3 +62,27 @@ session_start();
 </body>
 
 </html>
+
+<?php
+
+// require_once "../controller/UsuarioController.php";
+
+//     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
+//         $nombreUsuario = $_SESSION['usuario'];
+//         $nombre = filter_input(INPUT_POST, 'nombre', FILTER_SANITIZE_SPECIAL_CHARS);
+//         $apellido = filter_input(INPUT_POST, 'apellido', FILTER_SANITIZE_SPECIAL_CHARS);
+//         $empresa = filter_input(INPUT_POST, 'empresa', FILTER_SANITIZE_SPECIAL_CHARS);
+//         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
+//         $movil = filter_input(INPUT_POST, 'movil', FILTER_SANITIZE_SPECIAL_CHARS);
+//         $asunto = filter_input(INPUT_POST, 'asunto', FILTER_SANITIZE_SPECIAL_CHARS);
+//         $mensaje = filter_input(INPUT_POST, 'mensaje', FILTER_SANITIZE_SPECIAL_CHARS);
+
+//         if(empty($nombre) || empty($apellido) || empty($email) || empty($asunto) || empty($mensaje)) {
+//             echo "Todos los campos son obligatorios";
+//             exit;
+//         }
+//     }
+
+//     $formulario = (new UsuarioController())->formularioRegistro($nombreUsuario, $nombre, $apellido, $empresa, $email, $movil, $asunto, $mensaje);
+
+?>
