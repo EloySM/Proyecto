@@ -23,7 +23,8 @@ Este es un e-commerce diseñado para la venta de comida para perros y gatos, con
 ├── 📂 app          # Código PHP principal
 │    ├── 📂 controller    #Actualizaciones, consultas, búsquedas, etc
 │    ├── 📂 model         #solicitar los datos al modelo y de comunicárselos a la vista.      
-│    └── 📂 view          #todo lo que tenga que ver con la interfaz gráfica va aquí
+│    └── 📂 view          #todo lo que tenga que ver con la interfaz gráfica va aquí.
+│
 ├── 📂 config       # Configuración a la DDBB
 ├── 📂 document     # Documentación del proyecto
 ├── 📂 tests        # Pruebas del sistema
