@@ -1,1 +1,0 @@
-{"version":1,"defects":{"usuariosTest::testGetUssuarios":8,"loginTest::testLogin":7,"loginTest::testExisteUsuario":8,"loginTest::testExisteProducto":7},"times":{"usuariosTest::testGetUssuarios":1.031,"loginTest::testLogin":0.714,"loginTest::testExisteUsuario":0.087,"loginTest::testExisteProducto":0.202}}
