@@ -12,11 +12,14 @@ require_once "../controller/UsuarioController.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modificar perfil</title>
     <link rel="stylesheet" href="css/modificarPerfil.css">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js"></script>
 </head>
 
 <body>
+    <div style="height: 100px; width: 300px; background-color: #121212; position:absolute; right:0; bottom:0; z-index:2"></div>
+    <spline-viewer id="fondo" url="https://prod.spline.design/GIA9R-jsg97SXthx/scene.splinecode"></spline-viewer>
 
-    <form method="POST">
+    <form autocomplete="off" method="POST">
         <input type="text" name="nombre" id="nombre" placeholder="Nombre">
         <input type="text" name="usuario" id="usuario" placeholder="Usuario">
         <input type="password" name="contraseña" id="contraseña" placeholder="Contraseña">

@@ -12,6 +12,7 @@ session_start(); // Iniciamos la sesión para guardar el nombre del usuario
 </head>
 
 <body>
+
     <?php
     require_once "../controller/UsuarioController.php";
     require_once "../model/usuarios.php";
