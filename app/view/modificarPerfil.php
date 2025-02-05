@@ -13,6 +13,8 @@ require_once "../controller/UsuarioController.php";
     <title>Modificar perfil</title>
     <link rel="stylesheet" href="css/modificarPerfil.css">
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js"></script>
+    <link rel="shortcut icon" href="img/rabbit.png" type="image/x-icon">
+
 </head>
 
 <body>

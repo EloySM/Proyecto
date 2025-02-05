@@ -27,6 +27,8 @@ $favoritos = $FavoritoController->getFavoritos();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favoritos</title>
     <link rel="stylesheet" href="css/lista.css">
+    <link rel="shortcut icon" href="img/rabbit.png" type="image/x-icon">
+
 </head>
 <body>
     <?php if (empty($favoritos)): ?>

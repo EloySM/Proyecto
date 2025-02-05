@@ -38,6 +38,8 @@ $precio = $producto['Precio'];
 <head>
     <meta charset="UTF-8">
     <title>Editar Producto</title>
+    <link rel="shortcut icon" href="img/rabbit.png" type="image/x-icon">
+
 </head>
 <body>
     <form method="POST">

@@ -26,6 +26,8 @@ $pedidos = $pedidosController->getPedidos();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/lista.css">
     <title>Pedidos</title>
+    <link rel="shortcut icon" href="img/rabbit.png" type="image/x-icon">
+
 </head>
 <body>
 <?php if (empty($pedidos)): ?>
