@@ -59,6 +59,7 @@ require_once "../controller/UsuarioController.php";
         if ($result) {
             echo "<p>Perfil modificado con éxito.</p>";
             header('Location: paginaUsuario.php'); // Redirige después de la modificación
+            $_SESSION['usuario'] = $usuario;
             exit();
         } else {
             echo "<p>No se pudo modificar el perfil. Intente de nuevo más tarde.</p>";
